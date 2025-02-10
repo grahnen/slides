@@ -1,0 +1,193 @@
+<svg width="100%" height="80%" viewBox="0 0 720 960">
+            <rect class="area_D area "
+            data-id="area_0_2_D"
+            x="20.0"
+            y="0" width="160"
+            height="800"
+            fill="green"
+            opacity="0.3"></rect>
+            
+            <rect class="area_P area "
+            data-id="area_2_7_P"
+            x="180.0"
+            y="0" width="400"
+            height="800"
+            fill="yellow"
+            opacity="0.3"></rect>
+            
+            <rect class="area_D area "
+            data-id="area_7_8_D"
+            x="580.0"
+            y="0" width="80"
+            height="800"
+            fill="green"
+            opacity="0.3"></rect>
+            <svg x="80"
+        y="160"
+        width="40"
+        height="40"
+        class="event_box text_box val_a thr_1 "
+        id="call_enq_a"
+        data-id="call_enq_a">
+
+        <text x="50%" y="50%" font-size="32">1</text>
+
+        </svg>
+
+        <svg x="160"
+        y="160"
+        width="40"
+        height="40"
+        class="event_box text_box val_a thr_1 "
+        id="call_enq_a"
+        data-id="call_enq_a">
+
+        <text x="50%" y="50%" font-size="32">2</text>
+
+        </svg>
+
+        <svg x="560"
+        y="160"
+        width="40"
+        height="40"
+        class="event_box text_box val_a thr_1 "
+        id="call_deq_a"
+        data-id="call_deq_a">
+
+        <text x="50%" y="50%" font-size="32">7</text>
+
+        </svg>
+
+        <svg x="640"
+        y="160"
+        width="40"
+        height="40"
+        class="event_box text_box val_a thr_1 "
+        id="call_deq_a"
+        data-id="call_deq_a">
+
+        <text x="50%" y="50%" font-size="32">8</text>
+
+        </svg>
+
+        <svg x="240"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_enq_b"
+        data-id="call_enq_b">
+
+        <text x="50%" y="50%" font-size="32">3</text>
+
+        </svg>
+
+        <svg x="320"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_enq_b"
+        data-id="call_enq_b">
+
+        <text x="50%" y="50%" font-size="32">4</text>
+
+        </svg>
+
+        <svg x="400"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_deq_b"
+        data-id="call_deq_b">
+
+        <text x="50%" y="50%" font-size="32">5</text>
+
+        </svg>
+
+        <svg x="480"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_deq_b"
+        data-id="call_deq_b">
+
+        <text x="50%" y="50%" font-size="32">6</text>
+
+        </svg>
+
+        
+        <path d="M 100.0,160 L 100.0,140.0 L 180.0,140.0 L 180.0,160"
+        class="tl_path val_a thr_1 "
+        id="path_enq_a"
+        data-id="path_enq_a"
+        stroke="#FFFFFF"
+        />
+
+        <path d="M 580.0,160 L 580.0,140.0 L 660.0,140.0 L 660.0,160"
+        class="tl_path val_a thr_1 "
+        id="path_deq_a"
+        data-id="path_deq_a"
+        stroke="#FFFFFF"
+        />
+
+        <path d="M 260.0,320 L 260.0,300.0 L 340.0,300.0 L 340.0,320"
+        class="tl_path val_b thr_2 "
+        id="path_enq_b"
+        data-id="path_enq_b"
+        stroke="#FFFFFF"
+        />
+
+        <path d="M 420.0,320 L 420.0,300.0 L 500.0,300.0 L 500.0,320"
+        class="tl_path val_b thr_2 "
+        id="path_deq_b"
+        data-id="path_deq_b"
+        stroke="#FFFFFF"
+        />
+
+        <path class='cover a_cover hidden ' d='M 180.0,160 L 580.0,160' stroke='firebrick' stroke-width='8' data-id="cover_a_path" />
+        
+        <path class='cover b_cover hidden ' d='M 340.0,320 L 420.0,320' stroke='firebrick' stroke-width='8' data-id="cover_b_path" />
+        
+        <svg x="40.0"
+        y="80"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_enq_a"
+        data-id="label_enq_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">enq(a)</text>
+        </svg>
+        
+        <svg x="520.0"
+        y="80"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_deq_a"
+        data-id="label_deq_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">deq(a)</text>
+        </svg>
+        
+        <svg x="200.0"
+        y="240"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_enq_b"
+        data-id="label_enq_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">enq(b)</text>
+        </svg>
+        
+        <svg x="360.0"
+        y="240"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_deq_b"
+        data-id="label_deq_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">deq(b)</text>
+        </svg>
+        </svg>

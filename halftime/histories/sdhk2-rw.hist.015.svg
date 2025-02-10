@@ -1,0 +1,269 @@
+<svg width="100%" height="80%" viewBox="0 0 2000 960">
+            <rect class="area_D area "
+            data-id="area_0_12_D"
+            x="20.0"
+            y="0" width="960"
+            height="800"
+            fill="green"
+            opacity="0.3"></rect>
+            
+            <rect class="area_P area "
+            data-id="area_12_18_P"
+            x="980.0"
+            y="0" width="480"
+            height="800"
+            fill="yellow"
+            opacity="0.3"></rect>
+            
+            <rect class="area_D area "
+            data-id="area_18_24_D"
+            x="1460.0"
+            y="0" width="480"
+            height="800"
+            fill="green"
+            opacity="0.3"></rect>
+            <svg x="480"
+        y="480"
+        width="40"
+        height="40"
+        class="event_box text_box val_c thr_3 "
+        id="call_push_c"
+        data-id="call_push_c">
+
+        <text x="50%" y="50%" font-size="32">4</text>
+
+        </svg>
+
+        <svg x="960"
+        y="480"
+        width="40"
+        height="40"
+        class="event_box text_box val_c thr_3 "
+        id="call_push_c"
+        data-id="call_push_c">
+
+        <text x="50%" y="50%" font-size="32">8</text>
+
+        </svg>
+
+        <svg x="1280"
+        y="480"
+        width="40"
+        height="40"
+        class="event_box text_box val_c thr_3 "
+        id="call_pop_c"
+        data-id="call_pop_c">
+
+        <text x="50%" y="50%" font-size="32">11</text>
+
+        </svg>
+
+        <svg x="1840"
+        y="480"
+        width="40"
+        height="40"
+        class="event_box text_box val_c thr_3 "
+        id="call_pop_c"
+        data-id="call_pop_c">
+
+        <text x="50%" y="50%" font-size="32">15</text>
+
+        </svg>
+
+        <svg x="560"
+        y="640"
+        width="40"
+        height="40"
+        class="event_box text_box val_d thr_4 "
+        id="call_push_d"
+        data-id="call_push_d">
+
+        <text x="50%" y="50%" font-size="32">5</text>
+
+        </svg>
+
+        <svg x="1200"
+        y="640"
+        width="40"
+        height="40"
+        class="event_box text_box val_d thr_4 "
+        id="call_push_d"
+        data-id="call_push_d">
+
+        <text x="50%" y="50%" font-size="32">10</text>
+
+        </svg>
+
+        <svg x="1440"
+        y="640"
+        width="40"
+        height="40"
+        class="event_box text_box val_d thr_4 "
+        id="call_pop_d"
+        data-id="call_pop_d">
+
+        <text x="50%" y="50%" font-size="32">13</text>
+
+        </svg>
+
+        <svg x="1920"
+        y="640"
+        width="40"
+        height="40"
+        class="event_box text_box val_d thr_4 "
+        id="call_pop_d"
+        data-id="call_pop_d">
+
+        <text x="50%" y="50%" font-size="32">16</text>
+
+        </svg>
+
+        
+        <path d="M 500.0,480 L 500.0,460.0 L 980.0,460.0 L 980.0,480"
+        class="tl_path val_c thr_3 "
+        id="path_push_c"
+        data-id="path_push_c"
+        stroke="#FFFFFF"
+        />
+
+        <path d="M 1300.0,480 L 1300.0,460.0 L 1860.0,460.0 L 1860.0,480"
+        class="tl_path val_c thr_3 "
+        id="path_pop_c"
+        data-id="path_pop_c"
+        stroke="#FFFFFF"
+        />
+
+        <path d="M 580.0,640 L 580.0,620.0 L 1220.0,620.0 L 1220.0,640"
+        class="tl_path val_d thr_4 "
+        id="path_push_d"
+        data-id="path_push_d"
+        stroke="#FFFFFF"
+        />
+
+        <path d="M 1460.0,640 L 1460.0,620.0 L 1940.0,620.0 L 1940.0,640"
+        class="tl_path val_d thr_4 "
+        id="path_pop_d"
+        data-id="path_pop_d"
+        stroke="#FFFFFF"
+        />
+
+        <circle
+        cx="880"
+        cy="460.0"
+        r="20.0"
+        class="linpt "
+        opacity="0"
+        id="lin_push_c"
+        data-id="lin_push_c" />
+
+        <circle
+        cx="1600"
+        cy="460.0"
+        r="20.0"
+        class="linpt "
+        opacity="0"
+        id="lin_pop_c"
+        data-id="lin_pop_c" />
+
+        <circle
+        cx="1040"
+        cy="620.0"
+        r="20.0"
+        class="linpt "
+        opacity="0"
+        id="lin_push_d"
+        data-id="lin_push_d" />
+
+        <circle
+        cx="1520"
+        cy="620.0"
+        r="20.0"
+        class="linpt "
+        opacity="0"
+        id="lin_pop_d"
+        data-id="lin_pop_d" />
+
+        <path class='cover c_cover hidden ' d='M 980.0,480 L 1300.0,480' stroke='firebrick' stroke-width='8' data-id="cover_c_path" />
+        
+        <path class='cover d_cover hidden ' d='M 1220.0,640 L 1460.0,640' stroke='firebrick' stroke-width='8' data-id="cover_d_path" />
+        
+        <svg x="640.0"
+        y="400"
+        width="160"
+        height="40"
+        class="text_box label_box val_c "
+        id="label_push_c"
+        data-id="label_push_c">
+        <text class="tl-label val_c " x="50%" y="50%" fill="#ffffff">push(c)</text>
+        </svg>
+        
+        <svg x="1480.0"
+        y="400"
+        width="160"
+        height="40"
+        class="text_box label_box val_c "
+        id="label_pop_c"
+        data-id="label_pop_c">
+        <text class="tl-label val_c " x="50%" y="50%" fill="#ffffff">pop(c)</text>
+        </svg>
+        
+        <svg x="800.0"
+        y="560"
+        width="160"
+        height="40"
+        class="text_box label_box val_d "
+        id="label_push_d"
+        data-id="label_push_d">
+        <text class="tl-label val_d " x="50%" y="50%" fill="#ffffff">push(d)</text>
+        </svg>
+        
+        <svg x="1600.0"
+        y="560"
+        width="160"
+        height="40"
+        class="text_box label_box val_d "
+        id="label_pop_d"
+        data-id="label_pop_d">
+        <text class="tl-label val_d " x="50%" y="50%" fill="#ffffff">pop(d)</text>
+        </svg>
+        
+        <svg x="220.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_push_b"
+        data-id="label_push_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">push(b)</text>
+        </svg>
+        
+        <svg x="420.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_push_a"
+        data-id="label_push_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">push(a)</text>
+        </svg>
+        
+        <svg x="620.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_pop_a"
+        data-id="label_pop_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">pop(a)</text>
+        </svg>
+        
+        <svg x="1620.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_pop_b"
+        data-id="label_pop_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">pop(b)</text>
+        </svg>
+        </svg>
