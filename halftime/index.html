@@ -7,9 +7,9 @@
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="../reveal.js/dist/reveal.css"/>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
 
-<link rel="stylesheet" href="../reveal.js/dist/theme/dracula.css" id="theme"/>
+<link rel="stylesheet" href="./reveal.js/dist/theme/dracula.css" id="theme"/>
 
 <link rel="stylesheet" href="mycss.css"/>
 
@@ -24,14 +24,14 @@
 <h1 class="title"><b>Efficient Linearizability Monitoring</b></h1><h2 class="author"><i>Samuel Grahn</i></h2><h2 class="date">January 2025</h2>
 </section>
 <section>
-<section id="slide-org9b7e928">
-<h2 id="org9b7e928">My Work</h2>
+<section id="slide-org0f48d7a">
+<h2 id="org0f48d7a">My Work</h2>
 <p>
 Under submission
 </p>
 </section>
-<section id="slide-orgb37f1f3">
-<h4 id="orgb37f1f3">Consistency Checking against the Release-Acquire semantics</h4>
+<section id="slide-org1c169d0">
+<h4 id="org1c169d0">Consistency Checking against the Release-Acquire semantics</h4>
 <p>
 Work with Parosh, Elli and Faouzi.
 </p>
@@ -41,16 +41,16 @@ Work with Parosh, Elli and Faouzi.
 
 </ul>
 </section>
-<section id="slide-orga6496e2">
-<h4 id="orga6496e2">Example WRA violation</h4>
+<section id="slide-org15b42b5">
+<h4 id="org15b42b5">Example WRA violation</h4>
 
-<div id="org402adfb" class="figure">
+<div id="org923150f" class="figure">
 <p><a href="algorunfile.png"><img src="algorunfile.png" alt="algorunfile.png" /></a>
 </p>
 </div>
 </section>
-<section id="slide-orga3e3537">
-<h4 id="orga3e3537">Checking consistency of event-driven traces</h4>
+<section id="slide-org678889e">
+<h4 id="org678889e">Checking consistency of event-driven traces</h4>
 <p class="fragment">
 With Parosh, Faouzi, Ramanathan and Govind
 </p>
@@ -61,8 +61,8 @@ With Parosh, Faouzi, Ramanathan and Govind
 
 </ul>
 </section>
-<section id="slide-org3f01fa6">
-<h4 id="org3f01fa6">Efficient Linearizability Monitoring</h4>
+<section id="slide-org74c1746">
+<h4 id="org74c1746">Efficient Linearizability Monitoring</h4>
 <p>
 Work with Parosh, Bengt, Krishna &amp; Om.
 </p>
@@ -73,13 +73,13 @@ Work with Parosh, Bengt, Krishna &amp; Om.
 </section>
 </section>
 <section>
-<section id="slide-orga3e3a1a">
-<h2 id="orga3e3a1a">Introduction</h2>
-<div class="outline-text-2" id="text-orga3e3a1a">
+<section id="slide-org1aedaf0">
+<h2 id="org1aedaf0">Introduction</h2>
+<div class="outline-text-2" id="text-org1aedaf0">
 </div>
 </section>
-<section id="slide-org50fc382" data-auto-animate>
-<h3 id="org50fc382">Concurrent Systems</h3>
+<section id="slide-org3c5e50b" data-auto-animate>
+<h3 id="org3c5e50b">Concurrent Systems</h3>
 <aside class="notes">
 <p>
 Processes (or nodes in a distributed system)
@@ -88,8 +88,8 @@ Processes (or nodes in a distributed system)
 </aside>
 <div data-id="intro" data-animate data-load="intro1.svg"></div>
 </section>
-<section id="slide-org6548d58" data-auto-animate>
-<h3 id="org6548d58">Communicate</h3>
+<section id="slide-org0bf9342" data-auto-animate>
+<h3 id="org0bf9342">Communicate</h3>
 <aside class="notes">
 <p>
 Communicate using some shared data structure
@@ -98,8 +98,8 @@ Communicate using some shared data structure
 </aside>
 <div data-id="intro" data-animate data-load="intro2.svg"></div>
 </section>
-<section id="slide-org179f1df" data-auto-animate>
-<h3 id="org179f1df">Using shared ADT</h3>
+<section id="slide-orgdd616a6" data-auto-animate>
+<h3 id="orgdd616a6">Using shared ADT</h3>
 <aside class="notes">
 <p>
 For instance, a stack
@@ -114,8 +114,8 @@ This design pattern calls for a general correctness condition
 </section>
 </section>
 <section>
-<section id="slide-org00a083e">
-<h2 id="org00a083e">Linearizability</h2>
+<section id="slide-org23fa993">
+<h2 id="org23fa993">Linearizability</h2>
 <aside class="notes">
 <p>
 Extends a sequential specification to the concurrent setting.
@@ -130,8 +130,8 @@ Stack specification, which is LIFO
 Extends a sequential specification to the concurrent setting. (<a href="#citeproc_bib_item_4">Herlihy and Wing,TOPLAS1990</a>)
 </p>
 </section>
-<section id="slide-orgb77eec7" data-auto-animate>
-<h3 id="orgb77eec7">First slide</h3>
+<section id="slide-orgd32b699" data-auto-animate>
+<h3 id="orgd32b699">First slide</h3>
 <aside class="notes">
 <p>
 Take an execution,
@@ -165,8 +165,8 @@ For each operation, we can find a point in time during its execution
 -->
 </div>
 </section>
-<section id="slide-org40ab853" data-auto-animate>
-<h3 id="org40ab853">Def continuation</h3>
+<section id="slide-orgf3779f9" data-auto-animate>
+<h3 id="orgf3779f9">Def continuation</h3>
 <aside class="notes">
 <p>
 Or equivalently extending the partial happens before order to a total order
@@ -187,8 +187,8 @@ Or equivalently extending the partial happens before order to a total order
 -->
 </div>
 </section>
-<section id="slide-org241ece3" data-auto-animate>
-<h3 id="org241ece3">Def Cont 2</h3>
+<section id="slide-org3a355fe" data-auto-animate>
+<h3 id="org3a355fe">Def Cont 2</h3>
 <aside class="notes">
 <p>
 Such that the resulting sequential history matches the sequential specification
@@ -198,8 +198,8 @@ Such that the resulting sequential history matches the sequential specification
 <div data-id="history2" data-animate data-load="histories/lifo-sdhk-singleth.hist.000.svg">
 </div>
 </section>
-<section id="slide-orge3f0302">
-<h3 id="orge3f0302">Verification</h3>
+<section id="slide-orgb35f89b">
+<h3 id="orgb35f89b">Verification</h3>
 <aside class="notes">
 <ul>
 <li>Monitoring is difficult</li>
@@ -220,8 +220,8 @@ Is a given <b>execution</b> (consisting of a sequence of calls and returns) line
 
 </ul>
 </section>
-<section id="slide-org7648951">
-<h3 id="org7648951">Stacks</h3>
+<section id="slide-orgbd2626f">
+<h3 id="orgbd2626f">Stacks</h3>
 <aside class="notes">
 <ul>
 <li>Differentiated</li>
@@ -240,8 +240,8 @@ Any (stack/queue) history h is linearizable if and only if there is a linearizab
 This enables us to construct polynomial-time algorithms
 </p>
 </section>
-<section id="slide-org1aead98">
-<h4 id="org1aead98">Previous work</h4>
+<section id="slide-orgd7fdda1">
+<h4 id="orgd7fdda1">Previous work</h4>
 <aside class="notes">
 <ul>
 <li>Previous work have issues</li>
@@ -276,8 +276,8 @@ Polynomial-time algorithm for a class of <i>collection</i> structures (e.g. stac
 
 </ul>
 </section>
-<section id="slide-org7c88e86" data-auto-animate>
-<h3 id="org7c88e86">Small changes</h3>
+<section id="slide-orga68b049" data-auto-animate>
+<h3 id="orga68b049">Small changes</h3>
 <aside class="notes">
 <p>
 Small changes
@@ -289,8 +289,8 @@ Can change linearizability
 <div data-animate data-load="histories/lifo-sdhk2.hist.000.svg">
 </div>
 </section>
-<section id="slide-org969820d" data-auto-animate>
-<h3 id="org969820d">can change the outcome!</h3>
+<section id="slide-org80b626f" data-auto-animate>
+<h3 id="org80b626f">can change the outcome!</h3>
 <aside class="notes">
 <p>
 Unlinearizable because we no longer can put b at the end;
@@ -308,8 +308,8 @@ The unsound algorithm fails to differentiate between these two!
 </section>
 </section>
 <section>
-<section id="slide-org010e709">
-<h2 id="org010e709">Stacks</h2>
+<section id="slide-org72a3ba3">
+<h2 id="org72a3ba3">Stacks</h2>
 <aside class="notes">
 <p>
 Show the algorithm by running it on an example.
@@ -333,8 +333,8 @@ We present an algorithm that is quadratic in the length of the history.
 If we ever cannot progress, conclude unlinearizability.
 </p>
 </section>
-<section id="slide-orge01ccd4" data-auto-animate>
-<h3 id="orge01ccd4">First slide</h3>
+<section id="slide-org96c7565" data-auto-animate>
+<h3 id="org96c7565">First slide</h3>
 <aside class="notes">
 <ul>
 <li>Which thread executes which operation does not matter for Linearizability
@@ -348,8 +348,8 @@ so we reorder by value.</li>
 <div data-id="history2" data-animate data-load="histories/lifo-sdhk2.hist.000.svg"></div>
 <div data-id="legend" data-animate data-load="empty.svg"></div>
 </section>
-<section id="slide-org8f427a0" data-auto-animate>
-<h3 id="org8f427a0">Slide histories/sdhk2-rw.hist.000.svg</h3>
+<section id="slide-org5f2ad78" data-auto-animate>
+<h3 id="org5f2ad78">Slide histories/sdhk2-rw.hist.000.svg</h3>
 <aside class="notes">
 <p>
 We then compute, for each value, its <b>cover</b>.
@@ -360,8 +360,8 @@ We then compute, for each value, its <b>cover</b>.
 <div data-animate data-load="histories/sdhk2-rw.hist.000.svg"></div>
 <div data-animate data-load="empty.svg"></div>
 </section>
-<section id="slide-org72000c1" data-auto-animate>
-<h3 id="org72000c1">Slide histories/sdhk2-rw.hist.001.svg</h3>
+<section id="slide-org95fb862" data-auto-animate>
+<h3 id="org95fb862">Slide histories/sdhk2-rw.hist.001.svg</h3>
 <aside class="notes">
 <p>
 During a red line, that value <b>must</b> be in the stack.
@@ -373,8 +373,8 @@ During a red line, that value <b>must</b> be in the stack.
 <div data-animate data-load="histories/sdhk2-rw.hist.001.svg"></div>
 <div data-animate data-load="covers.svg"></div>
 </section>
-<section id="slide-orgf312f29" data-auto-animate>
-<h3 id="orgf312f29">Slide histories/sdhk2-rw.hist.002.svg</h3>
+<section id="slide-org677ed6d" data-auto-animate>
+<h3 id="org677ed6d">Slide histories/sdhk2-rw.hist.002.svg</h3>
 <aside class="notes">
 <p>
 gives us segments of time.
@@ -386,8 +386,8 @@ gives us segments of time.
 <div data-animate data-load="histories/sdhk2-rw.hist.002.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgfe30f68" data-auto-animate>
-<h3 id="orgfe30f68">Slide histories/sdhk2-rw.hist.003.svg</h3>
+<section id="slide-org2a8d44f" data-auto-animate>
+<h3 id="org2a8d44f">Slide histories/sdhk2-rw.hist.003.svg</h3>
 <aside class="notes">
 <p>
 Operations of b intersect both the leftmost and rightmost deserted segment, it is <b>extreme</b>
@@ -398,8 +398,8 @@ Operations of b intersect both the leftmost and rightmost deserted segment, it i
 <div data-animate data-load="histories/sdhk2-rw.hist.003.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org1380a74" data-auto-animate>
-<h3 id="org1380a74">Slide histories/sdhk2-rw.hist.004.svg</h3>
+<section id="slide-org7510869" data-auto-animate>
+<h3 id="org7510869">Slide histories/sdhk2-rw.hist.004.svg</h3>
 <aside class="notes">
 <p>
 Linearize it as first and last operation
@@ -410,8 +410,8 @@ Linearize it as first and last operation
 <div data-animate data-load="histories/sdhk2-rw.hist.004.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org72cf50b" data-auto-animate>
-<h3 id="org72cf50b">Slide histories/sdhk2-rw.hist.005.svg</h3>
+<section id="slide-orgb99273c" data-auto-animate>
+<h3 id="orgb99273c">Slide histories/sdhk2-rw.hist.005.svg</h3>
 <aside class="notes">
 <p>
 Find covers
@@ -422,8 +422,8 @@ Find covers
 <div data-animate data-load="histories/sdhk2-rw.hist.005.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org81296a2" data-auto-animate>
-<h3 id="org81296a2">Slide histories/sdhk2-rw.hist.006.svg</h3>
+<section id="slide-orgb5eefd8" data-auto-animate>
+<h3 id="orgb5eefd8">Slide histories/sdhk2-rw.hist.006.svg</h3>
 <aside class="notes">
 <p>
 Compute their union to obtain new segments.
@@ -436,8 +436,8 @@ Compute their union to obtain new segments.
 <div data-animate data-load="histories/sdhk2-rw.hist.006.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org6921f4b" data-auto-animate>
-<h3 id="org6921f4b">Slide histories/sdhk2-rw.hist.007.svg</h3>
+<section id="slide-org128d69e" data-auto-animate>
+<h3 id="org128d69e">Slide histories/sdhk2-rw.hist.007.svg</h3>
 <aside class="notes">
 <p>
 Partition the values
@@ -453,8 +453,8 @@ so we do that!
 <div data-animate data-load="histories/sdhk2-rw.hist.007.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgbfeda7b" data-auto-animate>
-<h3 id="orgbfeda7b">Slide histories/sdhk2-rw.hist.008.svg</h3>
+<section id="slide-org45589f7" data-auto-animate>
+<h3 id="org45589f7">Slide histories/sdhk2-rw.hist.008.svg</h3>
 <aside class="notes">
 <p>
 Look only at the left part.
@@ -465,8 +465,8 @@ Look only at the left part.
 <div data-animate data-load="histories/sdhk2-rw.hist.008.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org9f44463" data-auto-animate>
-<h3 id="org9f44463">Slide histories/sdhk2-rw.hist.009.svg</h3>
+<section id="slide-org7fc80b1" data-auto-animate>
+<h3 id="org7fc80b1">Slide histories/sdhk2-rw.hist.009.svg</h3>
 <aside class="notes">
 <p>
 Draw covers
@@ -477,8 +477,8 @@ Draw covers
 <div data-animate data-load="histories/sdhk2-rw.hist.009.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgbe507b4" data-auto-animate>
-<h3 id="orgbe507b4">Slide histories/sdhk2-rw.hist.010.svg</h3>
+<section id="slide-orgfebbf66" data-auto-animate>
+<h3 id="orgfebbf66">Slide histories/sdhk2-rw.hist.010.svg</h3>
 <aside class="notes">
 <p>
 Segments
@@ -489,8 +489,8 @@ Segments
 <div data-animate data-load="histories/sdhk2-rw.hist.010.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org2d696d5" data-auto-animate>
-<h3 id="org2d696d5">Slide histories/sdhk2-rw.hist.011.svg</h3>
+<section id="slide-org28cdb64" data-auto-animate>
+<h3 id="org28cdb64">Slide histories/sdhk2-rw.hist.011.svg</h3>
 <aside class="notes">
 <p>
 See that a is extreme
@@ -501,8 +501,8 @@ See that a is extreme
 <div data-animate data-load="histories/sdhk2-rw.hist.011.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgb0d7fd9" data-auto-animate>
-<h3 id="orgb0d7fd9">Slide histories/sdhk2-rw.hist.012.svg</h3>
+<section id="slide-orgc6130ff" data-auto-animate>
+<h3 id="orgc6130ff">Slide histories/sdhk2-rw.hist.012.svg</h3>
 <aside class="notes">
 <p>
 Linearize
@@ -513,8 +513,8 @@ Linearize
 <div data-animate data-load="histories/sdhk2-rw.hist.012.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org67eac72" data-auto-animate>
-<h3 id="org67eac72">Slide histories/sdhk2-rw.hist.013.svg</h3>
+<section id="slide-org9401be1" data-auto-animate>
+<h3 id="org9401be1">Slide histories/sdhk2-rw.hist.013.svg</h3>
 <aside class="notes">
 <p>
 Continue with right side
@@ -525,8 +525,8 @@ Continue with right side
 <div data-animate data-load="histories/sdhk2-rw.hist.013.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org56ba56e" data-auto-animate>
-<h3 id="org56ba56e">Slide histories/sdhk2-rw.hist.014.svg</h3>
+<section id="slide-org4fe7123" data-auto-animate>
+<h3 id="org4fe7123">Slide histories/sdhk2-rw.hist.014.svg</h3>
 <aside class="notes">
 <p>
 Covers
@@ -537,8 +537,8 @@ Covers
 <div data-animate data-load="histories/sdhk2-rw.hist.014.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org9b70faf" data-auto-animate>
-<h3 id="org9b70faf">Slide histories/sdhk2-rw.hist.015.svg</h3>
+<section id="slide-orgf460ccc" data-auto-animate>
+<h3 id="orgf460ccc">Slide histories/sdhk2-rw.hist.015.svg</h3>
 <aside class="notes">
 <p>
 Segments
@@ -549,8 +549,8 @@ Segments
 <div data-animate data-load="histories/sdhk2-rw.hist.015.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org70d5653" data-auto-animate>
-<h3 id="org70d5653">Slide histories/sdhk2-rw.hist.016.svg</h3>
+<section id="slide-orge64f35d" data-auto-animate>
+<h3 id="orge64f35d">Slide histories/sdhk2-rw.hist.016.svg</h3>
 <aside class="notes">
 <p>
 Both extreme
@@ -561,8 +561,8 @@ Both extreme
 <div data-animate data-load="histories/sdhk2-rw.hist.016.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org101f477" data-auto-animate>
-<h3 id="org101f477">Slide histories/sdhk2-rw.hist.017.svg</h3>
+<section id="slide-orgccaadda" data-auto-animate>
+<h3 id="orgccaadda">Slide histories/sdhk2-rw.hist.017.svg</h3>
 <aside class="notes">
 <p>
 Done!
@@ -577,8 +577,8 @@ We made some assumptions!
 <div data-animate data-load="histories/sdhk2-rw.hist.017.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org1a5ac13" data-auto-animate>
-<h3 id="org1a5ac13">Incomplete histories</h3>
+<section id="slide-org421fad2" data-auto-animate>
+<h3 id="org421fad2">Incomplete histories</h3>
 <aside class="notes">
 <ul>
 <li>Completed: we can always complete!</li>
@@ -588,12 +588,12 @@ We made some assumptions!
 </aside>
 <div data-id="history2" data-animate data-load="histories/incomplete_dif.hist.000.svg"></div>
 </section>
-<section id="slide-org48d0d67" data-auto-animate>
-<h3 id="org48d0d67">Can be completed</h3>
+<section id="slide-org2433f8c" data-auto-animate>
+<h3 id="org2433f8c">Can be completed</h3>
 <div data-id="history2" data-animate data-load="histories/completed_dif.hist.000.svg"></div>
 </section>
-<section id="slide-org8a9ecbd">
-<h3 id="org8a9ecbd">Pop Empty</h3>
+<section id="slide-org9807c48">
+<h3 id="org9807c48">Pop Empty</h3>
 <aside class="notes">
 <ul>
 <li>Finally, PopEmpty</li>
@@ -605,8 +605,24 @@ We made some assumptions!
 pop-operations that returns \(\bot\), indicating an empty stack
 </p>
 </section>
-<section id="slide-orgf0b2b82">
-<h3 id="orgf0b2b82">Empty proof</h3>
+<section id="slide-orgf355129" data-auto-animate>
+<h3 id="orgf355129">Slide histories/popempty.hist.000.svg</h3>
+<div data-animate data-load="histories/popempty.hist.000.svg"></div>
+</section>
+<section id="slide-org0e495cd" data-auto-animate>
+<h3 id="org0e495cd">Slide histories/popempty.hist.001.svg</h3>
+<div data-animate data-load="histories/popempty.hist.001.svg"></div>
+</section>
+<section id="slide-orgc883945" data-auto-animate>
+<h3 id="orgc883945">Slide histories/popempty.hist.002.svg</h3>
+<div data-animate data-load="histories/popempty.hist.002.svg"></div>
+</section>
+<section id="slide-org80dade5" data-auto-animate>
+<h3 id="org80dade5">Slide histories/popempty.hist.003.svg</h3>
+<div data-animate data-load="histories/popempty.hist.003.svg"></div>
+</section>
+<section id="slide-org43a4647">
+<h3 id="org43a4647">Empty proof</h3>
 <p>
 \(h\) with pop(\(\bot\))-operation \(o\) linearizable
 </p>
@@ -625,8 +641,8 @@ pop-operations that returns \(\bot\), indicating an empty stack
 
 </ul>
 </section>
-<section id="slide-orgfcab482">
-<h3 id="orgfcab482">Stack Proof</h3>
+<section id="slide-org801023c">
+<h3 id="org801023c">Stack Proof</h3>
 <aside class="notes">
 <p>
 General idea
@@ -648,8 +664,8 @@ General idea
 We have a proof of this, which these slides are too small to contain.
 </p>
 </section>
-<section id="slide-orgfa3cae0">
-<h4 id="orgfa3cae0">Complexity</h4>
+<section id="slide-org3972a8b">
+<h4 id="org3972a8b">Complexity</h4>
 <p>
 First, sort values by push return. O(n log n)
 </p>
@@ -664,8 +680,8 @@ First, sort values by push return. O(n log n)
 </section>
 </section>
 <section>
-<section id="slide-org4a8a6ea" data-auto-animate>
-<h2 id="org4a8a6ea">Queues</h2>
+<section id="slide-orgd071583" data-auto-animate>
+<h2 id="orgd071583">Queues</h2>
 <p>
 We achieve \(O(n~log~n)\).
 </p>
@@ -682,8 +698,8 @@ where &lt; is the happens-before relation
 Note: does not hold for stacks.
 </p>
 </section>
-<section id="slide-org60ac7a6" data-auto-animate>
-<h3 id="org60ac7a6">Step 1</h3>
+<section id="slide-orgdc3b4e8" data-auto-animate>
+<h3 id="orgdc3b4e8">Step 1</h3>
 <p>
 \[enq(a) < enq(b) \wedge deq(b) < deq(a)\]
 </p>
@@ -691,8 +707,8 @@ Note: does not hold for stacks.
 <div data-animate data-load="histories/queue_viol.hist.000.svg">
 </div>
 </section>
-<section id="slide-org48eb4ad" data-auto-animate>
-<h3 id="org48eb4ad">Step 2</h3>
+<section id="slide-org6bd01dd" data-auto-animate>
+<h3 id="org6bd01dd">Step 2</h3>
 <aside class="notes">
 <ul>
 <li>Outer = between enq call and deq return</li>
@@ -708,8 +724,8 @@ Note: does not hold for stacks.
 <div data-animate data-load="histories/queue_viol.hist.001.svg">
 </div>
 </section>
-<section id="slide-orgfe6b675">
-<h3 id="orgfe6b675">Algorithm</h3>
+<section id="slide-orgac44863">
+<h3 id="orgac44863">Algorithm</h3>
 <p>
 We want to see if for any two values, the <b>outer</b> (enq.call, deq.ret) segment of one is contained in the <b>inner</b> (enq.ret, deq.call) segment of the other. We call a pair of such values <b>critical</b>.
 </p>
@@ -719,8 +735,8 @@ We want to see if for any two values, the <b>outer</b> (enq.call, deq.ret) segme
 
 </ul>
 </section>
-<section id="slide-org2f26215" data-auto-animate>
-<h3 id="org2f26215">Tree</h3>
+<section id="slide-org4b64612" data-auto-animate>
+<h3 id="org4b64612">Tree</h3>
 <p>
 We construct a red-black tree, where each node contains
 </p>
@@ -731,8 +747,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-orgfbe433f" data-auto-animate>
-<h3 id="orgfbe433f">Example History</h3>
+<section id="slide-orgc4f71eb" data-auto-animate>
+<h3 id="orgc4f71eb">Example History</h3>
 <div data-animate data-load="histories/queue_ex.hist.000.svg">
 </div>
 
@@ -742,8 +758,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org0ca1147" data-auto-animate>
-<h3 id="org0ca1147">Slide queue<sub>tree</sub><sub>1.svg</sub></h3>
+<section id="slide-org2c87769" data-auto-animate>
+<h3 id="org2c87769">Slide queue<sub>tree</sub><sub>1.svg</sub></h3>
 <aside class="notes">
 <ul>
 <li>15 &lt; 16, go left</li>
@@ -757,8 +773,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-orgcdbff41" data-auto-animate>
-<h3 id="orgcdbff41">Slide queue<sub>tree</sub><sub>2.svg</sub></h3>
+<section id="slide-org3822d6f" data-auto-animate>
+<h3 id="org3822d6f">Slide queue<sub>tree</sub><sub>2.svg</sub></h3>
 <aside class="notes">
 <ul>
 <li>Where to search?
@@ -776,8 +792,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-orgc7ddc86" data-auto-animate>
-<h3 id="orgc7ddc86">Slide queue<sub>tree</sub><sub>3.svg</sub></h3>
+<section id="slide-org07dde70" data-auto-animate>
+<h3 id="org07dde70">Slide queue<sub>tree</sub><sub>3.svg</sub></h3>
 <aside class="notes">
 <ul>
 <li>Search right tree
@@ -795,8 +811,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org307f2dc">
-<h3 id="org307f2dc">Extreme Values</h3>
+<section id="slide-orgaaa7e81">
+<h3 id="orgaaa7e81">Extreme Values</h3>
 <p>
 \(h\) linearizable
 </p>
@@ -814,8 +830,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org41b63b0">
-<h3 id="org41b63b0">Small Model Property</h3>
+<section id="slide-org6b0069a">
+<h3 id="org6b0069a">Small Model Property</h3>
 <p>
 \(h\) linearizable \(\iff\) no two \(a, b\) in \(h\) are <b>critical</b>.
 </p>
@@ -825,8 +841,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org15e786f">
-<h3 id="org15e786f">Search</h3>
+<section id="slide-org161e6ff">
+<h3 id="org161e6ff">Search</h3>
 <aside class="notes">
 <ul>
 <li>None =&gt; False</li>
@@ -855,8 +871,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org1d3488f">
-<h4 id="org1d3488f">Complexity</h4>
+<section id="slide-orgb5f58ea">
+<h4 id="orgb5f58ea">Complexity</h4>
 <ul>
 <li>Constructing the tree is O(n log n)</li>
 <li>Each search is O(log n)</li>
@@ -867,8 +883,8 @@ We construct a red-black tree, where each node contains
 </section>
 </section>
 <section>
-<section id="slide-orgc1a2b04">
-<h2 id="orgc1a2b04">(Multi)Sets</h2>
+<section id="slide-org7399f02">
+<h2 id="org7399f02">(Multi)Sets</h2>
 <p>
 Operations <b>add(x)</b>, <b>rmv(x)</b>.
 </p>
@@ -880,8 +896,8 @@ Operations <b>add(x)</b>, <b>rmv(x)</b>.
 </section>
 </section>
 <section>
-<section id="slide-orgfe65e14">
-<h2 id="orgfe65e14">Conclusion</h2>
+<section id="slide-org69478f9">
+<h2 id="org69478f9">Conclusion</h2>
 <p>
 We have shown monitoring algorithms
 </p>
@@ -896,8 +912,8 @@ We have shown monitoring algorithms
 &#x2026;and shown their correctness
 </p>
 </section>
-<section id="slide-org8c8b945">
-<h4 id="org8c8b945">Future Work</h4>
+<section id="slide-orge4fff10">
+<h4 id="orge4fff10">Future Work</h4>
 <ul>
 <li class="fragment">Formalizing in a theorem prover</li>
 <li class="fragment">Extend to other data structures</li>
@@ -905,13 +921,13 @@ We have shown monitoring algorithms
 
 </ul>
 </section>
-<section id="slide-orgb263c94">
-<h4 id="orgb263c94">Thanks for listening!</h4>
+<section id="slide-org5a6acdc">
+<h4 id="org5a6acdc">Thanks for listening!</h4>
 </section>
 </section>
 <section>
-<section id="slide-orgaec5eb2">
-<h2 id="orgaec5eb2">References</h2>
+<section id="slide-orgbefa935">
+<h2 id="orgbefa935">References</h2>
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a><span style="font-variant:small-caps;">Abdulla, P.A., Haziza, F., Holík, L., Jonsson, B., and Rezine, A.</span> 2013. <a href="https://doi.org/10.1007/978-3-642-36742-7\_23">An integrated specification and verification technique for highly concurrent data structures</a>. <i>Tacas 2013</i>, Springer.</div>
   <div class="csl-entry"><a id="citeproc_bib_item_2"></a><span style="font-variant:small-caps;">Emmi, M. and Enea, C.</span> 2018. <a href="https://doi.org/10.1145/3158113">Sound, complete, and tractable linearizability monitoring for concurrent collections</a>. <i>Proc. ACM program. lang.</i> <i>2</i>, {POPL}.</div>
@@ -923,11 +939,11 @@ We have shown monitoring algorithms
 </section>
 </div>
 </div>
-<script src="../reveal.js/dist/reveal.js"></script>
-<script src="../reveal.js/plugin/markdown/markdown.js"></script>
-<script src="../reveal.js/plugin/notes/notes.js"></script>
-<script src="../reveal.js/plugin/search/search.js"></script>
-<script src="../reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/animate/plugin.js"></script>
 <script>

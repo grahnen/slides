@@ -7,7 +7,7 @@
 #+REVEAL_THEME: dracula
 #+OPTIONS: toc:nil num:nil timestamp:nil
 # #+REVEAL-SLIDE-NUMBER: t
-#+REVEAL_ROOT: ../reveal.js
+#+REVEAL_ROOT: ./reveal.js
 
 #+REVEAL_HEAD_PREAMBLE: <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
 
