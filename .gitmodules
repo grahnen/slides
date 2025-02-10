@@ -1,4 +1,4 @@
-[submodule "reveal.js"]
-	path = reveal.js
+[submodule "halftime/reveal.js"]
+	path = halftime/reveal.js
 	url = https://github.com/grahnen/reveal.js
-	branch = animate_svg
+	branch = final_halftime
