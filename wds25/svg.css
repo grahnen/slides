@@ -1,0 +1,46 @@
+.event_box {
+    outline: 2px solid white;
+}
+
+.tl-label {
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.tl_path {
+    fill:none;
+    stroke: white;
+    stroke-width: 5;
+}
+
+.event_box text {
+    font-size: 42;
+    fill: white;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.legend_label {
+    dominant-baseline: middle;
+    fill: white;
+}
+
+.hlb #label_push_b text {
+    fill: green;
+}
+
+.highlight {
+    display: none;
+}
+
+.linpt {
+    fill: red;
+}
+
+.ignored {
+    opacity: 0.3;
+}
+
+.hidden {
+    opacity: 0;
+}

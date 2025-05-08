@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title><b>Efficient Linearizability Monitoring</b></title>
+<meta name="author" content="Parosh Abdulla, /Samuel Grahn/"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/dracula.css" id="theme"/>
+
+<link rel="stylesheet" href="mycss.css"/>
+
+<link rel="stylesheet" href="svg.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" class="no-toc-progress" data-state="no-toc-progress">
+<h1 class="title"><b>Efficient Linearizability Monitoring</b></h1><h2 class="author">Parosh Abdulla, <i>Samuel Grahn</i></h2><h2 class="date">January 2025</h2>
+</section>
+<section>
+<section id="slide-orgb2f73fc">
+<h2 id="orgb2f73fc">Introduction</h2>
+<div class="outline-text-2" id="text-orgb2f73fc">
+</div>
+</section>
+<section id="slide-org1e1054d" data-auto-animate>
+<h3 id="org1e1054d">Concurrent Systems</h3>
+<aside class="notes">
+<p>
+Processes (or nodes in a distributed system)
+</p>
+
+</aside>
+<div data-id="intro" data-animate data-load="intro1.svg"></div>
+</section>
+<section id="slide-org1634312" data-auto-animate>
+<h3 id="org1634312">Communicate</h3>
+<aside class="notes">
+<p>
+Communicate using some shared data structure
+</p>
+
+</aside>
+<div data-id="intro" data-animate data-load="intro2.svg"></div>
+</section>
+<section id="slide-org1a17c06" data-auto-animate>
+<h3 id="org1a17c06">Using shared ADT</h3>
+<aside class="notes">
+<p>
+For instance, a stack
+</p>
+
+<p>
+This design pattern calls for a general correctness condition
+</p>
+
+</aside>
+<div data-id="intro" data-animate data-load="intro3.svg"></div>
+</section>
+</section>
+<section>
+<section id="slide-orgb20fffa">
+<h2 id="orgb20fffa">Linearizability</h2>
+<aside class="notes">
+<p>
+Extends a sequential specification to the concurrent setting.
+</p>
+
+<p>
+Stack specification, which is LIFO
+</p>
+
+</aside>
+<p>
+Extends a sequential specification to the concurrent setting. (<a href="#citeproc_bib_item_4">Herlihy and Wing,TOPLAS1990</a>)
+</p>
+</section>
+<section id="slide-org7fb46fe" data-auto-animate>
+<h3 id="org7fb46fe">First slide</h3>
+<aside class="notes">
+<p>
+Take an execution,
+Instance: sequence of calls and returns of overlapping operations.
+</p>
+
+<p>
+Linearizable if:
+</p>
+
+<p>
+For each operation, we can find a point in time during its execution
+</p>
+
+</aside>
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk2.hist.000.svg">
+<span class="fragment"></span>
+<!--
+{
+"animation": [
+[],
+[
+{
+"element": ".linpt",
+"modifier": "attr",
+"parameters": [ { "opacity": "1" }]
+}
+]
+]
+}
+-->
+</div>
+</section>
+<section id="slide-org004e8e1" data-auto-animate>
+<h3 id="org004e8e1">Def continuation</h3>
+<aside class="notes">
+<p>
+Or equivalently extending the partial happens before order to a total order
+</p>
+
+</aside>
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk2-seq.hist.000.svg">
+<!--
+{
+"setup": [
+{
+"element": ".linpt",
+"modifier": "attr",
+"parameters": [ { "opacity": "1" }]
+}
+]
+}
+-->
+</div>
+</section>
+<section id="slide-orge1340ba" data-auto-animate>
+<h3 id="orge1340ba">Def Cont 2</h3>
+<aside class="notes">
+<p>
+Such that the resulting sequential history matches the sequential specification
+</p>
+
+</aside>
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk-singleth.hist.000.svg">
+</div>
+</section>
+<section id="slide-org6cc448b">
+<h3 id="org6cc448b">Verification</h3>
+<aside class="notes">
+<ul>
+<li>Monitoring is difficult</li>
+<li>We assume that th
+What do we do: Construct spec.
+We are of course not the first, but:</li>
+
+</ul>
+
+</aside>
+
+<p>
+We are looking at the <i>monitoring</i> problem;
+Is a given <b>execution</b> (consisting of a sequence of calls and returns) linearizable?
+</p>
+<ul class="fragment">
+<li>NP-complete (in the length) for registers (<a href="#citeproc_bib_item_3">Gibbons and Korach,SIAM J. Comput.1997</a>)</li>
+
+</ul>
+</section>
+<section id="slide-org1ef540a">
+<h3 id="org1ef540a">Stacks</h3>
+<aside class="notes">
+<ul>
+<li>Differentiated</li>
+
+</ul>
+
+</aside>
+<p>
+We assume the history is <b>differentiated</b>: each value occurs in at most one push and one pop.
+</p>
+<p class="fragment">
+Any (stack/queue) history h is linearizable if and only if there is a linearizable <b>differentiated</b> history h&rsquo; and some map that <i>renames</i> the values of h&rsquo; to the values of h. (<a href="#citeproc_bib_item_1">Abdulla, Haziza, Holík, Jonsson, and Rezine,TACAS2013</a>)
+</p>
+
+<p class="fragment">
+This enables us to construct polynomial-time algorithms
+</p>
+</section>
+<section id="slide-orgb22adb2">
+<h4 id="orgb22adb2">Previous work</h4>
+<aside class="notes">
+<ul>
+<li>Previous work have issues</li>
+<li><p>
+Has proven to be a very tricky problem.
+</p>
+
+<p>
+One of the reasons
+</p></li>
+
+</ul>
+
+</aside>
+
+<ul class="fragment">
+<li><p>
+Quadratic-time algorithm for stacks and queues (<a href="#citeproc_bib_item_5">Peterson, Cook, and Dechev,VMCAI2021</a>)
+</p>
+<p class="fragment">
+&#x2013; We found a counterexample!
+</p></li>
+
+</ul>
+<ul class="fragment">
+<li><p>
+Polynomial-time algorithm for a class of <i>collection</i> structures (e.g. stacks, sets and queues) (<a href="#citeproc_bib_item_2">Emmi and Enea,POPL2018</a>)
+</p>
+<p class="fragment">
+&#x2013; We found a bug in the proof!
+</p></li>
+
+</ul>
+</section>
+<section id="slide-org9f951af" data-auto-animate>
+<h3 id="org9f951af">Small changes</h3>
+<aside class="notes">
+<p>
+Small changes
+Can change linearizability
+</p>
+
+</aside>
+
+<div data-animate data-load="histories/lifo-sdhk2.hist.000.svg">
+</div>
+</section>
+<section id="slide-org0025d98" data-auto-animate>
+<h3 id="org0025d98">can change the outcome!</h3>
+<aside class="notes">
+<p>
+Unlinearizable because we no longer can put b at the end;
+something that the other values together force
+</p>
+
+<p>
+The unsound algorithm fails to differentiate between these two!
+</p>
+
+</aside>
+
+<div data-animate data-load="histories/lifo-vdhk2.hist.000.svg">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org90b0e4c">
+<h2 id="org90b0e4c">Stacks</h2>
+<aside class="notes">
+<p>
+Show the algorithm by running it on an example.
+</p>
+
+</aside>
+<p>
+We present an algorithm that is quadratic in the length of the history.
+</p>
+<ul>
+<li class="fragment">Compute <i>populated</i> and <i>deserted</i> segments</li>
+<li class="fragment">Apply simplification steps
+<ul>
+<li class="fragment">Extreme value removal</li>
+<li class="fragment">Partitioning</li>
+
+</ul></li>
+
+</ul>
+<p class="fragment">
+If we ever cannot progress, conclude unlinearizability.
+</p>
+</section>
+<section id="slide-orgf670d20" data-auto-animate>
+<h3 id="orgf670d20">First slide</h3>
+<aside class="notes">
+<ul>
+<li>Which thread executes which operation does not matter for Linearizability
+so we reorder by value.</li>
+
+</ul>
+
+</aside>
+
+<h4>Ignore threads</h4>
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk2.hist.000.svg"></div>
+<div data-id="legend" data-animate data-load="empty.svg"></div>
+</section>
+<section id="slide-org72f8aec" data-auto-animate>
+<h3 id="org72f8aec">Slide histories/sdhk2-rw.hist.000.svg</h3>
+<aside class="notes">
+<p>
+We then compute, for each value, its <b>cover</b>.
+</p>
+
+</aside>
+<h4>Ignore threads</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.000.svg"></div>
+<div data-animate data-load="empty.svg"></div>
+</section>
+<section id="slide-org6ca5991" data-auto-animate>
+<h3 id="org6ca5991">Slide histories/sdhk2-rw.hist.001.svg</h3>
+<aside class="notes">
+<p>
+During a red line, that value <b>must</b> be in the stack.
+   Union of these lines&#x2026;
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.001.svg"></div>
+<div data-animate data-load="covers.svg"></div>
+</section>
+<section id="slide-orge123608" data-auto-animate>
+<h3 id="orge123608">Slide histories/sdhk2-rw.hist.002.svg</h3>
+<aside class="notes">
+<p>
+gives us segments of time.
+  Populated (something must be there) or Deserted (it may be empty)
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.002.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org118f7ed" data-auto-animate>
+<h3 id="org118f7ed">Slide histories/sdhk2-rw.hist.003.svg</h3>
+<aside class="notes">
+<p>
+Operations of b intersect both the leftmost and rightmost deserted segment, it is <b>extreme</b>
+</p>
+
+</aside>
+<h4>Extreme value removal</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.003.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org8ce6303" data-auto-animate>
+<h3 id="org8ce6303">Slide histories/sdhk2-rw.hist.004.svg</h3>
+<aside class="notes">
+<p>
+Linearize it as first and last operation
+</p>
+
+</aside>
+<h4>Extreme value removal</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.004.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org182201e" data-auto-animate>
+<h3 id="org182201e">Slide histories/sdhk2-rw.hist.005.svg</h3>
+<aside class="notes">
+<p>
+Find covers
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.005.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-orgf030caa" data-auto-animate>
+<h3 id="orgf030caa">Slide histories/sdhk2-rw.hist.006.svg</h3>
+<aside class="notes">
+<p>
+Compute their union to obtain new segments.
+  This time, there is no value that is extreme.
+  Instead, we have an <b>inner</b> deserted segment.
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.006.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org9547179" data-auto-animate>
+<h3 id="org9547179">Slide histories/sdhk2-rw.hist.007.svg</h3>
+<aside class="notes">
+<p>
+Partition the values
+</p>
+
+<p>
+Every blue can be linearized before every red
+so we do that!
+</p>
+
+</aside>
+<h4>Partitioning</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.007.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-orgc42651d" data-auto-animate>
+<h3 id="orgc42651d">Slide histories/sdhk2-rw.hist.008.svg</h3>
+<aside class="notes">
+<p>
+Look only at the left part.
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.008.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org8b8f983" data-auto-animate>
+<h3 id="org8b8f983">Slide histories/sdhk2-rw.hist.009.svg</h3>
+<aside class="notes">
+<p>
+Draw covers
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.009.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org2682a3c" data-auto-animate>
+<h3 id="org2682a3c">Slide histories/sdhk2-rw.hist.010.svg</h3>
+<aside class="notes">
+<p>
+Segments
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.010.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-orgb7cbdb5" data-auto-animate>
+<h3 id="orgb7cbdb5">Slide histories/sdhk2-rw.hist.011.svg</h3>
+<aside class="notes">
+<p>
+See that a is extreme
+</p>
+
+</aside>
+<h4>Extreme value removal</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.011.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-orgbdd231b" data-auto-animate>
+<h3 id="orgbdd231b">Slide histories/sdhk2-rw.hist.012.svg</h3>
+<aside class="notes">
+<p>
+Linearize
+</p>
+
+</aside>
+<h4>Extreme value removal</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.012.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-orgc5e0639" data-auto-animate>
+<h3 id="orgc5e0639">Slide histories/sdhk2-rw.hist.013.svg</h3>
+<aside class="notes">
+<p>
+Continue with right side
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.013.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org620db7e" data-auto-animate>
+<h3 id="org620db7e">Slide histories/sdhk2-rw.hist.014.svg</h3>
+<aside class="notes">
+<p>
+Covers
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.014.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-orgf6d2c2c" data-auto-animate>
+<h3 id="orgf6d2c2c">Slide histories/sdhk2-rw.hist.015.svg</h3>
+<aside class="notes">
+<p>
+Segments
+</p>
+
+</aside>
+<h4>Compute segments</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.015.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org633de33" data-auto-animate>
+<h3 id="org633de33">Slide histories/sdhk2-rw.hist.016.svg</h3>
+<aside class="notes">
+<p>
+Both extreme
+</p>
+
+</aside>
+<h4>Extreme value removal</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.016.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-org3ec5f93" data-auto-animate>
+<h3 id="org3ec5f93">Slide histories/sdhk2-rw.hist.017.svg</h3>
+<aside class="notes">
+<p>
+Done!
+</p>
+
+<p>
+We made some assumptions!
+</p>
+
+</aside>
+<h4>Done!</h4>
+<div data-animate data-load="histories/sdhk2-rw.hist.017.svg"></div>
+<div data-animate data-load="full.svg"></div>
+</section>
+<section id="slide-orgf89560b" data-auto-animate>
+<h3 id="orgf89560b">Incomplete histories</h3>
+<aside class="notes">
+<ul>
+<li>Completed: we can always complete!</li>
+
+</ul>
+
+</aside>
+<div data-id="history2" data-animate data-load="histories/incomplete_dif.hist.000.svg"></div>
+</section>
+<section id="slide-orgb6c0629" data-auto-animate>
+<h3 id="orgb6c0629">Can be completed</h3>
+<div data-id="history2" data-animate data-load="histories/completed_dif.hist.000.svg"></div>
+</section>
+<section id="slide-org86113cd">
+<h3 id="org86113cd">Pop Empty</h3>
+<aside class="notes">
+<ul>
+<li>Finally, PopEmpty</li>
+
+</ul>
+
+</aside>
+<p>
+pop-operations that returns \(\bot\), indicating an empty stack
+</p>
+</section>
+<section id="slide-orge64da91" data-auto-animate>
+<h3 id="orge64da91">Slide histories/popempty.hist.000.svg</h3>
+<div data-animate data-load="histories/popempty.hist.000.svg"></div>
+</section>
+<section id="slide-org9dca2a1" data-auto-animate>
+<h3 id="org9dca2a1">Slide histories/popempty.hist.001.svg</h3>
+<div data-animate data-load="histories/popempty.hist.001.svg"></div>
+</section>
+<section id="slide-org8744f5f" data-auto-animate>
+<h3 id="org8744f5f">Slide histories/popempty.hist.002.svg</h3>
+<div data-animate data-load="histories/popempty.hist.002.svg"></div>
+</section>
+<section id="slide-org2d81d39" data-auto-animate>
+<h3 id="org2d81d39">Slide histories/popempty.hist.003.svg</h3>
+<div data-animate data-load="histories/popempty.hist.003.svg"></div>
+</section>
+<section id="slide-orgf12c55e">
+<h3 id="orgf12c55e">Complexity</h3>
+<p>
+First, sort values by push return. O(n log n)
+</p>
+<ul>
+<li class="fragment">Compute deserted and populated segments. O(n)</li>
+<li class="fragment">Finding extreme is O(n)</li>
+<li class="fragment">Partitioning is O(n)</li>
+<li class="fragment">Worst case, each step only removes one value, so we need \(n\) steps.</li>
+<li class="fragment">\(O\left(\sum_{i=1}^{n} n\right) = O(n^2)\)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org53981bf" data-auto-animate>
+<h2 id="org53981bf">Queues</h2>
+<p>
+We achieve \(O(n~log~n)\).
+</p>
+<p class="fragment">
+Small model property; a (<b>differentiated</b>, <b>completed</b>) queue history is linearizable if and only if for <i>no</i> pair of values \(a\), \(b\), we have
+</p>
+<p class="fragment">
+\[enq(a) < enq(b) \wedge deq(b) < deq(a)\]
+</p>
+<p class="fragment">
+where &lt; is the happens-before relation
+</p>
+<p class="fragment">
+Note: does not hold for stacks.
+</p>
+</section>
+<section id="slide-org5337bf6" data-auto-animate>
+<h3 id="org5337bf6">Step 1</h3>
+<p>
+\[enq(a) < enq(b) \wedge deq(b) < deq(a)\]
+</p>
+
+<div data-animate data-load="histories/queue_viol.hist.000.svg">
+</div>
+</section>
+<section id="slide-org7d69eae" data-auto-animate>
+<h3 id="org7d69eae">Step 2</h3>
+<aside class="notes">
+<ul>
+<li>Outer = between enq call and deq return</li>
+<li>Inner = between enq ret and deq call</li>
+
+</ul>
+
+</aside>
+<p>
+\[\textrm{outer seg. of } b \subseteq \textrm{inner seg. of } a\]
+</p>
+
+<div data-animate data-load="histories/queue_viol.hist.001.svg">
+</div>
+</section>
+<section id="slide-orgcf1a634">
+<h3 id="orgcf1a634">Algorithm</h3>
+<p>
+We want to see if for any two values, the <b>outer</b> (enq.call, deq.ret) segment of one is contained in the <b>inner</b> (enq.ret, deq.call) segment of the other. We call a pair of such values <b>critical</b>.
+</p>
+<ul>
+<li class="fragment">Construct a <b>queue-tree</b></li>
+<li class="fragment">Scan it for containment.</li>
+
+</ul>
+</section>
+<section id="slide-orgee23e63" data-auto-animate>
+<h3 id="orgee23e63">Tree</h3>
+<p>
+We construct a red-black tree, where each node contains
+</p>
+<ul>
+<li class="fragment">A left and right subtree</li>
+<li class="fragment">Left and right endpoints of the <b>inner</b> interval</li>
+<li class="fragment">A <b>high</b> key, the highest <b>right</b> occuring in its subtrees</li>
+
+</ul>
+</section>
+<section id="slide-orgc0cf2be" data-auto-animate>
+<h3 id="orgc0cf2be">Example History</h3>
+<div data-animate data-load="histories/queue_ex.hist.000.svg">
+</div>
+
+<ul>
+<li class="fragment"><b>Inner</b> segments: (3, 6), (4, 11), (9, 14), (12, 26), (16, 25), (18, 20), (21, 28), (24, 30)</li>
+<li class="fragment"><b>Outer</b> segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), (15, 23), (19, 31), (22, 32)</li>
+
+</ul>
+</section>
+<section id="slide-org096f29e" data-auto-animate>
+<h3 id="org096f29e">Slide queue<sub>tree</sub><sub>1.svg</sub></h3>
+<aside class="notes">
+<ul>
+<li>15 &lt; 16, go left</li>
+
+</ul>
+
+</aside>
+<div data-animate data-load="queue_tree_1.svg"></div>
+<ul>
+<li><b>Outer</b> segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), <i>(15, 23)</i>, (19, 31), (22, 32)</li>
+
+</ul>
+</section>
+<section id="slide-org0d6b5cb" data-auto-animate>
+<h3 id="org0d6b5cb">Slide queue<sub>tree</sub><sub>2.svg</sub></h3>
+<aside class="notes">
+<ul>
+<li>Where to search?
+<ul>
+<li>Probe left tree, see that high is too low; cannot contain [15,23]</li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+<div data-animate data-load="queue_tree_2.svg"></div>
+<ul>
+<li><b>Outer</b> segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), <i>(15, 23)</i>, (19, 31), (22, 32)</li>
+
+</ul>
+</section>
+<section id="slide-org0a2c1fa" data-auto-animate>
+<h3 id="org0a2c1fa">Slide queue<sub>tree</sub><sub>3.svg</sub></h3>
+<aside class="notes">
+<ul>
+<li>Search right tree
+<ul>
+<li>Overlaps! Conclude Unlinearizability</li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+<div data-animate data-load="queue_tree_3.svg"></div>
+<ul>
+<li><b>Outer</b> segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), <i>(15, 23)</i>, (19, 31), (22, 32)</li>
+
+</ul>
+</section>
+<section id="slide-org19d3aaa">
+<h4 id="org19d3aaa">Complexity</h4>
+<ul>
+<li>Constructing the tree is O(n log n)</li>
+<li>Each search is O(log n)</li>
+<li>We do \(n\) searches.</li>
+<li>O(n log n)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgcdbc888">
+<h2 id="orgcdbc888">(Multi)Sets</h2>
+<p>
+We present an \(O(n)\) algorithm for (multi)sets, with operations <b>add(x)</b> and <b>rmv(x)</b>.
+</p>
+<ul>
+<li class="fragment">A multiset history is linearizable \(\iff\) each single-value projection is linearizable.</li>
+<li class="fragment">A single-valued multiset history is linearizable \(\iff\) the number of returned <b>rmv</b> never exceed the number of called <b>add</b>.</li>
+
+</ul>
+<p class="fragment (t t)">
+We also present a greedy linear-time algorithm for sets with membership queries.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org48a708f">
+<h2 id="org48a708f">Conclusion</h2>
+<p>
+We have shown monitoring algorithms
+</p>
+<ul>
+<li class="fragment">\(O(n^2)\) for stacks</li>
+<li class="fragment">\(O(n~log n)\) for queues</li>
+<li class="fragment">\(O(n)\) for (multi)sets</li>
+
+</ul>
+
+<p class="fragment">
+&#x2026;and shown their correctness
+</p>
+</section>
+<section id="slide-org327c293">
+<h4 id="org327c293">Future Work</h4>
+<ul>
+<li class="fragment">Formalization in a theorem prover</li>
+<li class="fragment">Extend to other data structures (e.g. priority queues, multisets with count)</li>
+<li class="fragment">Extend to related correctness conditions (e.g. durable linearizability)</li>
+
+</ul>
+</section>
+<section id="slide-org9c229e0">
+<h4 id="org9c229e0">Thanks for listening!</h4>
+</section>
+</section>
+<section>
+<section id="slide-orgbfa0605">
+<h2 id="orgbfa0605">References</h2>
+<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a><span style="font-variant:small-caps;">Abdulla, P.A., Haziza, F., Holík, L., Jonsson, B., and Rezine, A.</span> 2013. <a href="https://doi.org/10.1007/978-3-642-36742-7\_23">An integrated specification and verification technique for highly concurrent data structures</a>. <i>Tacas 2013</i>, Springer.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_2"></a><span style="font-variant:small-caps;">Emmi, M. and Enea, C.</span> 2018. <a href="https://doi.org/10.1145/3158113">Sound, complete, and tractable linearizability monitoring for concurrent collections</a>. <i>Proc. ACM program. lang.</i> <i>2</i>, {POPL}.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_3"></a><span style="font-variant:small-caps;">Gibbons, P.B. and Korach, E.</span> 1997. <a href="https://doi.org/10.1137/S0097539794279614">Testing shared memories</a>. <i>SIAM j. comput.</i> <i>26</i>, 4.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_4"></a><span style="font-variant:small-caps;">Herlihy, M. and Wing, J.M.</span> 1990. <a href="https://doi.org/10.1145/78969.78972">Linearizability: A correctness condition for concurrent objects</a>. <i>ACM trans. program. lang. syst.</i> <i>12</i>, 3.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_5"></a><span style="font-variant:small-caps;">Peterson, C.L., Cook, V., and Dechev, D.</span> 2021. <a href="https://doi.org/10.1007/978-3-030-67067-2_8">Concurrent correctness in vector space</a>. <i>Vmcai 2021</i>, Springer.</div>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/animate/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+transition: 'convex',
+transitionSpeed: 'default',
+animate: { autoplay: true },
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom, RevealLoadContent, RevealAnimate ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: 'toc-progress.js', async: true, callback: function() { toc_progress.initialize(); } }]
+
+});
+</script>
+</body>
+</html>

@@ -2,3 +2,7 @@
 	path = halftime/reveal.js
 	url = https://github.com/grahnen/reveal.js
 	branch = final_halftime
+[submodule "wds25/reveal.js"]
+	path = wds25/reveal.js
+	url = https://github.com/grahnen/reveal.js
+	branch = final_halftime

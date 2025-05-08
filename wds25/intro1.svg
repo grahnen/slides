@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: SketchAPI 2022.10.24.12 https://api.sketch.io -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketchjs="https://sketch.io/dtd/" sketchjs:metadata="eyJuYW1lIjoiRHJhd2luZyIsInN1cmZhY2UiOnsiaXNQYWludCI6dHJ1ZSwibWV0aG9kIjoiZmlsbCIsImJsZW5kIjoibm9ybWFsIiwiZW5hYmxlZCI6dHJ1ZSwib3BhY2l0eSI6MSwidHlwZSI6InBhdHRlcm4iLCJwYXR0ZXJuIjp7InR5cGUiOiJwYXR0ZXJuIiwicmVmbGVjdCI6Im5vLXJlZmxlY3QiLCJyZXBlYXQiOiJyZXBlYXQiLCJzbW9vdGhpbmciOmZhbHNlLCJzcmMiOiJ0cmFuc3BhcmVudExpZ2h0Iiwic3giOjEsInN5IjoxLCJ4MCI6MC41LCJ4MSI6MSwieTAiOjAuNSwieTEiOjF9LCJpc0ZpbGwiOnRydWV9LCJjbGlwUGF0aCI6eyJlbmFibGVkIjp0cnVlLCJzdHlsZSI6eyJzdHJva2VTdHlsZSI6ImJsYWNrIiwibGluZVdpZHRoIjoxfX0sImRlc2NyaXB0aW9uIjoiTWFkZSB3aXRoIFNrZXRjaHBhZCIsIm1ldGFkYXRhIjp7fSwiZXhwb3J0RFBJIjo3MiwiZXhwb3J0Rm9ybWF0Ijoic3ZnIiwiZXhwb3J0UXVhbGl0eSI6MC45NSwidW5pdHMiOiJweCIsIndpZHRoIjoxNzI5LCJoZWlnaHQiOjIwMDgsInBhZ2VzIjpbeyJ3aWR0aCI6MTcyOSwiaGVpZ2h0IjoyMDA4fV0sInV1aWQiOiJmYmY1ODk5My1lNzgzLTRlMWEtYWQyMS1iNWY4YjY5NzU2NmMifQ==" width="1729" height="2008" viewBox="0 0 1729 2008">
+<defs>
+	<clipPath id="a">
+		<path d="M72.54 579.24h466.92V342.15H72.54v237.09z" sketchjs:uid="2" style="opacity: 1;"/>
+	</clipPath>
+</defs>
+<g style="mix-blend-mode: source-over;" sketchjs:tool="clipart" transform="matrix(0.2963953556009797,0,0,0.2963953556009797,69.4225025869613,71.02691324181598)">
+	<g sketchjs:uid="1" style="stroke: #000;">
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="3" style="fill: #fff;">
+			<path d="M137.86 534.92h2.1l10.081-22.441H72.818l7.02 22.441h2.1m9.24 0h37.442m.014-27.237H72.818v4.796h77.223v-4.796H128.56" sketchjs:uid="4" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="5">
+			<path d="M134.54 523.67l2.19-5.67m13.321-5.52H72.828m11.1 16.86L80.388 518h61.082l-5.1 11.34H83.928zm-.9-2.82h54.602m-55.502-2.82h56.822m-57.662-2.82h58.922M85.068 518l2.88 11.34m8.101 0L94.488 518m5.581 11.34l-.675-8.505m4.695 8.505l-.18-8.505m4.2 8.505l.36-8.505m3.72 8.505l.81-8.505m3.21 8.505l1.305-8.505m2.716 8.505l1.845-8.505m2.175 8.505l3.12-11.34m4.98 11.34l1.095-2.835m-5.115 2.835l3.72-11.34m-40.082 11.34L89.748 518m-16.92-10.317v4.796h77.223v-4.796" sketchjs:uid="6" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="7" style="fill: #fff;">
+			<path d="M137.86 535.46H79.845v42.542h60.122V535.46h-2.1" sketchjs:uid="8" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="9" style="fill: #7f7f7f; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;">
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="10"/>
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="11"/>
+		</g>
+		<path d="M82.571 253.085h320.238" sketchjs:uid="12" style="fill: #e3e3e3; fill-rule: evenodd; stroke-width: 6.46875;"/>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="13">
+			<path d="M137.86 536.18h-9.24v-1.98h9.24v1.98z" sketchjs:uid="14" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="15">
+			<path d="M81.943 536.18h9.24v-1.98h-9.24v1.98z" sketchjs:uid="16" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+	</g>
+</g>
+<g style="mix-blend-mode: source-over;" sketchjs:tool="clipart" transform="matrix(0.2963953556009797,0,0,0.2963953556009797,75.4225025869613,416.026913241816)">
+	<g sketchjs:uid="1" style="stroke: #000;">
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="3" style="fill: #fff;">
+			<path d="M137.86 534.92h2.1l10.081-22.441H72.818l7.02 22.441h2.1m9.24 0h37.442m.014-27.237H72.818v4.796h77.223v-4.796H128.56" sketchjs:uid="4" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="5">
+			<path d="M134.54 523.67l2.19-5.67m13.321-5.52H72.828m11.1 16.86L80.388 518h61.082l-5.1 11.34H83.928zm-.9-2.82h54.602m-55.502-2.82h56.822m-57.662-2.82h58.922M85.068 518l2.88 11.34m8.101 0L94.488 518m5.581 11.34l-.675-8.505m4.695 8.505l-.18-8.505m4.2 8.505l.36-8.505m3.72 8.505l.81-8.505m3.21 8.505l1.305-8.505m2.716 8.505l1.845-8.505m2.175 8.505l3.12-11.34m4.98 11.34l1.095-2.835m-5.115 2.835l3.72-11.34m-40.082 11.34L89.748 518m-16.92-10.317v4.796h77.223v-4.796" sketchjs:uid="6" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="7" style="fill: #fff;">
+			<path d="M137.86 535.46H79.845v42.542h60.122V535.46h-2.1" sketchjs:uid="8" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="9" style="fill: #7f7f7f; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;">
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="10"/>
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="11"/>
+		</g>
+		<path d="M82.571 253.085h320.238" sketchjs:uid="12" style="fill: #e3e3e3; fill-rule: evenodd; stroke-width: 6.46875;"/>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="13">
+			<path d="M137.86 536.18h-9.24v-1.98h9.24v1.98z" sketchjs:uid="14" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="15">
+			<path d="M81.943 536.18h9.24v-1.98h-9.24v1.98z" sketchjs:uid="16" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+	</g>
+</g>
+<g style="mix-blend-mode: source-over;" sketchjs:tool="clipart" transform="matrix(0.2963953556009797,0,0,0.2963953556009797,523.4225025869613,74.02691324181598)">
+	<g sketchjs:uid="1" style="stroke: #000;">
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="3" style="fill: #fff;">
+			<path d="M137.86 534.92h2.1l10.081-22.441H72.818l7.02 22.441h2.1m9.24 0h37.442m.014-27.237H72.818v4.796h77.223v-4.796H128.56" sketchjs:uid="4" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="5">
+			<path d="M134.54 523.67l2.19-5.67m13.321-5.52H72.828m11.1 16.86L80.388 518h61.082l-5.1 11.34H83.928zm-.9-2.82h54.602m-55.502-2.82h56.822m-57.662-2.82h58.922M85.068 518l2.88 11.34m8.101 0L94.488 518m5.581 11.34l-.675-8.505m4.695 8.505l-.18-8.505m4.2 8.505l.36-8.505m3.72 8.505l.81-8.505m3.21 8.505l1.305-8.505m2.716 8.505l1.845-8.505m2.175 8.505l3.12-11.34m4.98 11.34l1.095-2.835m-5.115 2.835l3.72-11.34m-40.082 11.34L89.748 518m-16.92-10.317v4.796h77.223v-4.796" sketchjs:uid="6" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="7" style="fill: #fff;">
+			<path d="M137.86 535.46H79.845v42.542h60.122V535.46h-2.1" sketchjs:uid="8" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="9" style="fill: #7f7f7f; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;">
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="10"/>
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="11"/>
+		</g>
+		<path d="M82.571 253.085h320.238" sketchjs:uid="12" style="fill: #e3e3e3; fill-rule: evenodd; stroke-width: 6.46875;"/>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="13">
+			<path d="M137.86 536.18h-9.24v-1.98h9.24v1.98z" sketchjs:uid="14" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="15">
+			<path d="M81.943 536.18h9.24v-1.98h-9.24v1.98z" sketchjs:uid="16" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+	</g>
+</g>
+<g style="mix-blend-mode: source-over;" sketchjs:tool="clipart" transform="matrix(0.2963953556009797,0,0,0.2963953556009797,524.4225025869613,416.026913241816)">
+	<g sketchjs:uid="1" style="stroke: #000;">
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="3" style="fill: #fff;">
+			<path d="M137.86 534.92h2.1l10.081-22.441H72.818l7.02 22.441h2.1m9.24 0h37.442m.014-27.237H72.818v4.796h77.223v-4.796H128.56" sketchjs:uid="4" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="5">
+			<path d="M134.54 523.67l2.19-5.67m13.321-5.52H72.828m11.1 16.86L80.388 518h61.082l-5.1 11.34H83.928zm-.9-2.82h54.602m-55.502-2.82h56.822m-57.662-2.82h58.922M85.068 518l2.88 11.34m8.101 0L94.488 518m5.581 11.34l-.675-8.505m4.695 8.505l-.18-8.505m4.2 8.505l.36-8.505m3.72 8.505l.81-8.505m3.21 8.505l1.305-8.505m2.716 8.505l1.845-8.505m2.175 8.505l3.12-11.34m4.98 11.34l1.095-2.835m-5.115 2.835l3.72-11.34m-40.082 11.34L89.748 518m-16.92-10.317v4.796h77.223v-4.796" sketchjs:uid="6" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="7" style="fill: #fff;">
+			<path d="M137.86 535.46H79.845v42.542h60.122V535.46h-2.1" sketchjs:uid="8" style="stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="9" style="fill: #7f7f7f; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;">
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="10"/>
+			<path d="M85.303 574.28h49.502v-35.101H85.303v35.101z" sketchjs:uid="11"/>
+		</g>
+		<path d="M82.571 253.085h320.238" sketchjs:uid="12" style="fill: #e3e3e3; fill-rule: evenodd; stroke-width: 6.46875;"/>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="13">
+			<path d="M137.86 536.18h-9.24v-1.98h9.24v1.98z" sketchjs:uid="14" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+		<g transform="matrix(6.469099998474121,0,0,-6.469099998474121,-469.2659912109375,3741.034912109375)" clip-path="url(#a)" sketchjs:uid="15">
+			<path d="M81.943 536.18h9.24v-1.98h-9.24v1.98z" sketchjs:uid="16" style="fill: none; stroke-width: 0.6; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;"/>
+		</g>
+	</g>
+</g>
+</svg>
