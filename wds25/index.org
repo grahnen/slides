@@ -1,6 +1,6 @@
 #+title: *Efficient Linearizability Monitoring*
-#+AUTHOR: Parosh Abdulla, /Samuel Grahn/, Bengt Jonsson, Shankara
-#+DATE: January 2025
+#+AUTHOR: Parosh Abdulla, /Samuel Grahn/, Bengt Jonsson, Shankaranarayanan Krishna, Om Swostik Mishra
+#+DATE: May 2025
 
 #+cite_export: csl mystyle.csl
 

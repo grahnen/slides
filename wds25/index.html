@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <title><b>Efficient Linearizability Monitoring</b></title>
-<meta name="author" content="Parosh Abdulla, /Samuel Grahn/"/>
+<meta name="author" content="Parosh Abdulla, /Samuel Grahn/, Bengt Jonsson, Shankaranarayanan Krishna, Om Swostik Mishra"/>
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
@@ -21,16 +21,16 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" class="no-toc-progress" data-state="no-toc-progress">
-<h1 class="title"><b>Efficient Linearizability Monitoring</b></h1><h2 class="author">Parosh Abdulla, <i>Samuel Grahn</i></h2><h2 class="date">January 2025</h2>
+<h1 class="title"><b>Efficient Linearizability Monitoring</b></h1><h2 class="author">Parosh Abdulla, <i>Samuel Grahn</i>, Bengt Jonsson, Shankaranarayanan Krishna, Om Swostik Mishra</h2><h2 class="date">May 2025</h2>
 </section>
 <section>
-<section id="slide-orgb2f73fc">
-<h2 id="orgb2f73fc">Introduction</h2>
-<div class="outline-text-2" id="text-orgb2f73fc">
+<section id="slide-orgc2fd7c8">
+<h2 id="orgc2fd7c8">Introduction</h2>
+<div class="outline-text-2" id="text-orgc2fd7c8">
 </div>
 </section>
-<section id="slide-org1e1054d" data-auto-animate>
-<h3 id="org1e1054d">Concurrent Systems</h3>
+<section id="slide-org7575dc5" data-auto-animate>
+<h3 id="org7575dc5">Concurrent Systems</h3>
 <aside class="notes">
 <p>
 Processes (or nodes in a distributed system)
@@ -39,8 +39,8 @@ Processes (or nodes in a distributed system)
 </aside>
 <div data-id="intro" data-animate data-load="intro1.svg"></div>
 </section>
-<section id="slide-org1634312" data-auto-animate>
-<h3 id="org1634312">Communicate</h3>
+<section id="slide-orgb197b27" data-auto-animate>
+<h3 id="orgb197b27">Communicate</h3>
 <aside class="notes">
 <p>
 Communicate using some shared data structure
@@ -49,8 +49,8 @@ Communicate using some shared data structure
 </aside>
 <div data-id="intro" data-animate data-load="intro2.svg"></div>
 </section>
-<section id="slide-org1a17c06" data-auto-animate>
-<h3 id="org1a17c06">Using shared ADT</h3>
+<section id="slide-orgba0e2e4" data-auto-animate>
+<h3 id="orgba0e2e4">Using shared ADT</h3>
 <aside class="notes">
 <p>
 For instance, a stack
@@ -65,8 +65,8 @@ This design pattern calls for a general correctness condition
 </section>
 </section>
 <section>
-<section id="slide-orgb20fffa">
-<h2 id="orgb20fffa">Linearizability</h2>
+<section id="slide-org03556ae">
+<h2 id="org03556ae">Linearizability</h2>
 <aside class="notes">
 <p>
 Extends a sequential specification to the concurrent setting.
@@ -81,8 +81,8 @@ Stack specification, which is LIFO
 Extends a sequential specification to the concurrent setting. (<a href="#citeproc_bib_item_4">Herlihy and Wing,TOPLAS1990</a>)
 </p>
 </section>
-<section id="slide-org7fb46fe" data-auto-animate>
-<h3 id="org7fb46fe">First slide</h3>
+<section id="slide-orgc1310da" data-auto-animate>
+<h3 id="orgc1310da">First slide</h3>
 <aside class="notes">
 <p>
 Take an execution,
@@ -116,8 +116,8 @@ For each operation, we can find a point in time during its execution
 -->
 </div>
 </section>
-<section id="slide-org004e8e1" data-auto-animate>
-<h3 id="org004e8e1">Def continuation</h3>
+<section id="slide-org5f2a9b5" data-auto-animate>
+<h3 id="org5f2a9b5">Def continuation</h3>
 <aside class="notes">
 <p>
 Or equivalently extending the partial happens before order to a total order
@@ -138,8 +138,8 @@ Or equivalently extending the partial happens before order to a total order
 -->
 </div>
 </section>
-<section id="slide-orge1340ba" data-auto-animate>
-<h3 id="orge1340ba">Def Cont 2</h3>
+<section id="slide-orge99c692" data-auto-animate>
+<h3 id="orge99c692">Def Cont 2</h3>
 <aside class="notes">
 <p>
 Such that the resulting sequential history matches the sequential specification
@@ -149,8 +149,8 @@ Such that the resulting sequential history matches the sequential specification
 <div data-id="history2" data-animate data-load="histories/lifo-sdhk-singleth.hist.000.svg">
 </div>
 </section>
-<section id="slide-org6cc448b">
-<h3 id="org6cc448b">Verification</h3>
+<section id="slide-org7f22576">
+<h3 id="org7f22576">Verification</h3>
 <aside class="notes">
 <ul>
 <li>Monitoring is difficult</li>
@@ -171,8 +171,8 @@ Is a given <b>execution</b> (consisting of a sequence of calls and returns) line
 
 </ul>
 </section>
-<section id="slide-org1ef540a">
-<h3 id="org1ef540a">Stacks</h3>
+<section id="slide-org8584bb6">
+<h3 id="org8584bb6">Stacks</h3>
 <aside class="notes">
 <ul>
 <li>Differentiated</li>
@@ -191,8 +191,8 @@ Any (stack/queue) history h is linearizable if and only if there is a linearizab
 This enables us to construct polynomial-time algorithms
 </p>
 </section>
-<section id="slide-orgb22adb2">
-<h4 id="orgb22adb2">Previous work</h4>
+<section id="slide-org5cf1bdb">
+<h4 id="org5cf1bdb">Previous work</h4>
 <aside class="notes">
 <ul>
 <li>Previous work have issues</li>
@@ -227,8 +227,8 @@ Polynomial-time algorithm for a class of <i>collection</i> structures (e.g. stac
 
 </ul>
 </section>
-<section id="slide-org9f951af" data-auto-animate>
-<h3 id="org9f951af">Small changes</h3>
+<section id="slide-org3492e4c" data-auto-animate>
+<h3 id="org3492e4c">Small changes</h3>
 <aside class="notes">
 <p>
 Small changes
@@ -240,8 +240,8 @@ Can change linearizability
 <div data-animate data-load="histories/lifo-sdhk2.hist.000.svg">
 </div>
 </section>
-<section id="slide-org0025d98" data-auto-animate>
-<h3 id="org0025d98">can change the outcome!</h3>
+<section id="slide-org8fbc6c3" data-auto-animate>
+<h3 id="org8fbc6c3">can change the outcome!</h3>
 <aside class="notes">
 <p>
 Unlinearizable because we no longer can put b at the end;
@@ -259,8 +259,8 @@ The unsound algorithm fails to differentiate between these two!
 </section>
 </section>
 <section>
-<section id="slide-org90b0e4c">
-<h2 id="org90b0e4c">Stacks</h2>
+<section id="slide-org0a1eaa8">
+<h2 id="org0a1eaa8">Stacks</h2>
 <aside class="notes">
 <p>
 Show the algorithm by running it on an example.
@@ -284,8 +284,8 @@ We present an algorithm that is quadratic in the length of the history.
 If we ever cannot progress, conclude unlinearizability.
 </p>
 </section>
-<section id="slide-orgf670d20" data-auto-animate>
-<h3 id="orgf670d20">First slide</h3>
+<section id="slide-orgcf13fdf" data-auto-animate>
+<h3 id="orgcf13fdf">First slide</h3>
 <aside class="notes">
 <ul>
 <li>Which thread executes which operation does not matter for Linearizability
@@ -299,8 +299,8 @@ so we reorder by value.</li>
 <div data-id="history2" data-animate data-load="histories/lifo-sdhk2.hist.000.svg"></div>
 <div data-id="legend" data-animate data-load="empty.svg"></div>
 </section>
-<section id="slide-org72f8aec" data-auto-animate>
-<h3 id="org72f8aec">Slide histories/sdhk2-rw.hist.000.svg</h3>
+<section id="slide-org9e4a05c" data-auto-animate>
+<h3 id="org9e4a05c">Slide histories/sdhk2-rw.hist.000.svg</h3>
 <aside class="notes">
 <p>
 We then compute, for each value, its <b>cover</b>.
@@ -311,8 +311,8 @@ We then compute, for each value, its <b>cover</b>.
 <div data-animate data-load="histories/sdhk2-rw.hist.000.svg"></div>
 <div data-animate data-load="empty.svg"></div>
 </section>
-<section id="slide-org6ca5991" data-auto-animate>
-<h3 id="org6ca5991">Slide histories/sdhk2-rw.hist.001.svg</h3>
+<section id="slide-org9db075f" data-auto-animate>
+<h3 id="org9db075f">Slide histories/sdhk2-rw.hist.001.svg</h3>
 <aside class="notes">
 <p>
 During a red line, that value <b>must</b> be in the stack.
@@ -324,8 +324,8 @@ During a red line, that value <b>must</b> be in the stack.
 <div data-animate data-load="histories/sdhk2-rw.hist.001.svg"></div>
 <div data-animate data-load="covers.svg"></div>
 </section>
-<section id="slide-orge123608" data-auto-animate>
-<h3 id="orge123608">Slide histories/sdhk2-rw.hist.002.svg</h3>
+<section id="slide-org414bd10" data-auto-animate>
+<h3 id="org414bd10">Slide histories/sdhk2-rw.hist.002.svg</h3>
 <aside class="notes">
 <p>
 gives us segments of time.
@@ -337,8 +337,8 @@ gives us segments of time.
 <div data-animate data-load="histories/sdhk2-rw.hist.002.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org118f7ed" data-auto-animate>
-<h3 id="org118f7ed">Slide histories/sdhk2-rw.hist.003.svg</h3>
+<section id="slide-org665cdc8" data-auto-animate>
+<h3 id="org665cdc8">Slide histories/sdhk2-rw.hist.003.svg</h3>
 <aside class="notes">
 <p>
 Operations of b intersect both the leftmost and rightmost deserted segment, it is <b>extreme</b>
@@ -349,8 +349,8 @@ Operations of b intersect both the leftmost and rightmost deserted segment, it i
 <div data-animate data-load="histories/sdhk2-rw.hist.003.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org8ce6303" data-auto-animate>
-<h3 id="org8ce6303">Slide histories/sdhk2-rw.hist.004.svg</h3>
+<section id="slide-org79a93fd" data-auto-animate>
+<h3 id="org79a93fd">Slide histories/sdhk2-rw.hist.004.svg</h3>
 <aside class="notes">
 <p>
 Linearize it as first and last operation
@@ -361,8 +361,8 @@ Linearize it as first and last operation
 <div data-animate data-load="histories/sdhk2-rw.hist.004.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org182201e" data-auto-animate>
-<h3 id="org182201e">Slide histories/sdhk2-rw.hist.005.svg</h3>
+<section id="slide-org6dd640d" data-auto-animate>
+<h3 id="org6dd640d">Slide histories/sdhk2-rw.hist.005.svg</h3>
 <aside class="notes">
 <p>
 Find covers
@@ -373,8 +373,8 @@ Find covers
 <div data-animate data-load="histories/sdhk2-rw.hist.005.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgf030caa" data-auto-animate>
-<h3 id="orgf030caa">Slide histories/sdhk2-rw.hist.006.svg</h3>
+<section id="slide-orgebcdfc7" data-auto-animate>
+<h3 id="orgebcdfc7">Slide histories/sdhk2-rw.hist.006.svg</h3>
 <aside class="notes">
 <p>
 Compute their union to obtain new segments.
@@ -387,8 +387,8 @@ Compute their union to obtain new segments.
 <div data-animate data-load="histories/sdhk2-rw.hist.006.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org9547179" data-auto-animate>
-<h3 id="org9547179">Slide histories/sdhk2-rw.hist.007.svg</h3>
+<section id="slide-orgf549986" data-auto-animate>
+<h3 id="orgf549986">Slide histories/sdhk2-rw.hist.007.svg</h3>
 <aside class="notes">
 <p>
 Partition the values
@@ -404,8 +404,8 @@ so we do that!
 <div data-animate data-load="histories/sdhk2-rw.hist.007.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgc42651d" data-auto-animate>
-<h3 id="orgc42651d">Slide histories/sdhk2-rw.hist.008.svg</h3>
+<section id="slide-org7357ce0" data-auto-animate>
+<h3 id="org7357ce0">Slide histories/sdhk2-rw.hist.008.svg</h3>
 <aside class="notes">
 <p>
 Look only at the left part.
@@ -416,8 +416,8 @@ Look only at the left part.
 <div data-animate data-load="histories/sdhk2-rw.hist.008.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org8b8f983" data-auto-animate>
-<h3 id="org8b8f983">Slide histories/sdhk2-rw.hist.009.svg</h3>
+<section id="slide-org2ed06ff" data-auto-animate>
+<h3 id="org2ed06ff">Slide histories/sdhk2-rw.hist.009.svg</h3>
 <aside class="notes">
 <p>
 Draw covers
@@ -428,8 +428,8 @@ Draw covers
 <div data-animate data-load="histories/sdhk2-rw.hist.009.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org2682a3c" data-auto-animate>
-<h3 id="org2682a3c">Slide histories/sdhk2-rw.hist.010.svg</h3>
+<section id="slide-orgf6f57d6" data-auto-animate>
+<h3 id="orgf6f57d6">Slide histories/sdhk2-rw.hist.010.svg</h3>
 <aside class="notes">
 <p>
 Segments
@@ -440,8 +440,8 @@ Segments
 <div data-animate data-load="histories/sdhk2-rw.hist.010.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgb7cbdb5" data-auto-animate>
-<h3 id="orgb7cbdb5">Slide histories/sdhk2-rw.hist.011.svg</h3>
+<section id="slide-orgd91e7da" data-auto-animate>
+<h3 id="orgd91e7da">Slide histories/sdhk2-rw.hist.011.svg</h3>
 <aside class="notes">
 <p>
 See that a is extreme
@@ -452,8 +452,8 @@ See that a is extreme
 <div data-animate data-load="histories/sdhk2-rw.hist.011.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgbdd231b" data-auto-animate>
-<h3 id="orgbdd231b">Slide histories/sdhk2-rw.hist.012.svg</h3>
+<section id="slide-org81c9524" data-auto-animate>
+<h3 id="org81c9524">Slide histories/sdhk2-rw.hist.012.svg</h3>
 <aside class="notes">
 <p>
 Linearize
@@ -464,8 +464,8 @@ Linearize
 <div data-animate data-load="histories/sdhk2-rw.hist.012.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgc5e0639" data-auto-animate>
-<h3 id="orgc5e0639">Slide histories/sdhk2-rw.hist.013.svg</h3>
+<section id="slide-org092598c" data-auto-animate>
+<h3 id="org092598c">Slide histories/sdhk2-rw.hist.013.svg</h3>
 <aside class="notes">
 <p>
 Continue with right side
@@ -476,8 +476,8 @@ Continue with right side
 <div data-animate data-load="histories/sdhk2-rw.hist.013.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org620db7e" data-auto-animate>
-<h3 id="org620db7e">Slide histories/sdhk2-rw.hist.014.svg</h3>
+<section id="slide-org52b9313" data-auto-animate>
+<h3 id="org52b9313">Slide histories/sdhk2-rw.hist.014.svg</h3>
 <aside class="notes">
 <p>
 Covers
@@ -488,8 +488,8 @@ Covers
 <div data-animate data-load="histories/sdhk2-rw.hist.014.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgf6d2c2c" data-auto-animate>
-<h3 id="orgf6d2c2c">Slide histories/sdhk2-rw.hist.015.svg</h3>
+<section id="slide-org66d0ce2" data-auto-animate>
+<h3 id="org66d0ce2">Slide histories/sdhk2-rw.hist.015.svg</h3>
 <aside class="notes">
 <p>
 Segments
@@ -500,8 +500,8 @@ Segments
 <div data-animate data-load="histories/sdhk2-rw.hist.015.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org633de33" data-auto-animate>
-<h3 id="org633de33">Slide histories/sdhk2-rw.hist.016.svg</h3>
+<section id="slide-orgefb07cd" data-auto-animate>
+<h3 id="orgefb07cd">Slide histories/sdhk2-rw.hist.016.svg</h3>
 <aside class="notes">
 <p>
 Both extreme
@@ -512,8 +512,8 @@ Both extreme
 <div data-animate data-load="histories/sdhk2-rw.hist.016.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-org3ec5f93" data-auto-animate>
-<h3 id="org3ec5f93">Slide histories/sdhk2-rw.hist.017.svg</h3>
+<section id="slide-orga031205" data-auto-animate>
+<h3 id="orga031205">Slide histories/sdhk2-rw.hist.017.svg</h3>
 <aside class="notes">
 <p>
 Done!
@@ -528,8 +528,8 @@ We made some assumptions!
 <div data-animate data-load="histories/sdhk2-rw.hist.017.svg"></div>
 <div data-animate data-load="full.svg"></div>
 </section>
-<section id="slide-orgf89560b" data-auto-animate>
-<h3 id="orgf89560b">Incomplete histories</h3>
+<section id="slide-orgfc87863" data-auto-animate>
+<h3 id="orgfc87863">Incomplete histories</h3>
 <aside class="notes">
 <ul>
 <li>Completed: we can always complete!</li>
@@ -539,12 +539,12 @@ We made some assumptions!
 </aside>
 <div data-id="history2" data-animate data-load="histories/incomplete_dif.hist.000.svg"></div>
 </section>
-<section id="slide-orgb6c0629" data-auto-animate>
-<h3 id="orgb6c0629">Can be completed</h3>
+<section id="slide-org2700e0b" data-auto-animate>
+<h3 id="org2700e0b">Can be completed</h3>
 <div data-id="history2" data-animate data-load="histories/completed_dif.hist.000.svg"></div>
 </section>
-<section id="slide-org86113cd">
-<h3 id="org86113cd">Pop Empty</h3>
+<section id="slide-orgdfc1634">
+<h3 id="orgdfc1634">Pop Empty</h3>
 <aside class="notes">
 <ul>
 <li>Finally, PopEmpty</li>
@@ -556,24 +556,24 @@ We made some assumptions!
 pop-operations that returns \(\bot\), indicating an empty stack
 </p>
 </section>
-<section id="slide-orge64da91" data-auto-animate>
-<h3 id="orge64da91">Slide histories/popempty.hist.000.svg</h3>
+<section id="slide-orgbdfc374" data-auto-animate>
+<h3 id="orgbdfc374">Slide histories/popempty.hist.000.svg</h3>
 <div data-animate data-load="histories/popempty.hist.000.svg"></div>
 </section>
-<section id="slide-org9dca2a1" data-auto-animate>
-<h3 id="org9dca2a1">Slide histories/popempty.hist.001.svg</h3>
+<section id="slide-org7a86afb" data-auto-animate>
+<h3 id="org7a86afb">Slide histories/popempty.hist.001.svg</h3>
 <div data-animate data-load="histories/popempty.hist.001.svg"></div>
 </section>
-<section id="slide-org8744f5f" data-auto-animate>
-<h3 id="org8744f5f">Slide histories/popempty.hist.002.svg</h3>
+<section id="slide-orge256c4a" data-auto-animate>
+<h3 id="orge256c4a">Slide histories/popempty.hist.002.svg</h3>
 <div data-animate data-load="histories/popempty.hist.002.svg"></div>
 </section>
-<section id="slide-org2d81d39" data-auto-animate>
-<h3 id="org2d81d39">Slide histories/popempty.hist.003.svg</h3>
+<section id="slide-org56331b5" data-auto-animate>
+<h3 id="org56331b5">Slide histories/popempty.hist.003.svg</h3>
 <div data-animate data-load="histories/popempty.hist.003.svg"></div>
 </section>
-<section id="slide-orgf12c55e">
-<h3 id="orgf12c55e">Complexity</h3>
+<section id="slide-orgddd48b5">
+<h3 id="orgddd48b5">Complexity</h3>
 <p>
 First, sort values by push return. O(n log n)
 </p>
@@ -588,8 +588,8 @@ First, sort values by push return. O(n log n)
 </section>
 </section>
 <section>
-<section id="slide-org53981bf" data-auto-animate>
-<h2 id="org53981bf">Queues</h2>
+<section id="slide-org92b2e0a" data-auto-animate>
+<h2 id="org92b2e0a">Queues</h2>
 <p>
 We achieve \(O(n~log~n)\).
 </p>
@@ -606,8 +606,8 @@ where &lt; is the happens-before relation
 Note: does not hold for stacks.
 </p>
 </section>
-<section id="slide-org5337bf6" data-auto-animate>
-<h3 id="org5337bf6">Step 1</h3>
+<section id="slide-orgdf4990b" data-auto-animate>
+<h3 id="orgdf4990b">Step 1</h3>
 <p>
 \[enq(a) < enq(b) \wedge deq(b) < deq(a)\]
 </p>
@@ -615,8 +615,8 @@ Note: does not hold for stacks.
 <div data-animate data-load="histories/queue_viol.hist.000.svg">
 </div>
 </section>
-<section id="slide-org7d69eae" data-auto-animate>
-<h3 id="org7d69eae">Step 2</h3>
+<section id="slide-org4f54585" data-auto-animate>
+<h3 id="org4f54585">Step 2</h3>
 <aside class="notes">
 <ul>
 <li>Outer = between enq call and deq return</li>
@@ -632,8 +632,8 @@ Note: does not hold for stacks.
 <div data-animate data-load="histories/queue_viol.hist.001.svg">
 </div>
 </section>
-<section id="slide-orgcf1a634">
-<h3 id="orgcf1a634">Algorithm</h3>
+<section id="slide-org1859583">
+<h3 id="org1859583">Algorithm</h3>
 <p>
 We want to see if for any two values, the <b>outer</b> (enq.call, deq.ret) segment of one is contained in the <b>inner</b> (enq.ret, deq.call) segment of the other. We call a pair of such values <b>critical</b>.
 </p>
@@ -643,8 +643,8 @@ We want to see if for any two values, the <b>outer</b> (enq.call, deq.ret) segme
 
 </ul>
 </section>
-<section id="slide-orgee23e63" data-auto-animate>
-<h3 id="orgee23e63">Tree</h3>
+<section id="slide-org92144b7" data-auto-animate>
+<h3 id="org92144b7">Tree</h3>
 <p>
 We construct a red-black tree, where each node contains
 </p>
@@ -655,8 +655,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-orgc0cf2be" data-auto-animate>
-<h3 id="orgc0cf2be">Example History</h3>
+<section id="slide-org964458a" data-auto-animate>
+<h3 id="org964458a">Example History</h3>
 <div data-animate data-load="histories/queue_ex.hist.000.svg">
 </div>
 
@@ -666,8 +666,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org096f29e" data-auto-animate>
-<h3 id="org096f29e">Slide queue<sub>tree</sub><sub>1.svg</sub></h3>
+<section id="slide-orgb2ca33e" data-auto-animate>
+<h3 id="orgb2ca33e">Slide queue<sub>tree</sub><sub>1.svg</sub></h3>
 <aside class="notes">
 <ul>
 <li>15 &lt; 16, go left</li>
@@ -681,8 +681,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org0d6b5cb" data-auto-animate>
-<h3 id="org0d6b5cb">Slide queue<sub>tree</sub><sub>2.svg</sub></h3>
+<section id="slide-orge2a763c" data-auto-animate>
+<h3 id="orge2a763c">Slide queue<sub>tree</sub><sub>2.svg</sub></h3>
 <aside class="notes">
 <ul>
 <li>Where to search?
@@ -700,8 +700,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org0a2c1fa" data-auto-animate>
-<h3 id="org0a2c1fa">Slide queue<sub>tree</sub><sub>3.svg</sub></h3>
+<section id="slide-orga76651a" data-auto-animate>
+<h3 id="orga76651a">Slide queue<sub>tree</sub><sub>3.svg</sub></h3>
 <aside class="notes">
 <ul>
 <li>Search right tree
@@ -719,8 +719,8 @@ We construct a red-black tree, where each node contains
 
 </ul>
 </section>
-<section id="slide-org19d3aaa">
-<h4 id="org19d3aaa">Complexity</h4>
+<section id="slide-org693745d">
+<h4 id="org693745d">Complexity</h4>
 <ul>
 <li>Constructing the tree is O(n log n)</li>
 <li>Each search is O(log n)</li>
@@ -731,8 +731,8 @@ We construct a red-black tree, where each node contains
 </section>
 </section>
 <section>
-<section id="slide-orgcdbc888">
-<h2 id="orgcdbc888">(Multi)Sets</h2>
+<section id="slide-org38277e1">
+<h2 id="org38277e1">(Multi)Sets</h2>
 <p>
 We present an \(O(n)\) algorithm for (multi)sets, with operations <b>add(x)</b> and <b>rmv(x)</b>.
 </p>
@@ -747,8 +747,8 @@ We also present a greedy linear-time algorithm for sets with membership queries.
 </section>
 </section>
 <section>
-<section id="slide-org48a708f">
-<h2 id="org48a708f">Conclusion</h2>
+<section id="slide-org06565de">
+<h2 id="org06565de">Conclusion</h2>
 <p>
 We have shown monitoring algorithms
 </p>
@@ -763,8 +763,8 @@ We have shown monitoring algorithms
 &#x2026;and shown their correctness
 </p>
 </section>
-<section id="slide-org327c293">
-<h4 id="org327c293">Future Work</h4>
+<section id="slide-org26ebdc2">
+<h4 id="org26ebdc2">Future Work</h4>
 <ul>
 <li class="fragment">Formalization in a theorem prover</li>
 <li class="fragment">Extend to other data structures (e.g. priority queues, multisets with count)</li>
@@ -772,13 +772,13 @@ We have shown monitoring algorithms
 
 </ul>
 </section>
-<section id="slide-org9c229e0">
-<h4 id="org9c229e0">Thanks for listening!</h4>
+<section id="slide-org905d6f7">
+<h4 id="org905d6f7">Thanks for listening!</h4>
 </section>
 </section>
 <section>
-<section id="slide-orgbfa0605">
-<h2 id="orgbfa0605">References</h2>
+<section id="slide-org897d656">
+<h2 id="org897d656">References</h2>
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a><span style="font-variant:small-caps;">Abdulla, P.A., Haziza, F., Holík, L., Jonsson, B., and Rezine, A.</span> 2013. <a href="https://doi.org/10.1007/978-3-642-36742-7\_23">An integrated specification and verification technique for highly concurrent data structures</a>. <i>Tacas 2013</i>, Springer.</div>
   <div class="csl-entry"><a id="citeproc_bib_item_2"></a><span style="font-variant:small-caps;">Emmi, M. and Enea, C.</span> 2018. <a href="https://doi.org/10.1145/3158113">Sound, complete, and tractable linearizability monitoring for concurrent collections</a>. <i>Proc. ACM program. lang.</i> <i>2</i>, {POPL}.</div>
