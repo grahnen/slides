@@ -64,7 +64,8 @@ Communicate using some shared data structure
 #+BEGIN_NOTES
 For instance, a stack
 
-This design pattern calls for a general correctness condition
+This design pattern calls for a general correctness condition.
+The standard such condition is:
 #+END_NOTES
 #+begin_export html
 <div data-id="intro" data-animate data-load="intro3.svg"></div>
@@ -73,8 +74,7 @@ This design pattern calls for a general correctness condition
 * Linearizability
 #+BEGIN_NOTES
 Extends a sequential specification to the concurrent setting.
-
-Stack specification, which is LIFO
+To define it we take an execution
 #+END_NOTES
 Extends a sequential specification to the concurrent setting. [cite:@DBLP:journals/toplas/HerlihyW90]
 ** First slide
@@ -82,8 +82,10 @@ Extends a sequential specification to the concurrent setting. [cite:@DBLP:journa
 :REVEAL_EXTRA_ATTR: data-auto-animate
 :END:
 #+BEGIN_NOTES
-  Take an execution,
-  Instance: sequence of calls and returns of overlapping operations.
+  Take an execution, Instance:
+  Sequence of calls and returns of overlapping operations.
+
+  Here we see three threads performing operations on a shared stack.
 
   Linearizable if:
 
@@ -135,19 +137,17 @@ Or equivalently extending the partial happens before order to a total order
 :REVEAL_EXTRA_ATTR: data-auto-animate
 :END:
 #+BEGIN_NOTES
-Such that the resulting sequential history matches the sequential specification
+Such that the resulting sequential history satisfies the sequential specification
 #+END_NOTES
 #+begin_export html
 <div data-id="history2" data-animate data-load="histories/lifo-sdhk-singleth.hist.000.svg">
 </div>
 #+end_export
-
 ** Verification
 #+BEGIN_NOTES
 - Monitoring is difficult
-- We assume that th
-  What do we do: Construct spec.
-  We are of course not the first, but:
+- What do we do when faced with NP-completeness?
+-- Specialize and make assumptions.
 #+END_NOTES
 
 We are looking at the /monitoring/ problem;
@@ -165,31 +165,17 @@ Any (stack/queue) history h is linearizable if and only if there is a linearizab
 
 #+ATTR_REVEAL: :frag t
 This enables us to construct polynomial-time algorithms
-*** Previous work
-#+BEGIN_NOTES
-- Previous work have issues
-- Has proven to be a very tricky problem.
 
-  One of the reasons
-#+END_NOTES
-
-#+ATTR_REVEAL: :frag t
-- Quadratic-time algorithm for stacks and queues [cite:@DBLP:conf/vmcai/PetersonCD21]
-  #+ATTR_REVEAL: :frag t
-  -- We found a counterexample!
-#+ATTR_REVEAL: :frag t
-- Polynomial-time algorithm for a class of /collection/ structures (e.g. stacks, sets and queues) [cite:@DBLP:journals/pacmpl/EmmiE18]
-  #+ATTR_REVEAL: :frag t
-  -- We found a bug in the proof!
-
-** Small changes
+** Tricky Problem!
 :PROPERTIES:
 :REVEAL_EXTRA_ATTR: data-auto-animate
 :END:
 
 #+BEGIN_NOTES
-Small changes
-Can change linearizability
+Tricky Problem!
+
+- Small changes
+- Can change linearizability
 #+END_NOTES
 
 #+begin_export html
@@ -204,7 +190,7 @@ Can change linearizability
 Unlinearizable because we no longer can put b at the end;
 something that the other values together force
 
-The unsound algorithm fails to differentiate between these two!
+However, now removing any one value yields a linearizable history.
 #+END_NOTES
 
 #+begin_export html
@@ -370,7 +356,7 @@ for i in histories/popempty.hist.*.svg; do
     echo "#+end_export"
 done
 #+end_src
-** Complexity
+*** Complexity
 First, sort values by push return. O(n log n)
 #+ATTR_REVEAL: :frag (t t t t t)
 - Compute deserted and populated segments. O(n)
@@ -508,12 +494,10 @@ We have shown monitoring algorithms
 - $O(n~log n)$ for queues
 - $O(n)$ for (multi)sets
 
-#+ATTR_REVEAL: :frag t
-...and shown their correctness
 *** Future Work
 #+ATTR_REVEAL: :frag (t t t)
 - Formalization in a theorem prover
-- Extend to other data structures (e.g. priority queues, multisets with count)
+- Extend to other data structures (e.g. multisets with count, snapshots)
 - Extend to related correctness conditions (e.g. durable linearizability)
 *** Thanks for listening!
 * References
