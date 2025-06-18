@@ -1,0 +1,13 @@
+[1] call push(a)
+[2] call push(b)
+[1] return
+[1] call push(c)
+[1] return
+[2] return
+[2] call pop(c)
+[2] return
+
+skip
+skip
+skip
+skip

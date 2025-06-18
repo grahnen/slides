@@ -6,3 +6,7 @@
 	path = vds25/reveal.js
 	url = https://github.com/grahnen/reveal.js
 	branch = final_halftime
+[submodule "pldi25/reveal.js"]
+	path = pldi25/reveal.js
+	url = https://github.com/grahnen/reveal.js
+	branch = animate_svg

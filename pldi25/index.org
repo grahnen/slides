@@ -1,0 +1,504 @@
+#+title: *Efficient Linearizability Monitoring*
+#+AUTHOR: Parosh Abdulla, /Samuel Grahn/, Bengt Jonsson, Shankaranarayanan Krishna, Om Swostik Mishra
+#+DATE: May 2025
+
+#+cite_export: csl mystyle.csl
+
+#+REVEAL_THEME: dracula
+#+OPTIONS: toc:nil num:nil timestamp:nil
+# #+REVEAL-SLIDE-NUMBER: t
+#+REVEAL_ROOT: ./reveal.js
+
+#+REVEAL_HEAD_PREAMBLE: <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
+
+#+REVEAL_EXTRA_OPTIONS: autoAnimateEasing: 'ease-in-out'
+#+REVEAL_EXTRA_OPTIONS: animate: { autoplay: true }
+#+REVEAL_ADD_PLUGIN: loadcontent RevealLoadContent https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js
+#+REVEAL_ADD_PLUGIN: animate RevealAnimate https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/animate/plugin.js
+
+#+REVEAL_EXTERNAL_PLUGINS: ((toc-progress . "{ src: 'toc-progress.js', async: true, callback: function() { toc_progress.initialize(); } }"))
+
+# #+REVEAL_EXTRA_CSS: https://e-gor.github.io/Reveal.js-TOC-Progress/demo/plugin/toc-progress/toc-progress.css
+
+#+REVEAL_EXTRA_CSS: mycss.css
+#+REVEAL_EXTRA_CSS: svg.css
+
+# Do not display TOC-progress on title slide.
+#+REVEAL_TITLE_SLIDE_STATE: no-toc-progress
+
+# Do not display TOC-progress on TOC slide.
+#+REVEAL_TOC_SLIDE_STATE: no-toc-progress
+
+# Do not include TOC slide in TOC-progress.
+#+REVEAL_TOC_SLIDE_CLASS: no-toc-progress
+
+#+REVEAL_TITLE_SLIDE_EXTRA_ATTR: class="no-toc-progress"
+
+#+bibliography: references.bib
+
+* Introduction
+** Concurrent Systems
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+Processes (or nodes in a distributed system)
+#+END_NOTES
+#+begin_export html
+<div data-id="intro" data-animate data-load="intro1.svg"></div>
+#+end_export
+** Communicate
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+Communicate using some shared data structure
+#+END_NOTES
+#+begin_export html
+<div data-id="intro" data-animate data-load="intro2.svg"></div>
+#+end_export
+** Using shared ADT
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+For instance, a stack
+
+This design pattern calls for a general correctness condition.
+The standard such condition is:
+#+END_NOTES
+#+begin_export html
+<div data-id="intro" data-animate data-load="intro3.svg"></div>
+#+end_export
+
+* Linearizability
+#+BEGIN_NOTES
+Extends a sequential specification to the concurrent setting.
+To define it we take an execution
+#+END_NOTES
+Extends a sequential specification to the concurrent setting. [cite:@DBLP:journals/toplas/HerlihyW90]
+** First slide
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+  Take an execution, Instance:
+  Sequence of calls and returns of overlapping operations.
+
+  Here we see three threads performing operations on a shared stack.
+
+  Linearizable if:
+
+  For each operation, we can find a point in time during its execution
+#+END_NOTES
+#+begin_export html
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk2.hist.000.svg">
+<span class="fragment"></span>
+<!--
+{
+"animation": [
+[],
+[
+{
+"element": ".linpt",
+"modifier": "attr",
+"parameters": [ { "opacity": "1" }]
+}
+]
+]
+}
+-->
+</div>
+#+END_EXPORT
+** Def continuation
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+Or equivalently extending the partial happens before order to a total order
+#+END_NOTES
+#+begin_export html
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk2-seq.hist.000.svg">
+<!--
+{
+"setup": [
+{
+"element": ".linpt",
+"modifier": "attr",
+"parameters": [ { "opacity": "1" }]
+}
+]
+}
+-->
+</div>
+#+END_EXPORT
+** Def Cont 2
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+Such that the resulting sequential history satisfies the sequential specification
+#+END_NOTES
+#+begin_export html
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk-singleth.hist.000.svg">
+</div>
+#+end_export
+** Verification
+#+BEGIN_NOTES
+- Monitoring is difficult
+- What do we do when faced with NP-completeness?
+-- Specialize and make assumptions.
+#+END_NOTES
+
+We are looking at the /monitoring/ problem;
+Is a given *execution* (consisting of a sequence of calls and returns) linearizable?
+#+ATTR_REVEAL: :frag t
+- NP-complete (in the length) for registers [cite:@DBLP:journals/siamcomp/GibbonsK97]
+#+ATTR_REVEAL: :frag t
+** Stacks
+#+BEGIN_NOTES
+- Differentiated
+  #+END_NOTES
+We assume the history is *differentiated*: each value occurs in at most one push and one pop.
+#+ATTR_REVEAL: :frag t
+Any (stack/queue) history h is linearizable if and only if there is a linearizable *differentiated* history h' and some map that /renames/ the values of h' to the values of h. [cite:@DBLP:conf/tacas/AbdullaHHJR13]
+
+#+ATTR_REVEAL: :frag t
+This enables us to construct polynomial-time algorithms
+
+** Tricky Problem!
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+
+#+BEGIN_NOTES
+Tricky Problem!
+
+- Small changes
+- Can change linearizability
+#+END_NOTES
+
+#+begin_export html
+<div data-animate data-load="histories/lifo-sdhk2.hist.000.svg">
+</div>
+#+end_export
+** can change the outcome!
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+Unlinearizable because we no longer can put b at the end;
+something that the other values together force
+
+However, now removing any one value yields a linearizable history.
+#+END_NOTES
+
+#+begin_export html
+<div data-animate data-load="histories/lifo-vdhk2.hist.000.svg">
+</div>
+#+end_export
+
+* Stacks
+#+BEGIN_NOTES
+Show the algorithm by running it on an example.
+#+END_NOTES
+We present an algorithm that is quadratic in the length of the history.
+#+ATTR_REVEAL: :frag (t t)
+- Compute /populated/ and /deserted/ segments
+- Apply simplification steps
+  #+ATTR_REVEAL: :frag (t t)
+  + Extreme value removal
+  + Partitioning
+#+ATTR_REVEAL: :frag t
+If we ever cannot progress, conclude unlinearizability.
+** First slide
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+- Which thread executes which operation does not matter for Linearizability
+  so we reorder by value.
+#+END_NOTES
+
+#+begin_export html
+<h4>Ignore threads</h4>
+<div data-id="history2" data-animate data-load="histories/lifo-sdhk2.hist.000.svg"></div>
+<div data-id="legend" data-animate data-load="empty.svg"></div>
+#+end_export
+
+#+begin_src shell :exports results :results raw
+
+LEGENDS=(
+    "empty.svg"
+    "covers.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+    "full.svg"
+
+)
+
+HL=(
+    "Ignore threads"
+    "Compute segments"
+    "Compute segments"
+    "Extreme value removal"
+    "Extreme value removal"
+    "Compute segments"
+    "Compute segments"
+    "Partitioning"
+    "Compute segments"
+    "Compute segments"
+    "Compute segments"
+    "Extreme value removal"
+    "Extreme value removal"
+    "Compute segments"
+    "Compute segments"
+    "Compute segments"
+    "Extreme value removal"
+    "Done!"
+)
+
+NOTES=(
+  "We then compute, for each value, its *cover*."
+  "During a red line, that value *must* be in the stack.
+   Union of these lines..."
+  "gives us segments of time.
+  Populated (something must be there) or Deserted (it may be empty)"
+  "Operations of b intersect both the leftmost and rightmost deserted segment, it is *extreme*"
+  "Linearize it as first and last operation"
+  "Find covers"
+  "Compute their union to obtain new segments.
+  This time, there is no value that is extreme.
+  Instead, we have an *inner* deserted segment."
+  "Partition the values
+
+  Every blue can be linearized before every red
+  so we do that!"
+  "Look only at the left part."
+  "Draw covers"
+  "Segments"
+  "See that a is extreme"
+  "Linearize"
+  "Continue with right side"
+  "Covers"
+  "Segments"
+  "Both extreme"
+  "Done!
+
+  We made some assumptions!")
+for i in histories/sdhk2-rw.hist.*.svg; do
+    echo "** Slide $i"
+    echo ":PROPERTIES:"
+    echo ":REVEAL_EXTRA_ATTR: data-auto-animate"
+    echo ":END:"
+    Q=$(echo $i | grep -E -o '[0-9]{3}')
+    echo "#+BEGIN_NOTES"
+    echo "$NOTES[$((Q + 1))]"
+    echo "#+END_NOTES"
+    echo "#+begin_export html"
+    echo "<h4>$HL[$((Q + 1))]</h4>"
+    echo "<div data-animate data-load=\"$i\"></div>"
+    echo "<div data-animate data-load=\"$LEGENDS[$((Q+1))]\"></div>"
+    echo "#+end_export"
+done
+#+end_src
+** Incomplete histories
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+BEGIN_NOTES
+- Completed: we can always complete!
+#+END_NOTES
+#+begin_export html
+<div data-id="history2" data-animate data-load="histories/incomplete_dif.hist.000.svg"></div>
+#+end_export
+** Can be completed
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+begin_export html
+<div data-id="history2" data-animate data-load="histories/completed_dif.hist.000.svg"></div>
+#+end_export
+** Pop Empty
+#+BEGIN_NOTES
+- Finally, PopEmpty
+#+END_NOTES
+pop-operations that returns $\bot$, indicating an empty stack
+#+begin_src shell :exports results :results raw
+for i in histories/popempty.hist.*.svg; do
+    echo "** Slide $i"
+    echo ":PROPERTIES:"
+    echo ":REVEAL_EXTRA_ATTR: data-auto-animate"
+    echo ":END:"
+    echo "#+begin_export html"
+    echo "<div data-animate data-load=\"$i\"></div>"
+    echo "#+end_export"
+done
+#+end_src
+*** Complexity
+First, sort values by push return. O(n log n)
+#+ATTR_REVEAL: :frag (t t t t t)
+- Compute deserted and populated segments. O(n)
+- Finding extreme is O(n)
+- Partitioning is O(n)
+- Worst case, each step only removes one value, so we need $n$ steps.
+- $O\left(\sum_{i=1}^{n} n\right) = O(n^2)$
+* Queues
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+We achieve $O(n~log~n)$.
+#+ATTR_REVEAL: :frag t
+Small model property; a (*differentiated*, *completed*) queue history is linearizable if and only if for /no/ pair of values $a$, $b$, we have
+#+ATTR_REVEAL: :data-id eqn :frag t
+$$enq(a) < enq(b) \wedge deq(b) < deq(a)$$
+#+ATTR_REVEAL: :frag t
+where < is the happens-before relation
+#+ATTR_REVEAL: :frag t
+Note: does not hold for stacks.
+** Step 1
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+ATTR_REVEAL: :data-id eqn
+$$enq(a) < enq(b) \wedge deq(b) < deq(a)$$
+
+#+begin_export html
+<div data-animate data-load="histories/queue_viol.hist.000.svg">
+</div>
+#+end_export
+
+** Step 2
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+
+#+BEGIN_NOTES
+- Outer = between enq call and deq return
+- Inner = between enq ret and deq call
+#+END_NOTES
+#+ATTR_REVEAL: :data-id eqn
+$$\textrm{outer seg. of } b \subseteq \textrm{inner seg. of } a$$
+
+#+begin_export html
+<div data-animate data-load="histories/queue_viol.hist.001.svg">
+</div>
+#+end_export
+
+** Algorithm
+We want to see if for any two values, the *outer* (enq.call, deq.ret) segment of one is contained in the *inner* (enq.ret, deq.call) segment of the other. We call a pair of such values *critical*.
+#+ATTR_REVEAL: :frag (t t)
+- Construct a *queue-tree*
+- Scan it for containment.
+** Tree
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+We construct a red-black tree, where each node contains
+#+ATTR_REVEAL: :frag (t t t)
+- A left and right subtree
+- Left and right endpoints of the *inner* interval
+- A *high* key, the highest *right* occuring in its subtrees
+** Example History
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-auto-animate
+:END:
+#+begin_export html
+<div data-animate data-load="histories/queue_ex.hist.000.svg">
+</div>
+#+end_export
+
+#+ATTR_REVEAL: :frag (t t)
+- *Inner* segments: (3, 6), (4, 11), (9, 14), (12, 26), (16, 25), (18, 20), (21, 28), (24, 30)
+- *Outer* segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), (15, 23), (19, 31), (22, 32)
+
+#+begin_src shell :exports results :results raw
+NOTES=( "- 15 < 16, go left"
+        "- Where to search?
+         - Probe left tree, see that high is too low; cannot contain [15,23]"
+        "- Search right tree
+         - Overlaps! Conclude Unlinearizability")
+
+for i in queue_tree_*.svg; do
+    echo "** Slide $i"
+    echo ":PROPERTIES:"
+    echo ":REVEAL_EXTRA_ATTR: data-auto-animate"
+    echo ":END:"
+    Q=$(echo $i | grep -E -o '[0-9]')
+    echo "#+BEGIN_NOTES"
+    echo "$NOTES[$((Q))]"
+    echo "#+END_NOTES"
+    echo "#+begin_export html"
+    echo "<div data-animate data-load=\"$i\"></div>"
+    echo "#+end_export"
+    echo "- *Outer* segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), /(15, 23)/, (19, 31), (22, 32)"
+done
+#+end_src
+# ** Search
+# #+BEGIN_NOTES
+# - None => False
+# - contains => true
+# - l < i => each left tree starts early enough. If high > j, then one of them must contain (i,j)
+# - Otherwise, if that key is too low, we search the right tree.
+# - i < l => cannot be in R, so search L.
+# #+END_NOTES
+# #+begin_src python :exports code
+# def search(p, a):
+#     (l, r, h, L, R) = p
+#     (i, j) = a
+#     if p is None: return False
+#     if l <= i and j <= r: return True
+#     if L is not None and l <= i and j <= L.h: return True
+#     if L is not None and l <= i and j > L.h: return search(R, a)
+#     return search(L, a)
+# #+end_src
+# #+ATTR_REVEAL: :frag t
+# - Proof based on structural induction of where in the tree a given containing interval is.
+*** Complexity
+- Constructing the tree is O(n log n)
+- Each search is O(log n)
+- We do $n$ searches.
+- O(n log n)
+* (Multi)Sets
+We present an $O(n)$ algorithm for (multi)sets, with operations *add(x)* and *rmv(x)*.
+#+ATTR_REVEAL: :frag (t t)
+- A multiset history is linearizable $\iff$ each single-value projection is linearizable.
+- A single-valued multiset history is linearizable $\iff$ the number of returned *rmv* never exceed the number of called *add*.
+#+ATTR_REVEAL: :frag (t t)
+We also present a greedy linear-time algorithm for sets with membership queries.
+* Conclusion
+We have shown monitoring algorithms
+#+ATTR_REVEAL: :frag (t t t)
+- $O(n^2)$ for stacks
+- $O(n~log n)$ for queues
+- $O(n)$ for (multi)sets
+
+*** Future Work
+#+ATTR_REVEAL: :frag (t t t)
+- Formalization in a theorem prover
+- Extend to other data structures (e.g. multisets with count, snapshots)
+- Extend to related correctness conditions (e.g. durable linearizability)
+*** Thanks for listening!
+* References
+#+PRINT_BIBLIOGRAPHY:
