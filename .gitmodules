@@ -10,3 +10,6 @@
 	path = pldi25/reveal.js
 	url = https://github.com/grahnen/reveal.js
 	branch = animate_svg
+[submodule "guest_lecture_programming_theory/reveal.js"]
+	path = guest_lecture_programming_theory/reveal.js
+	url = https://github.com/hakimel/reveal.js

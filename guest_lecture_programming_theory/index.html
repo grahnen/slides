@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js UU Theme</title>
+
+	<!-- reveal.js stylesheets -->
+	<link rel="stylesheet" href="reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js/dist/theme/white.css">
+	<link rel="stylesheet" href="theme-uu/vs.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- A language for highlight.js uses hljs var, which is undefined globally and only present in RevealHiglight().
+         I need to work around this -->
+    <script src="theme-uu/hl-lean.js"></script>
+    
+	<!-- reveal.js scripts -->
+	<script src="reveal.js/dist/reveal.js" defer></script>
+	<script src="reveal.js/plugin/highlight/highlight.js" defer></script>
+	<script src="reveal.js/plugin/markdown/markdown.js" defer></script>
+	<script src="reveal.js/plugin/math/math.js" defer></script>
+	<script src="reveal.js/plugin/notes/notes.js" defer></script>
+	<script src="reveal.js/plugin/search/search.js" defer></script>
+	<script src="reveal.js/plugin/zoom/zoom.js" defer></script>
+
+	<!-- uu theme stylesheet and script -->
+	<link rel="stylesheet" href="theme-uu/theme-uu.css">
+	<script src="theme-uu/init.js" defer></script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="title">
+				<img class="logo" src="./theme-uu/uu-logo-colour-gray.svg" alt="Logo">
+				<div class="content">
+					<h1>Interactive Theorem Proving</h1>
+					<hr>
+					<h2>Using Lean 4</h2>
+					<div>Samuel Grahn</div>
+					<div style="font-size: smaller">Uppsala University, Sweden</div>
+					<div>December 2025</div>
+					<br>Based on slides by Tjark Weber and Elias Castegren<br />and transitively Larry Paulson and Tobias Nipkow<br>
+				</div>
+			</section>
+			<section data-markdown="introduction.md"></section>
+            <section data-markdown="formal_verification.md"></section>
+            <section data-markdown="techniques.md"></section>
+            <section data-markdown="interactive_proof.md"></section>
+            <section data-markdown="why.md"></section>
+            <section data-markdown="itp.md"></section>
+            <section data-markdown="workflow.md"></section>
+            <section data-markdown="landmarks.md"></section>
+            <section data-markdown="proverlist.md"></section>
+            <section data-markdown="leanintro.md"></section>
+            <section data-markdown="installing.md"></section>
+			<section data-markdown="typetheory1.md"></section>
+            <section data-markdown="deptypetheory.md"></section>
+            <section data-markdown="live_demo.md"></section>
+            <section data-markdown="propositions.md"></section>
+            <section data-markdown="propositions2.md"></section>
+            <section data-markdown="inductive.md"></section>
+            <section data-markdown="live_demo.md"></section>
+            <section data-markdown="assignment.md"></section>
+			<!-- <section class="title">
+				 <script>
+				 // copy title page
+				 document.write(document.querySelector("section.title")?.innerHTML);
+				 </script>
+			     </section> -->
+		</div>
+	</div>
+
+	<header class="static-header"></header>
+
+	<footer class="static-footer">
+		<img src="theme-uu/uu-logo-colour-uu-red.svg" alt="Logo">
+		<div>Uppsala University | firstname.lastname@it.uu.se</div>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+/* load latin modern sans font */
+
+@font-face {
+  font-family: "LM-regular-sans";
+  src: url(./lmsans10-regular.otf) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: "LM-regular-sans";
+}
+
+/* overwrite white theme */
+
+:root {
+  --uu-se-red: #960000;
+  --uu-se-gray: #cccccc;
+  --r-main-font: "LM-regular-sans";
+  --r-main-color: #000000;
+  --r-heading-font: "LM-regular-sans";
+  --r-heading-color: var(--uu-se-red);
+  --r-heading-text-transform: none;
+}
+
+/* left align text but not headings */
+
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-align: left;
+}
+
+/* bullet points and numbering */
+
+::marker {
+  color: var(--uu-se-red);
+}
+
+/* red emphasis */
+em {
+  color: var(--uu-se-red);
+  font-style: normal !important;
+}
+
+/* header and footer */
+
+header,
+footer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: var(--uu-se-gray);
+  color: #999;
+  z-index: 1000;
+}
+
+header {
+  top: 0;
+  height: 1vh;
+}
+
+footer {
+  bottom: 0;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+footer img {
+  height: 100%;
+  padding: 0.5vh;
+  box-sizing: border-box;
+}
+
+footer div {
+  padding: 0 2vh;
+}
+
+/* progress bar */
+
+.reveal .progress {
+  top: auto;
+  bottom: 6vh;
+  height: 0.5vh;
+  background: var(--uu-se-gray);
+}
+
+.reveal .progress span {
+  background: var(--uu-se-red);
+}
+
+/* title slide */
+
+.reveal section.title {
+  height: 100%;
+}
+
+.reveal section.title * {
+  text-align: right;
+}
+
+.reveal section.title .logo {
+  position: fixed;
+  margin: 0 auto;
+  left: -20em;
+  top: 1em;
+  max-width: 36em;
+  max-height: 36em;
+}
+
+.reveal section.title .content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.reveal section.title hr {
+  border-top: 0.1em solid var(--uu-se-red);
+}
