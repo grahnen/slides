@@ -17,8 +17,8 @@ inductive Nat : Type where
     | succ m ih => ...
     ```
 - `by` keyword leaves programming mode and enters `tactic`-mode!
-- Example: last case below
-  Show that `P (succ m)` holds, given
+- Example: last case below:
+  show that `P (succ m)` holds, given
   ```lean
   m : Nat
   ih : P m

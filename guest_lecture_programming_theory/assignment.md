@@ -3,6 +3,8 @@
 - Whoever takes the last stone wins.
 - Formalised as a transition system
   ```lean
+  abbrev NimState := Nat × Bool
+  
   inductive Step : NimState -> NimState -> Prop where ...
   ```
 - You won't need anything outside of slides \& comments in `Nim.lean`!

@@ -1,4 +1,5 @@
 # Type Theory
+- Lean is based on (a variant of) the *calculus of constructions*, which is a _dependent type theory_.
 - A logical formalism based on *types*. 
 - Every object has a type. If $a$ is of type $T$, we write $a : T$
 - Every type is defined by how its elements can be *constructed*:
