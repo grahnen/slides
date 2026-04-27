@@ -2,14 +2,17 @@
 	path = halftime/reveal.js
 	url = https://github.com/grahnen/reveal.js
 	branch = final_halftime
+	
 [submodule "vds25/reveal.js"]
 	path = vds25/reveal.js
 	url = https://github.com/grahnen/reveal.js
 	branch = final_halftime
+
 [submodule "pldi25/reveal.js"]
 	path = pldi25/reveal.js
 	url = https://github.com/grahnen/reveal.js
 	branch = animate_svg
+
 [submodule "guest_lecture_programming_theory/reveal.js"]
 	path = guest_lecture_programming_theory/reveal.js
 	url = https://github.com/hakimel/reveal.js
