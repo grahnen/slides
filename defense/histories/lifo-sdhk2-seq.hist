@@ -1,0 +1,46 @@
+# A generalization of a non-trivial legal history from
+# Dodds, Haas, Kirsch
+# POPL 2015: A Scalable, Correct Time-Stamped Stack
+# @object atomic-stack
+
+
+
+[2] call push(b)
+linpt 2
+[2] return
+[1] call push(a)
+linpt 1
+[1] return
+
+
+
+
+
+
+
+                [2] call pop(a)
+linpt 2
+                [2] return
+        [1] call push(c)
+linpt 1
+        [1] return
+        [3] call push(d)
+linpt 3
+        [3] return
+
+
+
+
+
+
+
+
+                [2] call pop(d)
+linpt 2
+[2] return
+[3] call pop(c)
+linpt 3
+         [3] return
+            [1] call pop(b)
+linpt 1
+                    [1] return

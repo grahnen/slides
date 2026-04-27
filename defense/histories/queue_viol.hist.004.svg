@@ -1,0 +1,129 @@
+<svg width="100%" height="80%" viewBox="0 0 720 960">
+            <rect class="area_D area hidden "
+            data-id="area_0_4_D"
+            x="20.0"
+            y="0" width="320"
+            height="800"
+            fill="green"
+            opacity="0.3"></rect>
+            
+            <rect class="area_P area hidden "
+            data-id="area_4_5_P"
+            x="340.0"
+            y="0" width="80"
+            height="800"
+            fill="yellow"
+            opacity="0.3"></rect>
+            
+            <rect class="area_D area hidden "
+            data-id="area_5_8_D"
+            x="420.0"
+            y="0" width="240"
+            height="800"
+            fill="green"
+            opacity="0.3"></rect>
+            <svg x="240"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_enq_b"
+        data-id="call_enq_b">
+
+        <text x="50%" y="50%" font-size="32">3</text>
+
+        </svg>
+
+        <svg x="320"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_enq_b"
+        data-id="call_enq_b">
+
+        <text x="50%" y="50%" font-size="32">4</text>
+
+        </svg>
+
+        <svg x="400"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_deq_b"
+        data-id="call_deq_b">
+
+        <text x="50%" y="50%" font-size="32">5</text>
+
+        </svg>
+
+        <svg x="480"
+        y="320"
+        width="40"
+        height="40"
+        class="event_box text_box val_b thr_2 "
+        id="call_deq_b"
+        data-id="call_deq_b">
+
+        <text x="50%" y="50%" font-size="32">6</text>
+
+        </svg>
+
+        
+        <path d="M 260.0,320 L 260.0,300.0 L 340.0,300.0 L 340.0,320"
+        class="tl_path val_b thr_2 "
+        id="path_enq_b"
+        data-id="path_enq_b"
+        stroke="#FFFFFF"
+        />
+
+        <path d="M 420.0,320 L 420.0,300.0 L 500.0,300.0 L 500.0,320"
+        class="tl_path val_b thr_2 "
+        id="path_deq_b"
+        data-id="path_deq_b"
+        stroke="#FFFFFF"
+        />
+
+        <path class='cover b_cover hidden ' d='M 340.0,320 L 420.0,320' stroke='firebrick' stroke-width='8' data-id="cover_b_path" />
+        
+        <svg x="200.0"
+        y="240"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_enq_b"
+        data-id="label_enq_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">enq(b)</text>
+        </svg>
+        
+        <svg x="360.0"
+        y="240"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_deq_b"
+        data-id="label_deq_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">deq(b)</text>
+        </svg>
+        
+        <svg x="220.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_push_a"
+        data-id="label_push_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">push(a)</text>
+        </svg>
+        
+        <svg x="820.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_pop_a"
+        data-id="label_pop_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">pop(a)</text>
+        </svg>
+        </svg>

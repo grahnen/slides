@@ -1,0 +1,9 @@
+\documentclass[tikz,convert=pdf2svg]{standalone}
+\input macros
+\directlua{texh = require("texhist")}
+\usepackage{timeline}
+\begin{document}
+\begin{timeline}
+  \directlua{tex.print(texh.h2t('lifo-sdhk2.hist'))}
+\end{timeline}
+\end{document}

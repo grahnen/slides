@@ -1,0 +1,81 @@
+<svg width="100%" height="80%" viewBox="0 0 2000 960">
+        <svg x="220.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_push_b"
+        data-id="label_push_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">push(b)</text>
+        </svg>
+        
+        <svg x="420.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_push_a"
+        data-id="label_push_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">push(a)</text>
+        </svg>
+        
+        <svg x="620.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_a "
+        id="label_pop_a"
+        data-id="label_pop_a">
+        <text class="tl-label val_a " x="50%" y="50%" fill="#ffffff">pop(a)</text>
+        </svg>
+        
+        <svg x="820.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_c "
+        id="label_push_c"
+        data-id="label_push_c">
+        <text class="tl-label val_c " x="50%" y="50%" fill="#ffffff">push(c)</text>
+        </svg>
+        
+        <svg x="1020.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_d "
+        id="label_push_d"
+        data-id="label_push_d">
+        <text class="tl-label val_d " x="50%" y="50%" fill="#ffffff">push(d)</text>
+        </svg>
+        
+        <svg x="1220.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_d "
+        id="label_pop_d"
+        data-id="label_pop_d">
+        <text class="tl-label val_d " x="50%" y="50%" fill="#ffffff">pop(d)</text>
+        </svg>
+        
+        <svg x="1420.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_c "
+        id="label_pop_c"
+        data-id="label_pop_c">
+        <text class="tl-label val_c " x="50%" y="50%" fill="#ffffff">pop(c)</text>
+        </svg>
+        
+        <svg x="1620.0"
+        y="800"
+        width="160"
+        height="40"
+        class="text_box label_box val_b "
+        id="label_pop_b"
+        data-id="label_pop_b">
+        <text class="tl-label val_b " x="50%" y="50%" fill="#ffffff">pop(b)</text>
+        </svg>
+        </svg>

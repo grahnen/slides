@@ -1,0 +1,4 @@
+[1] call push(a)
+[1] return
+[1] call pop(a)
+[1] return

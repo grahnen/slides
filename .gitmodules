@@ -13,3 +13,8 @@
 [submodule "guest_lecture_programming_theory/reveal.js"]
 	path = guest_lecture_programming_theory/reveal.js
 	url = https://github.com/hakimel/reveal.js
+
+[submodule "defense/reveal.js"]
+	path = defense/reveal.js
+	url = https://github.com/grahnen/reveal.js
+	branch = animate_svg
