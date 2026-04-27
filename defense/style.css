@@ -1,0 +1,23 @@
+h1 h2 h3 h4 h5 {
+    text-align: left !important;
+}
+
+h1 {
+    display: none;
+}
+
+.title div h1 {
+    display: inline;
+}
+
+p {
+    font-size: 8vh;
+}
+
+li {
+    font-size: 8vh;
+}
+
+pre.code-wrapper {
+    width: 100%;
+}

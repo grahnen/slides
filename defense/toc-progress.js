@@ -122,7 +122,7 @@ toc_progress.create=function()
 		// Main title
 		var main_title_set = false;
 		{
-			var title_element=this.getElementsByTagNames('h1,h2,h3',main_section)[0];
+			var title_element=this.getElementsByTagNames('h1',main_section)[0];
 			if (title_element!=null && (!title_element.hasAttribute('class') || title_element.getAttribute('class').indexOf('no-toc-progress')==-1))
 			{
 				if (main_section.hasAttribute('data-state'))
