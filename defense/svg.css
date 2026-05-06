@@ -44,3 +44,30 @@
 .hidden {
     opacity: 0;
 }
+
+/* .lb { */
+/*     font-size: 1vh; */
+/*   } */
+.instr {
+    font-size: 8px;
+  }
+.msg {
+    fill: gray;
+}
+
+.hdl_label {
+    fill: white;    
+}
+
+.hdl_box {
+    fill: none;
+}
+
+.hdl_box text {
+    fill: white;
+    font-size: 20px;
+}
+
+.pctr {
+    fill: red;
+}

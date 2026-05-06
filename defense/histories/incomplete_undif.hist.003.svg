@@ -39,8 +39,8 @@
         width="40"
         height="40"
         class="event_box text_box val_a thr_1 "
-        id="call_push_a"
-        data-id="call_push_a">
+        id="ret_push_a"
+        data-id="ret_push_a">
 
         <text x="50%" y="50%" font-size="32">6</text>
 
@@ -63,8 +63,8 @@
         width="40"
         height="40"
         class="event_box text_box val_a thr_2 "
-        id="call_pop_a"
-        data-id="call_pop_a">
+        id="ret_pop_a"
+        data-id="ret_pop_a">
 
         <text x="50%" y="50%" font-size="32">8</text>
 

@@ -14,14 +14,14 @@ def overlaps(a,b,c,d):
     return not ((b < c) or (d < a))
 
 
-def evt_box(op, vl, th, ctr, lb_ctr, extra_classes = ""):
+def evt_box(op, vl, th, ctr, lb_ctr, ctx, extra_classes = ""):
         return f'''<svg x="{xpos(ctr)}"
         y="{ypos(th)}"
         width="{width}"
         height="{height}"
         class="event_box text_box val_{vl} thr_{th} {extra_classes}"
-        id="call_{op}_{vl}"
-        data-id="call_{op}_{vl}">\n
+        id="{ctx}_{op}_{vl}"
+        data-id="{ctx}_{op}_{vl}">\n
         <text x="50%" y="50%" font-size="{fontsize}">{lb_ctr}</text>\n
         </svg>\n
         '''
@@ -73,7 +73,7 @@ class Operation:
         data-id="lin_{op}_{vl}" />\n'''
 
     def evt_boxes(self, op, vl, extra_classes = ""):
-        return evt_box(op, vl, self.th, self.call, self.call_lb, extra_classes) + evt_box(op, vl, self.th, self.ret, self.ret_lb, extra_classes)
+        return evt_box(op, vl, self.th, self.call, self.call_lb, "call", extra_classes) + evt_box(op, vl, self.th, self.ret, self.ret_lb, "ret", extra_classes)
 
     def path(self, op, vl, extra_classes = ""):
         # return f'''

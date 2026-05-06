@@ -55,8 +55,8 @@
         width="40"
         height="40"
         class="event_box text_box val_a thr_1 "
-        id="call_push_a"
-        data-id="call_push_a">
+        id="ret_push_a"
+        data-id="ret_push_a">
 
         <text x="50%" y="50%" font-size="32">4</text>
 
@@ -79,8 +79,8 @@
         width="40"
         height="40"
         class="event_box text_box val_a thr_2 "
-        id="call_pop_a"
-        data-id="call_pop_a">
+        id="ret_pop_a"
+        data-id="ret_pop_a">
 
         <text x="50%" y="50%" font-size="32">6</text>
 
@@ -103,8 +103,8 @@
         width="40"
         height="40"
         class="event_box text_box val_c thr_1 "
-        id="call_push_c"
-        data-id="call_push_c">
+        id="ret_push_c"
+        data-id="ret_push_c">
 
         <text x="50%" y="50%" font-size="32">8</text>
 
@@ -127,8 +127,8 @@
         width="40"
         height="40"
         class="event_box text_box val_c thr_3 "
-        id="call_pop_c"
-        data-id="call_pop_c">
+        id="ret_pop_c"
+        data-id="ret_pop_c">
 
         <text x="50%" y="50%" font-size="32">14</text>
 
@@ -151,8 +151,8 @@
         width="40"
         height="40"
         class="event_box text_box val_d thr_3 "
-        id="call_push_d"
-        data-id="call_push_d">
+        id="ret_push_d"
+        data-id="ret_push_d">
 
         <text x="50%" y="50%" font-size="32">10</text>
 
@@ -175,8 +175,8 @@
         width="40"
         height="40"
         class="event_box text_box val_d thr_2 "
-        id="call_pop_d"
-        data-id="call_pop_d">
+        id="ret_pop_d"
+        data-id="ret_pop_d">
 
         <text x="50%" y="50%" font-size="32">12</text>
 

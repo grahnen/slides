@@ -13,12 +13,12 @@ html {
 /* overwrite white theme */
 
 :root {
-  --uu-se-red: #960000;
-  --uu-se-gray: #cccccc;
+  /* --uu-se-red: #960000; */
+  /* --uu-se-gray: #cccccc */
   --r-main-font: "LM-regular-sans";
-  --r-main-color: #000000;
+  /* --r-main-color: #ffffff; */
   --r-heading-font: "LM-regular-sans";
-  --r-heading-color: var(--uu-se-red);
+  /* --r-heading-color: var(--uu-se-red); */
   --r-heading-text-transform: none;
 }
 
@@ -40,12 +40,12 @@ html {
 /* bullet points and numbering */
 
 ::marker {
-  color: var(--uu-se-red);
+  /* color: var(--uu-se-red); */
 }
 
 /* red emphasis */
 em {
-  color: var(--uu-se-red);
+  /* color: var(--uu-se-red); */
   font-style: normal !important;
 }
 
@@ -56,7 +56,7 @@ footer {
   position: fixed;
   left: 0;
   width: 100%;
-  background: var(--uu-se-gray);
+  /* background: var(--uu-se-gray); */
   color: #999;
   z-index: 1000;
 }
@@ -92,11 +92,11 @@ footer div {
   top: auto;
   bottom: 6vh;
   height: 0.5vh;
-  background: var(--uu-se-gray);
+  /* background: var(--uu-se-gray); */
 }
 
 .reveal .progress span {
-  background: var(--uu-se-red);
+  /* background: var(--uu-se-red);  */
 }
 
 /* title slide */
@@ -126,5 +126,5 @@ footer div {
 }
 
 .reveal section.title hr {
-  border-top: 0.1em solid var(--uu-se-red);
+  /* border-top: 0.1em solid var(--uu-se-red); */
 }

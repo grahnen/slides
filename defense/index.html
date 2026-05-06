@@ -10,27 +10,16 @@
 	    <!-- reveal.js stylesheets -->
 	    <link rel="stylesheet" href="reveal.js/dist/reset.css">
 	    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
-	    <link rel="stylesheet" href="reveal.js/dist/theme/white.css">
-	    <link rel="stylesheet" href="theme-uu/vs.css">
+	    <!-- <link rel="stylesheet" href="reveal.js/dist/theme/white.css"> -->
+	    <!-- <link rel="stylesheet" href="theme-uu/vs.css"> -->
+        <link rel="stylesheet" href="dracula.css" />
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="toc-progress.css">
-
+        <link rel="stylesheet" href="./reveal.js/dist/theme/dracula.css" id="theme"/>
         <!-- A language for highlight.js uses hljs var, which is undefined globally and only present in RevealHiglight().
              I need to work around this -->
-        <script src="theme-uu/hl-lean.js"></script>
-        
-	    <!-- reveal.js scripts -->
-	    <script src="reveal.js/dist/reveal.js" defer></script>
-	    <script src="reveal.js/dist/plugin/highlight.js" defer></script>
-	    <script src="reveal.js/dist/plugin/markdown.js" defer></script>
-	    <script src="reveal.js/dist/plugin/math.js" defer></script>
-	    <script src="reveal.js/dist/plugin/notes.js" defer></script>
-	    <script src="reveal.js/dist/plugin/search.js" defer></script>
-	    <script src="reveal.js/dist/plugin/zoom.js" defer></script>
-
-	    <!-- uu theme stylesheet and script -->
-	    <link rel="stylesheet" href="theme-uu/theme-uu.css">
-	    <script src="theme-uu/init.js" defer></script>
+        <link rel="stylesheet" href="svg.css"/> 
+        <script src="theme-uu/hl-lean.js"></script>        
     </head>
 
     <body>
@@ -40,14 +29,31 @@
 				    <img class="logo" src="./theme-uu/uu-logo-colour-gray.svg" alt="Logo">
 				    <div class="content">
 					    <h1>Concurrency</h1>
-                        <h2>Models, Algorithms, and Verification
-					    <hr>
-					    <div>Samuel Grahn</div>
+                        <h2>Models, Algorithms, and Verification</h2>
+					    <hr />
+					    <h3>Samuel Grahn</h3>
 					    <div style="font-size: smaller">Uppsala University, Sweden</div>
 					    <div>June 2026</div>
 				    </div>
 			    </section>
 			    <section data-markdown="md/introduction.md"></section>
+                <section data-markdown="md/paper1.md"></section>
+                <section>
+                    <h1>Paper II</h1>
+                    <h2>Event-Driven Programs</h2>
+                    <p><it>Handlers</it> communicate via:</p>
+                    <ul>
+                        <li>Message passing</li>
+                        <li>Shared Memory</li>
+                    </ul>
+                    <p>Handlers may access shared memory, and send messages to the <it>mailboxes</it> of other handlers<p>
+                    <p>When a process is not busy, it can fetch a message from its mailbox and start executing it</p>
+                    <p>We study <it>executions</it> of programs running on this model</p>
+                </section>
+                <section id="ed-intro" ></section>
+                <section data-markdown="md/paper2.md"></section>
+                <section data-markdown="md/paper3.md"></section>
+                <section data-markdown="md/conclusion.md"></section>
 			    <!-- <section class="title">
 				     <script>
 				     // copy title page
@@ -56,12 +62,29 @@
 			         </section> -->
 		    </div>
 	    </div>
-
-	    <header class="static-header"></header>
-	    <footer class="static-footer">
-		    <img src="theme-uu/uu-logo-colour-uu-red.svg" alt="Logo">
-		    <div>Uppsala University | samuel.grahn@it.uu.se</div>
-	    </footer>
+	    <!-- <header class="static-header"></header> -->
+	    <!-- <footer class="static-footer">
+		     <img src="theme-uu/uu-logo-colour-uu-red.svg" alt="Logo">
+		     <div>Uppsala University | samuel.grahn@it.uu.se</div>
+	         </footer> -->
+     <!-- reveal.js scripts -->
+	    <script src="reveal.js/dist/reveal.js" defer></script>
+	    <script src="reveal.js/dist/plugin/highlight.js" defer></script>
+	    <script src="reveal.js/dist/plugin/markdown.js" defer></script>
+	    <script src="reveal.js/dist/plugin/math.js" defer></script>
+	    <script src="reveal.js/dist/plugin/notes.js" defer></script>
+	    <script src="reveal.js/dist/plugin/search.js" defer></script>
+	    <script src="reveal.js/dist/plugin/zoom.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/animate/plugin.js"></script>
+        
+	    
+        
+	    
+        <script src="./scripts/svg.js"></script>
+        <script src="./scripts/edintro.js"></script>
+        <script src="theme-uu/init.js" defer></script>
     </body>
 
 </html>

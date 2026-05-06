@@ -54,7 +54,7 @@ def hist2tex(history, condense = True):
             if crm.group(2) == 'pop':
                 g = covers[crm.group(3)]
                 covers[crm.group(3)] = (g[0], g[1], ctr)
-            res += f'''<svg x="{xpos(ctr)}"
+            res += f'''<g x="{xpos(ctr)}"
                             y="{ypos(th)}"
                             width="{width}"
                             height="{height}"
@@ -62,7 +62,7 @@ def hist2tex(history, condense = True):
                             id="call_{crm.group(2)}_{crm.group(3)}"
                             data-id="call_{crm.group(2)}_{crm.group(3)}">\n'''
             res += f'<text x="50%" y="50%" font-size="{fontsize}">{lbctr}</text>\n'
-            res += f'</svg>'
+            res += f'</g>'
             labels[th] = (ctr, crm.group(2), crm.group(3))
         elif rrm != None:
             ctr += 1
@@ -73,7 +73,7 @@ def hist2tex(history, condense = True):
             (cc, op, vl) = labels.pop(th)
             if op == 'push':
                 covers[vl] = (ctr, th, None)
-            res += f'''<svg x="{xpos(ctr)}"
+            res += f'''<g x="{xpos(ctr)}"
                             y="{ypos(th)}"
                             width="{width}"
                             height="{height}"
@@ -81,7 +81,7 @@ def hist2tex(history, condense = True):
                             id="ret_{op}_{vl}"
                             data-id="ret_{op}_{vl}">\n'''
             res += f'<text x="50%" y="50%" font-size="{fontsize}">{lbctr}</text>\n'
-            res += f'</svg>'
+            res += f'</g>'
 
             res += f'''
             <path d="M {xpos(cc) + width/2},{ypos(th)} L {xpos(cc) + width/2},{ypos(th) - (height/2)} L {xpos(ctr) + width/2},{ypos(th) - (height/2)} L {xpos(ctr) + width/2},{ypos(th)}"

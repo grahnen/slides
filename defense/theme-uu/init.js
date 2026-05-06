@@ -1,10 +1,9 @@
 // make all paragraphs and list items fragments
 Reveal.addEventListener("ready", () => {
-    document.querySelectorAll("section p, section li, *[fragment], .make-fragment").forEach(
+    document.querySelectorAll("section p:not(.nofrag), section li:not(.nofrag), *[fragment], .make-fragment").forEach(
         li => li.classList.add("fragment")
     );
 });
-
 // Add note stuff
 // document.querySelectorAll("section[data-markdown]").forEach(
 //     sec => {
@@ -21,14 +20,15 @@ Reveal.initialize({
     controls: false,
     hash: true,
     center: false,
+    slideNumber: 'c',
     transition: "convex",
     highlight: {
         beforeHighlight: hljs => {
-            lean_stuff(hljs);   
-            console.log("Enabled Lean");
-            console.log(hljs.getLanguage("lean"))
-            
+            lean_stuff(hljs);
         }
+    },
+    animate: {
+        autoplay: true
     },
 
     // see https://revealjs.com/presentation-size/
@@ -39,5 +39,5 @@ Reveal.initialize({
         { src: 'toc-progress.js', async: true, callback: function() { toc_progress.initialize(); } } 
     ],
     // see https://revealjs.com/plugins/
-    plugins: [RevealMarkdown, RevealMath, RevealNotes, RevealSearch, RevealZoom,RevealHighlight],
+    plugins: [RevealMarkdown, RevealMath, RevealNotes, RevealSearch, RevealZoom, RevealLoadContent,  RevealAnimate,  RevealHighlight],
 });

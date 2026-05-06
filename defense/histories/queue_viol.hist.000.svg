@@ -39,8 +39,8 @@
         width="40"
         height="40"
         class="event_box text_box val_a thr_1 "
-        id="call_enq_a"
-        data-id="call_enq_a">
+        id="ret_enq_a"
+        data-id="ret_enq_a">
 
         <text x="50%" y="50%" font-size="32">2</text>
 
@@ -63,8 +63,8 @@
         width="40"
         height="40"
         class="event_box text_box val_a thr_1 "
-        id="call_deq_a"
-        data-id="call_deq_a">
+        id="ret_deq_a"
+        data-id="ret_deq_a">
 
         <text x="50%" y="50%" font-size="32">8</text>
 
@@ -87,8 +87,8 @@
         width="40"
         height="40"
         class="event_box text_box val_b thr_2 "
-        id="call_enq_b"
-        data-id="call_enq_b">
+        id="ret_enq_b"
+        data-id="ret_enq_b">
 
         <text x="50%" y="50%" font-size="32">4</text>
 
@@ -111,8 +111,8 @@
         width="40"
         height="40"
         class="event_box text_box val_b thr_2 "
-        id="call_deq_b"
-        data-id="call_deq_b">
+        id="ret_deq_b"
+        data-id="ret_deq_b">
 
         <text x="50%" y="50%" font-size="32">6</text>
 
