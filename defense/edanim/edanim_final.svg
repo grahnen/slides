@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 220 200" xml:space="preserve">
+
+<text x="30" y="25" class="lb">h1</text>
+<text x="100" y="25" class="lb">h2</text>
+<text x="170" y="25" class="lb">h3</text>
+
+<!-- h1 m1 -->
+<rect class="msg" x="10" y="30" width="60" height="25" />
+<text class="instr" x="13" y="40">h2: compute X</text>
+<text class="instr" x="13" y="50">h2: compute Y</text>
+
+<!-- h2 m1 -->
+<rect class="msg" x="80" y="30" width="60" height="25" />
+<text class="instr" x="83" y="40">Compute X</text>
+<text class="instr" x="83" y="50">h3: Check X</text>
+
+<!-- h2 m2 -->
+<rect class="msg" x="80" y="60" width="60" height="25"/>
+<text class="instr" x="83" y="70">Compute Y</text>
+<text class="instr" x="83" y="80">h3: Check Y</text>
+
+<!-- h1 m2 -->
+<rect class="msg" x="10" y="60" width="60" height="25"></rect>
+<text class="instr" x="13" y="70">Receive Y</text>
+<text class="instr" x="13" y="80">Display Y</text>
+
+<!-- h3 m1 -->
+<rect class="msg" x="150" y="30" width="60" height="25" />
+<text class="instr" x="153" y="40">Check X</text>
+<text class="instr" x="153" y="50">h2: X is bad, redo</text>
+
+<!-- h2 m3 -->
+<rect class="msg" x="80" y="90" width="60" height="25" />
+<text class="instr" x="83" y="100">Recompute X</text>
+<text class="instr" x="83" y="110">h3: Check X</text>
+
+<!-- h3 m2 -->
+<rect class="msg" x="150" y="60" width="60" height="25" />
+<text class="instr" x="153" y="70">Check Y</text>
+<text class="instr" x="153" y="80">h1: Y is good</text>
+
+<!-- h3 m3 -->
+<rect class="msg" x="150" y="90" width="60" height="25" />
+<text class="instr" x="153" y="100">Check X</text>
+<text class="instr" x="153" y="110">h1: X is good</text>
+
+<!-- h1 m3 -->
+<rect class="msg" x="10" y="90" width="60" height="25"></rect>
+<text class="instr" x="13" y="100">Receive X</text>
+<text class="instr" x="13" y="110">Display X</text>
+
+<circle id="h1ctr" class="pctr" cx="10" cy="38" r="2"/>
+<circle id="h2ctr" class="pctr" cx="80" cy="38" r="2"/>
+<circle id="h3ctr" class="pctr" cx="150" cy="38" r="2"/>
+</svg>

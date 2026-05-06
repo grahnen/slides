@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 220 200" xml:space="preserve">
+<text x="30" y="25" class="lb">h1</text>
+<text x="100" y="25" class="lb">h2</text>
+<text x="170" y="25" class="lb">h3</text>
+
+<rect class="msg" x="10" y="30" width="60" height="25" />
+<text class="instr" x="13" y="40">h2: compute X</text>
+<text class="instr" x="13" y="50">h2: compute Y</text>
+
+<circle id="h1ctr" class="pctr" cx="10" cy="38" r="2"/>
+  
+</svg>
