@@ -54,15 +54,25 @@ pre.code-wrapper {
 
 
 
-@font-face {
-  font-family: "LM-regular-sans";
-  src: url(./theme-uu/lmsans10-regular.otf) format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
+/* @font-face { */
+/*   font-family: "LM-regular-sans"; */
+/*   src: url(./theme-uu/lmsans10-regular.otf) format("woff2"); */
+/*   font-weight: normal; */
+/*   font-style: normal; */
+/* } */
 
-html {
-  font-family: "LM-regular-sans";
+
+
+/* @font-face { */
+/*   font-family: "Iosevka-regular"; */
+/*   src: url(./webfonts/Iosevka.woff2) format("woff2"); */
+/*   font-weight: normal; */
+/*   font-style: normal; */
+/* } */
+
+
+* {
+  font-family: "Iosevka-regular";
 }
 
 .reveal .slides section {

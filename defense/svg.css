@@ -56,7 +56,8 @@
 }
 
 .hdl_label {
-    fill: white;    
+    fill: white;
+    font-size: 30px;
 }
 
 .hdl_box {
@@ -70,4 +71,60 @@
 
 .pctr {
     fill: red;
+}
+
+
+.mailbox {
+    fill: none;
+    stroke: white;
+}
+
+.edgegroup rect {
+    fill: var(--r-background-color);
+}
+
+.eo_e {
+    fill: red;
+    stroke: red;
+}
+.eo_l {
+    fill: red;
+    font-size: 9px;
+}
+
+
+.rf_e {
+    fill: lightgreen;
+    stroke: lightgreen;
+}
+.rf_l {
+    fill: lightgreen;
+    font-size: 9px;
+}
+
+.pb_e {
+    fill: yellow;
+    stroke: yellow;
+}
+.pb_l {
+    fill: yellow;
+    font-size: 9px;
+}
+
+.co_e {
+    fill: orange;
+    stroke: orange;
+}
+.co_l {
+    fill: orange;
+    font-size: 9px;
+}
+
+.mo_e {
+    fill: purple;
+    stroke: purple;
+}
+.mo_l {
+    fill: purple;
+    font-size: 9px;
 }

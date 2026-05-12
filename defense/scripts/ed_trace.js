@@ -12,7 +12,7 @@ Reveal.on('ready', (ev) => {
     let cnt = 0;
     var thcnt = [0, 0, 0];
 
-    const width = 400;
+    const width = 410;
     const height = 170;
 
     var mailboxes = [[], [], []];
@@ -180,6 +180,8 @@ Reveal.on('ready', (ev) => {
         //msg.rect.setAttribute("height", `${5 + msg.revealed_instructions * 10}`);
 
         msg.name.setAttribute("class", "instr hidden");
+
+        reveal_instr(msg);
     }
 
     function reveal_instr(msg) {
@@ -207,36 +209,83 @@ Reveal.on('ready', (ev) => {
         PC[hdl].setAttribute("cy", PCPOS[hdl]);
     }
 
+    let init = addmsg(msgs, 1, 0, "init", ["get(init)","write(x,1)","post(h1,m2)","post(h3, m3)"]);
+
     createSlide();
 
+    fetchmessage(init);
 
     createSlide();
 
-    const m1 = addmsg(msgs, 0, 0, "init", ["Write(X,0)", "h2: compute X", "h2: compute Y"]);
+    PC[1].setAttribute("class", "pctr");
+
+    createSlide();
+    stepPC(1);
+
+    createSlide();
+
+    reveal_instr(init);
+
+    createSlide();
+    
+    stepPC(1);
+
+    createSlide();
+
+    reveal_instr(init);
+
+    createSlide();
+
+    stepPC(1);
+    const m2 = addmsg(msgs, 0, 0, "m2", ["get(m2)", "write(x,2)", "read(x, 3)"]);
+
+    createSlide();
+
+    reveal_instr(init);
+
+    createSlide();
+
+    stepPC(1);
+    const m3 = addmsg(msgs, 2, 0, "m3", ["get(m3)", "read(x,1)", "post(h1,m1)"]);
+    stepPC(1);
+    createSlide();
+
+    fetchmessage(m3);
+    PC[2].setAttribute("class", "pctr");
+    stepPC(2);
+    createSlide();
+
+    reveal_instr(m3);
+
+    createSlide();
+
+    stepPC(2);
+
+    createSlide();
+
+    reveal_instr(m3);
+
+
+    createSlide();
+
+    stepPC(2);
+    stepPC(2);
+
+    let m1 = addmsg(msgs, 0, 1, "m1", ["get(m1)", "read(x,1)", "post(h3, m4)"]);
 
     createSlide();
 
     fetchmessage(m1);
-
     PC[0].setAttribute("class", "pctr");
-
+    stepPC(0);
+    
     createSlide();
 
     reveal_instr(m1);
 
     createSlide();
-
+    
     stepPC(0);
-
-    createSlide();
-
-    reveal_instr(m1);
-
-    createSlide();
-
-    stepPC(0);
-    const m2 = addmsg(msgs, 1, 0, "compute X", ["Write(X,0)", "h3: Check X"]);
-    PC[1].setAttribute("class", "pctr");
 
     createSlide();
 
@@ -246,107 +295,49 @@ Reveal.on('ready', (ev) => {
 
     stepPC(0);
     stepPC(0);
-    const m3 = addmsg(msgs, 1, 1, "compute Y", ["Write(Y,1)", "h3: Check Y"]);
+
+    const m4 = addmsg(msgs, 2, 0, "m4", ["get(m4)", "read(x,2)", "write(x,3)"]);
 
     createSlide();
 
     fetchmessage(m2);
 
-    createSlide();
-
-    reveal_instr(m2);
-
-    createSlide();
-
-    stepPC(1);
+    stepPC(0);
 
     createSlide();
 
     reveal_instr(m2);
 
-    createSlide();
-
-    stepPC(1);
-    stepPC(1);
-    const m4 = addmsg(msgs, 2, 0, "check X", ["Read(X,0)", "h2: redo X"])
-    PC[2].setAttribute("class", "pctr");
+    stepPC(0);
 
     createSlide();
 
     fetchmessage(m4);
 
+    stepPC(2);
+
+    createSlide();
+    reveal_instr(m4);
+    stepPC(2);
+
     createSlide();
 
     reveal_instr(m4);
-
-    createSlide();
-
-    stepPC(2);
-
-    createSlide();
-
-    fetchmessage(m3);
-
-    createSlide();
-
-    reveal_instr(m3);
-
-    createSlide();
-
-    stepPC(1);
-
-    createSlide();
-
-    reveal_instr(m3);
-
-    createSlide();
-
-
-    reveal_instr(m4);
-
-    createSlide();
-
     stepPC(2);
     stepPC(2);
 
-    const m5 = addmsg(msgs, 1, 0, "compute X", ["Write(X,1)", "h3: Check X"])
-
     createSlide();
 
-    const m6 = addmsg(msgs, 2, 1, "check Y", ["Read(Y,1)", "h1: Y is good"]);
-    const m7 = addmsg(msgs, 2, 0, "check X", ["Read(X,1)", "h1: X is good"]);
-
-    const m8 = addmsg(msgs, 0, 0, "use Y", ["Read(Y,1)"]);
-    const m9 = addmsg(msgs, 0, 1, "use X", ["Read(X,1)"]);
-
-    [m5, m6, m7, m8, m9].forEach(ls => {
-        fetchmessage(ls);
-        ls.instrs.forEach(_ => reveal_instr(ls));
-    });
-
+    reveal_instr(m2);
     stepPC(0);
     stepPC(0);
-    stepPC(0);
-    stepPC(0);
+    
+    createSlide();
 
-    stepPC(1);
-    stepPC(1);
-    stepPC(1);
-    stepPC(1);
-    stepPC(1);
-
-    stepPC(2);
-    stepPC(2);
-    stepPC(2);
-    stepPC(2);
-    stepPC(2);
-    stepPC(2);
+    [0,1,2].forEach(i => PC[i].setAttribute("class", "pctr hidden"));
 
     createSlide();
 
-    PC.forEach(pc => pc.setAttribute("class", "pctr hidden"));
-
-    createSlide();
 
     function swapBox(a, b) {
         // NOTE: only works for messages of equal length for now..
@@ -363,69 +354,217 @@ Reveal.on('ready', (ev) => {
         b.container.setAttribute("transform", atr);
     }
 
-    swapBox(m8, m9);
+    swapBox(m1, m2);
 
-    createSlide();
+    createSlide(),
 
-    swapBox(m3, m5)
-
+    swapBox(m3, m4);
+    
     createSlide();
 
     section = document.getElementById("egraph-intro");
+
+    swapBox(m1, m2);
+    swapBox(m3, m4);
 
     createSlide();
 
     root.removeChild(bg);
 
-    var mdata = [m1, m2, m3, m4, m5, m6, m7, m8, m9];
-    yoffset = 15;
+    var mdata = [init, m1, m2, m3, m4];
+    yoffset = 20;
     ystart = 0;
     mdata.forEach(msg => updatepos(msg));
 
     createSlide();
 
+    function labeled_line(root, m1x, m1y, m2x, m2y, edgetp) {
+        const lx = (m1x + m2x) / 2;
+        const ly = (m1y + m2y) / 2;
+        
+        const lb = textbox(lx - 7, ly - 7, 14, 14, edgetp.label, edgetp.label + "_l");
+        //const box = rect(lx - 5, ly - 5, 10, 10, edgetp.label + "_b");
+        // TODO: Compute cx - "spacing" using trig
+        // And make arrow: <line> --- </line> <text>lb</text> <line> ---> </line>
+        // 1. Midpoint of the full line
+        const mx = (m1x + m2x) / 2;
+        const my = (m1y + m2y) / 2;
+
+        // 2. Full line length
+        const dx = m2x - m1x;
+        const dy = m2y - m1y;
+        const len = Math.hypot(dx, dy);
+
+        // 3. Unit direction vector
+        const ux = dx / len;
+        const uy = dy / len;
+
+        // 4. Half-gap distance
+        const gap = 12;
+        const h = gap / 2;
+
+        // 5. Compute the two cut points
+        const cx = mx - ux * h;
+        const cy = my - uy * h;
+
+        const cm2x = mx + ux * h;
+        const cm2y = my + uy * h;
+
+        // 6. Draw the two visible segments
+        const fst = line(m1x, m1y, cx, cy, edgetp.label + "_e");
+        const arr = line(cm2x, cm2y, m2x, m2y, edgetp.label + "_e");
+
+        root.appendChild(fst);
+        root.appendChild(arr);
+        //g.appendChild(box);
+        root.appendChild(lb);
+
+        return {
+            fst: fst,
+            lb: lb,
+            lst: arr,
+        };
+    }
     
-    
+    function edge(a, ia, b, ib, edgetp, path = []) {
+        const [mb1x, mb1y] = getpos(a);
+        const m1yoff = mb1y + ia * instroffset + 7;
+
+        const [mb2x, mb2y] = getpos(b);
+        const m2yoff = mb2y + ib * instroffset + 7;
+
+        var m1xo = 0;
+        var m2xo = 0;
+
+        var m1yo = 0;
+        var m2yo = 0;
+
+        const xspacing = 15;
+        const yspacing = 5;
+
+        if (mb1x == mb2x) {
+            // Same thread
+            m1xo = xspacing;
+            m2xo = xspacing;
+            if(m1yoff < m2yoff) {
+                m1yo = yspacing;
+                m2yo = -yspacing;
+            }
+        } else {
+            if (mb1x < mb2x) {
+                m1xo = width_of_instr(a, ia);
+            } else {
+                m2xo = width_of_instr(b, ib);
+            }
+        }
+
+        const m1x = mb1x + m1xo;
+        const m1y = m1yoff + m1yo;
+        const m2x = mb2x + m2xo;
+        const m2y = m2yoff + m2yo;
+
+        const g = group("edgegroup ");
+
+        var lbl;
+        if(path.length > 0) {
+            var [lx, ly] = path[0];
+            var label_next = false;
+            var last = false;
+            for(var i = 1; i < path.length; i++) {
+                if(path[i] === null) {
+                    label_next = true;
+                    continue;
+                }
+                if (i === path.length - 1) {
+                    last = true;
+                }
+                
+                let [x,y] = path[i];
+                console.log(x, y);
+                if(label_next) {
+                    label_next = false;
+                    lbl = labeled_line(g, lx, ly, x, y, edgetp);
+                    // Already added to g as part of labeled_line
+                    if(last) {
+                        lbl.lst.setAttribute("marker-end", "url(#arrow-tip)");
+                    }
+                } else {
+                    const l = line(lx, ly, x, y, edgetp.label + "_e");
+                    if(last) {
+                        l.setAttribute("marker-end", "url(#arrow-tip)");
+                    }
+                    g.appendChild(l);
+                }
+
+                lx = x;
+                ly = y;
+            }           
+        } else {
+
+            lbl = labeled_line(g, m1x, m1y, m2x, m2y, edgetp);
+            lbl.lst.setAttribute("marker-end", "url(#arrow-tip)");
+            
+        }
+        
+        return {
+            container: g,
+            line: lbl,
+        };
+    }
+
+
+    function addedge(m1, i1, m2, i2, tp, path = []) {
+        const e1 = edge(m1, i1, m2, i2, tp, path);
+        ctrs.appendChild(e1.container);
+        return e1;
+    }
+
+
     const eo = {clazz: "eogroup", label: "eo"};
     const rf = {clazz: "eogroup", label: "rf"};
     const pb = {clazz: "eogroup", label: "pb"};
+    const co = {clazz: "eogroup", label: "co"};
+    const mo = {clazz: "eogroup", label: "mo"};
 
-    // H1
-    const e19 = addedge(m1, 2, m9, 0, eo);
-    const e98 = addedge(m9, 0, m8, 0, eo);
+    const rx1m1 = addedge(init, 1, m1, 1, rf);
+    const rx1m3 = addedge(init, 1, m3, 1, rf);
 
-    //H2
-    const e25 = addedge(m2, m2.instrs.length - 1, m5, 0, eo);
-    const e53 = addedge(m5, m5.instrs.length - 1, m3, 0, eo);
-
-    //H3
-    const e46 = addedge(m4, m4.instrs.length - 1, m6, 0, eo);
-    const e67 = addedge(m6, m6.instrs.length - 1, m7, 0, eo);
+    const rx2m4 = addedge(m2, 1, m4, 1, rf);
+    const rx3m2 = addedge(m4, 2, m2, 2, rf);
 
     createSlide();
 
-    // RF
-    const x0c = addedge(m2, 0, m4, 0, rf);
-    const m1xc = addedge(m5, 0, m7, 0, rf);
-    const m1xa = addedge(m5, 0, m9, 0, rf);
+    const pm1 = addedge(m3, 2, m1, 0, pb, [
+        [320,48], [400,48], [400, 10], null, [30, 10], [30, 23]
+    ]);
 
-    const m1yc = addedge(m3, 0, m6, 0, rf);
-    const m1ya = addedge(m3, 0, m8, 0, rf);
+    const pm4 = addedge(m1, 2, m4, 0, pb, [
+        [10, 48], [0, 48], [0, 160], [400, 160], null, [400, 107], [310, 107]
+    ]);
 
-    createSlide();
-
-
-    // Pb
-    const p2 = addedge(m1, 1, m2, 0, pb);
-    const p3 = addedge(m1, 2, m3, 0, pb);
-    const p4 = addedge(m2, 1, m4, 0, pb);
-    const p5 = addedge(m4, 1, m5, 0, pb);
-    const p6 = addedge(m3, 1, m6, 0, pb);
-    const p7 = addedge(m5, 1, m7, 0, pb);
-    const p8 = addedge(m6, 1, m8, 0, pb);
-    const p9 = addedge(m7, 1, m9, 0, pb);
+    const pm2 = addedge(init, 2, m2, 0, pb, [
+        [140, 48], [130, 48], null, [130, 108], [50, 108]
+    ]);
+    const pm3 = addedge(init, 3, m3, 0, pb, [
+        [200, 58], null, [260, 58], [260, 27], [270, 27]
+    ]);
 
     createSlide();
 
+    const cox12 = addedge(init, 1, m2, 1, co);
+
+    const cox23 = addedge(m2, 1, m4, 2, co);
+
+    createSlide();
+
+    const eo12 = addedge(m1, 2, m2, 0, eo);
+    const eo34 = addedge(m3, 2, m4, 0, eo);
+
+    createSlide();
+
+    const mo12 = addedge(init, 2, m3, 2, mo);
+    const mo34 = addedge(init, 3, m1, 2, mo);
+
+    createSlide();
     
 });

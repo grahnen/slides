@@ -7,6 +7,23 @@ function svg(args) {
     for (let attr in args) {
         svg.setAttribute(attr, args[attr]);
     }
+
+    // if(mkarrow) {
+    //     const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    //     svg.appendChild(defs);
+
+    //     const marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
+    //     marker.setAttribute("id", "arrow-tip");
+    //     marker.setAttribute("viewBox", "0 0 10 10");
+    //     marker.setAttribute("refX", 5);
+    //     marker.setAttribute("refY", 5);
+    //     marker.setAttribute("markerWidth", 6);
+    //     marker.setAttribute("markerHeight", 6);
+    //     marker.setAttribute("orient", "auto-start-reverse");
+    //     marker.setAttribute("path", "M 0 0 L 10 5 L 0 10 z");
+        
+    //     defs.appendChild(marker);
+    // }
     return svg;
 }
 
@@ -23,6 +40,12 @@ function line(x1, y1, x2, y2, clazz = "") {
     line.setAttribute("class", clazz);
     line.setAttribute("d", xyxyToD(x1, y1, x2, y2));
     return line;
+}
+
+function arrow(x1, y1, x2, y2, clazz = "") {
+    const ln = line(x1, y1, x2, y2, clazz);
+    ln.setAttribute("marker-end", "url(#arrow-tip)");
+    return ln;
 }
 
 function xyxyToD(x1, y1, x2, y2) {
@@ -134,7 +157,7 @@ function centeredText(cx, cy, content, length, clazz = "") {
 }
 
 function textbox(x, y, width, height, text, boxclass) {
-    const box = svg({"class": boxclass});
+    const box = svg({"class": boxclass, viewBox: `0 0 ${width} ${height}`});
     box.setAttribute("x", x);
     box.setAttribute("y", y);
     box.setAttribute("width", width);

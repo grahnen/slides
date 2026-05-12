@@ -7,6 +7,8 @@
 
 	    <title>Concurrency</title>
 
+        <!-- Iosevka font. TODO: add this locally.. -->
+        <link href="https://iosevka-webfonts.github.io/iosevka/Iosevka.css" rel="stylesheet" />
 	    <!-- reveal.js stylesheets -->
 	    <link rel="stylesheet" href="reveal.js/dist/reset.css">
 	    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
@@ -23,6 +25,13 @@
     </head>
 
     <body>
+        <svg width="0" height="0">
+            <defs>
+                <marker id="arrow-tip" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" stroke="context-stroke" fill="context-fill" />
+                </marker>
+            </defs>
+        </svg>
 	    <div class="reveal">
 		    <div class="slides">
 			    <section class="title no-toc-progress" data-state="no-toc-progress">
@@ -38,19 +47,6 @@
 			    </section>
 			    <section data-markdown="md/introduction.md"></section>
                 <section data-markdown="md/paper1.md"></section>
-                <section>
-                    <h1>Paper II</h1>
-                    <h2>Event-Driven Programs</h2>
-                    <p><it>Handlers</it> communicate via:</p>
-                    <ul>
-                        <li>Message passing</li>
-                        <li>Shared Memory</li>
-                    </ul>
-                    <p>Handlers may access shared memory, and send messages to the <it>mailboxes</it> of other handlers<p>
-                    <p>When a process is not busy, it can fetch a message from its mailbox and start executing it</p>
-                    <p>We study <it>executions</it> of programs running on this model</p>
-                </section>
-                <section id="ed-intro" ></section>
                 <section data-markdown="md/paper2.md"></section>
                 <section data-markdown="md/paper3.md"></section>
                 <section data-markdown="md/conclusion.md"></section>
@@ -82,9 +78,10 @@
 	    
         
 	    
-        <script src="./scripts/svg.js"></script>
-        <script src="./scripts/edintro.js"></script>
         <script src="theme-uu/init.js" defer></script>
+        <script src="./scripts/svg.js"></script>
+        <script src="./scripts/ed_trace.js" defer></script>
+
     </body>
 
 </html>

@@ -15,6 +15,8 @@ Reveal.addEventListener("ready", () => {
 
 Reveal.configure({ pdfSeparateFragments: false });
 
+const readyevent = "reveal_ready";
+
 Reveal.initialize({
     // see https://revealjs.com/config/
     controls: false,

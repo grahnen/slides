@@ -1,6 +1,6 @@
-#+title: *Efficient Linearizability Monitoring*
+#+title: Concurrency: Models, Algorithms, and Verification
 #+AUTHOR: /Samuel Grahn/
-#+DATE: January 2025
+#+DATE: June 2026
 
 #+cite_export: csl mystyle.csl
 
@@ -36,7 +36,8 @@
 
 #+bibliography: references.bib
 
-* My Work
+* Introduction
+
 Under submission
 *** Consistency Checking against the Release-Acquire semantics
 Work with Parosh, Elli and Faouzi.
