@@ -155,7 +155,6 @@ Reveal.on('ready', (ev) => {
         // Hard coded here and in css :D
         const fontSize = 8;
         const width = i.textContent.length * fontSize * 0.6;
-        console.log(width);
         return width;
     }
 
@@ -376,9 +375,8 @@ Reveal.on('ready', (ev) => {
     ystart = 0;
     mdata.forEach(msg => updatepos(msg));
 
-    createSlide();
 
-    function labeled_line(root, m1x, m1y, m2x, m2y, edgetp) {
+        function labeled_line(root, m1x, m1y, m2x, m2y, edgetp) {
         const lx = (m1x + m2x) / 2;
         const ly = (m1y + m2y) / 2;
         
@@ -480,7 +478,6 @@ Reveal.on('ready', (ev) => {
                 }
                 
                 let [x,y] = path[i];
-                console.log(x, y);
                 if(label_next) {
                     label_next = false;
                     lbl = labeled_line(g, lx, ly, x, y, edgetp);
@@ -519,6 +516,7 @@ Reveal.on('ready', (ev) => {
         return e1;
     }
 
+    createSlide();
 
     const eo = {clazz: "eogroup", label: "eo"};
     const rf = {clazz: "eogroup", label: "rf"};

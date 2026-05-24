@@ -5,13 +5,15 @@ We have developed techniques in different areas related to verification of concu
 - Linearizability
 - Event-Driven programming
 - Weak memory models
+
 ---
+
 ## Future Work
 Linearizability
-- Extend to similar correcntess conditions:
+- Extend to similar correctness conditions:
   + (set/interval/k)-linearizability
   + durable linearizability
-  
+
 Event-driven
 - Implement our check in a model checker (e.g. genMC or Nidhugg).
 
@@ -20,4 +22,5 @@ Weak Memory Models
 - Implement our PSPACE algorithm in the tool.
 
 ---
+
 ## Thanks for listening!

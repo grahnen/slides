@@ -33,6 +33,8 @@ Reveal.initialize({
         autoplay: true
     },
 
+    //autoAnimate: false,
+
     // see https://revealjs.com/presentation-size/
     width: 1920,
     height: 1080,
@@ -41,5 +43,5 @@ Reveal.initialize({
         { src: 'toc-progress.js', async: true, callback: function() { toc_progress.initialize(); } } 
     ],
     // see https://revealjs.com/plugins/
-    plugins: [RevealMarkdown, RevealMath, RevealNotes, RevealSearch, RevealZoom, RevealLoadContent,  RevealAnimate,  RevealHighlight],
+    plugins: [RevealMarkdown, RevealMath, RevealNotes, RevealSearch, RevealZoom, RevealLoadContent,  RevealAnimate ,  RevealHighlight],
 });

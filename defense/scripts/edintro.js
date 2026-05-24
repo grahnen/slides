@@ -155,7 +155,6 @@ Reveal.on('ready', (ev) => {
         // Hard coded here and in css :D
         const fontSize = 8;
         const width = i.textContent.length * fontSize * 0.6;
-        console.log(width);
         return width;
     }
 
