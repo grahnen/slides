@@ -82,7 +82,8 @@ Until we find a suitable $w$ and have found a violation.
 
 ---
 
-## Our results
+## Verification of the Release-Acquire Semantics
+### Parosh Aziz Abdulla, Elli Anastasiadi, Mohamed Faouzi Atig, Samuel Grahn
 
 We show PSPACE completeness for RA and SRA.
 

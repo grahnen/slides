@@ -53,7 +53,8 @@ Commonly used to define consistency criteria.
 
 ---
 
-## Our Work
+## Checking Consistency of Event-Driven Traces
+### Parosh Aziz Abdulla, Mohamed Faouzi Atig, R. Govind, Samuel Grahn, Ramanathan S. Thinniyam
 - We show NP-hardness for _SC_ with _Queue_ mailboxes.
 - We provide an algorithm, and an implementation that utilizes an efficient encoding into the Z3 SMT solver.
 

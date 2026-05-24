@@ -119,14 +119,14 @@ pre.code-wrapper {
 
 section.title h1 {
     color: white;
-    font-size: 34vh;
+    font-size: 256px;
 }
 
 section.title h2 {
     color: white;
 }
 section.title h3 {
-    font-size: 28vh;
+    font-size: 128px;
 }
 
 section.title div {
