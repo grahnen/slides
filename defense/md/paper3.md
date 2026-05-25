@@ -51,6 +51,7 @@ We model memory systems as _register machines_:
 ---
 
 ## Weak Memory Models
+
 Defined using acyclicity of execution graphs.
 
 - An execution satisfies _SC_ if $po \cup rf \cup fr \cup co$ is acyclic.
@@ -67,7 +68,8 @@ Defined using acyclicity of execution graphs.
 
 ---
 
-## Our results
+## Verification of the Release-Acquire Semantics
+### Parosh Aziz Abdulla, Elli Anastasiadi, Mohamed Faouzi Atig, Samuel Grahn
 
 We present a polynomial-time algorithm based on saturation for WRA.
 
@@ -75,13 +77,19 @@ $w \cdot hb \cdot w' \cdot hb \cdot rf^{-1}$
 
 We search backwards from read-transitions, starting with suffix $hb \cdot rf^{-1}$
 
-For each possible write $w'$ on such a suffix, we start tracking paths
+For each possible write $w'$ leading to such a suffix, we start tracking path suffixes:
 $hb \cdot w' \cdot hb \cdot rf^{-1}$
 
-Until we find a suitable $w$ and have found a violation.
+Until we find a write $w$ that leads to a violation.
+
+Note:
+
+Recall the definition for WRA.
+
+Backwards because this makes copy-transitions easier to handle.
+From reads because any cycle in the execution graph must have been introduced by a read.
 
 ---
-
 ## Verification of the Release-Acquire Semantics
 ### Parosh Aziz Abdulla, Elli Anastasiadi, Mohamed Faouzi Atig, Samuel Grahn
 

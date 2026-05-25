@@ -9,7 +9,14 @@ When a handler is not busy it can fetch a message from its mailbox and start exe
 
 We study _executions_ of programs running on this model.
 
+Note:
+
+We proceed with Paper 2.
+
+We start by describing the Event-Driven concurrency model.
+
 ---
+
 <!-- .slide: id="ed-intro" -->
 
 ---
@@ -22,18 +29,19 @@ We can place constraints on the memory accesses and on the mailboxes.
   + The behavior of a concurrent program is as if the threads take turns executing their instructions.
 - And we consider _Queue_ mailboxes
   + Messages are executed in the order they are received.
-  
+
 ---
 ## Why?
 
 - Event-Driven software is _Popular_:
   + High-performance servers
   + Android applications
+  + Web applications
   + ...
-
+  
 - Model checking software approaches such as DPOR "guess" new traces.
   + Checking the consistency of a trace lets the model checker discard executions that are not feasible.
-  
+
 ---
 
 ## Execution Graphs
@@ -44,6 +52,13 @@ Commonly used to define consistency criteria.
 
 ---
 <!-- .slide: id="egraph-intro" -->
+
+---
+
+## Sequential Consistency
+_SC_ in the message passing context is defined as acyclicity of the execution graph with edges _rf_, _co_, _pb_, _eo_, _mo_, and _fr_
+
+_fr_ = _rf_$^{-1}$ _co_
 
 ---
 
@@ -59,13 +74,6 @@ Commonly used to define consistency criteria.
 ### Parosh Aziz Abdulla, Mohamed Faouzi Atig, R. Govind, Samuel Grahn, Ramanathan S. Thinniyam
 - We show NP-hardness for _SC_ with _Queue_ mailboxes.
 - We provide an algorithm, and an implementation that utilizes an efficient encoding into the Z3 SMT solver.
-
----
-
-## Sequential Consistency
-_SC_ in the message passing context is defined as acyclicity of the execution graph with edges _rf_, _co_, _pb_, _eo_, _mo_, and _fr_
-
-_fr_ = _rf_$^{-1}$ _co_
 
 ---
 

@@ -2,15 +2,26 @@
 <!-- .slide: data-auto-animate -->
 <div data-id="intro" data-animate data-load="intro1.svg"></div>
 
+
+Note:
+In a concurrent system, you have independent computation units
+here computers, in hardware cores
+
 ---
 
 <!-- .slide: data-auto-animate -->
 <div data-id="intro" data-animate data-load="intro2.svg"></div>
 
+Note:
+These units communicate, often via some shared object
+
 ---
 
 <!-- .slide: data-auto-animate -->
 <div data-id="intro" data-animate data-load="intro3.svg"></div>
+
+Note:
+Often using some well-defined structure
 
 ---
 <!-- .slide: data-auto-animate  -->
@@ -38,6 +49,12 @@ Extension of sequential specifications to a concurrent setting.
 }
 -->
 </div>
+
+Note:
+
+THIS IS AN EXECUTION.
+- Each row is a thread
+- each box is an event: call or return.
 
 ---
 
@@ -74,13 +91,11 @@ Extension of sequential specifications to a concurrent setting.
 
 ## Related Work
 - Verifying implementations is known to be EXPSPACE complete.
-
 - Checking linearizability of a single execution is NP-hard for arbitrary structures.
 - Specialised monitoring algorithms have been developed in earlier work
   + Stacks: Polynomial.
   + Queues: $\mathcal{O}(n)$
 
-  
 ---
 
 ## Efficient Linearizability Monitoring
@@ -100,10 +115,15 @@ We note that the stack specification $\mathcal{S}$ can be defined inductively:
 
 We assume _differentiated_ histories: each value occurrs in one push and (up to) one pop.
 
+Note:
+
+We use this inductive definition to construct a recursive algorithm.
+
 ---
 
 
 ## Stack Algorithm
+
 - Compute _populated_ and _deserted_ segments
 - Apply simplification steps:
   + Extreme value removal
@@ -212,6 +232,11 @@ If we ever cannot progress, conclude unlinearizability.
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.017.svg"></div>
 
 ---
+## Assumptions
+- Every push has a matching pop
+- Every pop succeeds.
+
+---
 <!-- .slide: data-auto-animate  -->
 ## Unpopped Value
 <div data-id="history3" data-preload data-animate data-load="histories/incomplete_dif.hist.000.svg"></div>
@@ -264,6 +289,10 @@ $$ <!-- .element: class="nofrag" data-id="queueviol" -->
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 
+Note:
+
+We draw this constraint as a part of a history.
+
 ---
 
 <!-- .slide: data-auto-animate -->
@@ -274,12 +303,20 @@ $$ <!-- .element: class="nofrag" data-id="queueviol" -->
 
 <div data-id="history5" data-preload data-animate data-load="histories/queue_viol.hist.001.svg"></div>
 
+Note:
+
+We can draw the inner segments of these values.
+
 ---
 
 <!-- .slide: data-auto-animate -->
 $$\textit{outer}\textrm{ seg. of }b \subseteq \textit{inner}\textrm{ seg. of }a$$<!-- .element: class="nofrag center" data-id="queueviol" -->
 
 <div data-id="history5" data-preload data-animate data-load="histories/queue_viol.hist.001.svg"></div>
+
+Note:
+
+An outer seg. contained in some inner seg.
 
 ---
 
@@ -309,6 +346,14 @@ _Inner_ segments: (3, 6), (4, 11), (9, 14), (12, 26), (16, 25), (18, 20), (21, 2
 _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), (15, 23), (19, 31), (22, 32)
 <!-- .element: data-id="outersegs" -->
 
+Note:
+
+As an example, consider the following queue history.
+
+It has these inner segments. e.g. (3,6) corresponds to value 0
+
+And these outer segments. e.g. (15, 23) corresponds to value 5
+
 ---
 <!-- .slide: data-auto-animate -->
 <div data-id="history6" data-preload data-load="histories/queue_ex.hist.000.svg"></div>
@@ -320,6 +365,9 @@ _Inner_ segments: (3, 6), (4, 11), (9, 14), (12, 26), (16, 25), (18, 20), (21, 2
 _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), _(15, 23)_, (19, 31), (22, 32) 
 <!-- .element: class="nofrag" data-id="outersegs" -->
 
+Note:
+
+We transform this history into a queue tree.
 
 ---
 <!-- .slide: data-auto-animate -->
@@ -328,6 +376,13 @@ _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), _(15, 23)_, (19, 
 _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), _(15, 23)_, (19, 31), (22, 32) 
 <!-- .element: class="nofrag" data-id="outersegs" -->
 
+Note:
+
+We want to see if (15, 23) is contained in some inner segment.
+
+We check if 16 < 15, which it is not.
+
+If (15,23) is contained, it must be in the left subtree.
 
 ---
 <!-- .slide: data-auto-animate -->
@@ -336,6 +391,16 @@ _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), _(15, 23)_, (19, 
 _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), _(15, 23)_, (19, 31), (22, 32) 
 <!-- .element: class="nofrag" data-id="outersegs" -->
 
+Note:
+
+Now, we see that 9 < 15, so (15, 23) can be in any of the trees.
+
+First we check the current node, and since 14 < 23, it is not contained.
+
+Next we probe the left tree. It is sufficient to see if the high key is large enough,
+but 11 < 23, so it cannot be in the left tree.
+
+We proceed to check the right tree.
 
 ---
 <!-- .slide: data-auto-animate -->
@@ -343,6 +408,13 @@ _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), _(15, 23)_, (19, 
 
 _Outer_ segments: (1, 8), (2, 13), (5, 17), (7, 29), (10, 27), _(15, 23)_, (19, 31), (22, 32) 
 <!-- .element: class="nofrag" data-id="outersegs" -->
+
+
+Note:
+
+The node here contains the interval (15, 23).
+
+We have found containment and conclude unlinearizability.
 
 ---
 
@@ -359,6 +431,11 @@ A __single-valued_ *set* history is linearizable iff:
 - the number of returned _add_ never exceed the number of called _rmv_ by more than one.
 
 We also present a greedy linear-time algorithm for sets with _membership queries_.
+
+Note:
+single-valued projections: counters!
+
+
 
 
 ---
@@ -380,6 +457,9 @@ theorem algorithm_correct {H : History} :
 
 https://github.com/grahnen/LinearizabilityTheory
 
+Note:
+
+The stack algorithm, which is the most complicated of the algorithms we present, has been formalized.
 
 ---
 
@@ -388,3 +468,7 @@ https://github.com/grahnen/LinearizabilityTheory
 The algorithms have been implemented as a tool: LiMo
 
 https://github.com/grahnen/LiMo
+
+Note:
+
+The tool outperforms existing monitoring tools, and is easy to extend.
