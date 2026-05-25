@@ -283,7 +283,7 @@ $$\textit{outer}\textrm{ seg. of }b \subseteq \textit{inner}\textrm{ seg. of }a$
 
 ---
 
-## Algorithm (basic)
+## Queue Algorithm
 
 Check every pair of values $a, b$. If $b.outer \subseteq a.inner$, conclude unlinearizability.
 

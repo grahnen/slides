@@ -49,7 +49,9 @@ Commonly used to define consistency criteria.
 
 ## Related Work
 - The problem is NP hard for _SC_ and _multiset_ mailboxes.
-- ...
+- Other trace consistency results include:
+  + SC: NP-hard
+  + WRA: NP-hard, polynomial for differentiated executions.
 
 ---
 
@@ -61,7 +63,7 @@ Commonly used to define consistency criteria.
 ---
 
 ## Sequential Consistency
-_SC_ is defined as acyclicity of the execution graph with edges _rf_, _co_, _pb_, _eo_, _mo_, and _fr_
+_SC_ in the message passing context is defined as acyclicity of the execution graph with edges _rf_, _co_, _pb_, _eo_, _mo_, and _fr_
 
 _fr_ = _rf_$^{-1}$ _co_
 
