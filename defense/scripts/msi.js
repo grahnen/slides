@@ -185,17 +185,17 @@ Reveal.on('ready', (ev) => {
     const im = node(220, 100, "IM");
 
     // transition(ii, mi, e1);
-    const e1 = mkedge(ii, mi, "w(t1, a)", 0.5);
+    const e1 = mkedge(ii, mi, "w(t1, x, a)", 0.5);
     // TODO: Fix this angle. It is bad.
-    const e2 = mkedge(ii, im, "w(t2, b)", -0.5);
+    const e2 = mkedge(ii, im, "w(t2, x, b)", -0.5);
 
     createSlide();
 
-    const e3 = mkedge(mi, im, "w(t2, b)", 0.5);
-    const e4 = mkedge(im, mi, "w(t1, a)", 0.5);
+    const e3 = mkedge(mi, im, "w(t2, x, b)", 0.5);
+    const e4 = mkedge(im, mi, "w(t1, x, a)", 0.5);
 
-    const emi = mkloop(mi, "w(t1, a)", - 3 * Math.PI / 4);
-    const eim = mkloop(im, "w(t2, b)", - Math.PI / 4);
+    const emi = mkloop(mi, "w(t1, x, a)", - 3 * Math.PI / 4);
+    const eim = mkloop(im, "w(t2, x, b)", - Math.PI / 4);
 
     createSlide();
 
@@ -205,14 +205,14 @@ Reveal.on('ready', (ev) => {
     const e5 = mkedge(im, ss, "a := b", -0.2);
     const e6 = mkedge(mi, ss, "b := a", 0.2);
 
-    const e7 = mkedge(ss, im, "w(t2, b)", -0.2);
-    const e8 = mkedge(ss, mi, "w(t1, a)", 0.2);
+    const e7 = mkedge(ss, im, "w(t2, x, b)", -0.2);
+    const e8 = mkedge(ss, mi, "w(t1, x, a)", 0.2);
 
     createSlide();
 
-    const e9 = mkloop(ss, "r(t2,b), r(t1,a)", Math.PI / 2)
-    const e10 = mkloop(im, "r(t2,b)", Math.PI / 4)
-    const e11 = mkloop(mi, "r(t1,a)", 3 * Math.PI / 4);
+    const e9 = mkloop(ss, "r(t2,x,b), r(t1,x,a)", Math.PI / 2)
+    const e10 = mkloop(im, "r(t2,x,b)", Math.PI / 4)
+    const e11 = mkloop(mi, "r(t1,x,a)", 3 * Math.PI / 4);
     
 
     createSlide();

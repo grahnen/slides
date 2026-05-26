@@ -20,6 +20,7 @@ Event-driven
 Weak Memory Models
 - Extend our approach to similar models (e.g. PSI).
 - Implement our PSPACE algorithm in the tool.
+- Parameterised systems.
 
 ---
 

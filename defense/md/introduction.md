@@ -20,7 +20,7 @@ Models allow us to reason formally
 
 ---
 
-This thesis covers three types of models of concurrency
+This thesis covers three ... of concurrency
 - Linearizability: model of concurrency
 - Event-Driven Concurrency: model of computation
 - Weak-Memory Models: model of hardware behavior

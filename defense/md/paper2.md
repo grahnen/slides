@@ -17,20 +17,6 @@ We start by describing the Event-Driven concurrency model.
 
 ---
 
-<!-- .slide: id="ed-intro" -->
-
----
-
-## Event-Driven Concurrency
-What does it mean for an execution to be correct?
-
-We can place constraints on the memory accesses and on the mailboxes.
-- We consider _Sequential Consistency (SC)_
-  + The behavior of a concurrent program is as if the threads take turns executing their instructions.
-- And we consider _Queue_ mailboxes
-  + Messages are executed in the order they are received.
-
----
 ## Why?
 
 - Event-Driven software is _Popular_:
@@ -44,29 +30,30 @@ We can place constraints on the memory accesses and on the mailboxes.
 
 ---
 
+<!-- .slide: id="ed-intro" -->
+
+---
+
+## Event-Driven Concurrency
+What are the semantics?
+
+We can place constraints on the memory accesses and on the mailboxes.
+- We consider _Sequential Consistency (SC)_
+  + The behavior of a concurrent program is as if the threads take turns executing their instructions.
+- And we consider _Queue_ mailboxes
+  + Messages are executed in the order they are received.
+
+---
+
 ## Execution Graphs
 
 A way to represent concurrent executions.
 
-Commonly used to define consistency criteria.
+- The nodes are memory events
+- The edges are ordering relations
 
 ---
 <!-- .slide: id="egraph-intro" -->
-
----
-
-## Sequential Consistency
-_SC_ in the message passing context is defined as acyclicity of the execution graph with edges _rf_, _co_, _pb_, _eo_, _mo_, and _fr_
-
-_fr_ = _rf_$^{-1}$ _co_
-
----
-
-## Related Work
-- The problem is NP hard for _SC_ and _multiset_ mailboxes.
-- Other trace consistency results include:
-  + SC: NP-hard
-  + WRA: NP-hard, polynomial for differentiated executions.
 
 ---
 
@@ -82,10 +69,19 @@ We formalise the requirement that the execution satisfies queue semantics by add
 
 $do = pb^{-1} \cdot mo \cdot pb$
 
-Acyclicity of _rf_, _co_, _pb_, _eo_, _mo_, _fr_, _do_ implies both SC and queue semantics!
+Acyclicity of _rf_, _co_, _pb_, _eo_, _mo_, _fr_, _do_ implies both SC and queue semantics! $fr = rf^{-1}~co$
 
 ---
 
 ## Implementation
 We have implemented the algorithm using Z3: we encode the execution graph as a partial order, and add edges as constraints.
 - Link to the repository: https://github.com/grahnen/edchecker
+
+---
+
+## Related Work
+- The problem is NP hard for _SC_ and _multiset_ mailboxes.
+- Other trace consistency results include:
+  + SC: NP-hard
+  + WRA: NP-hard, polynomial for differentiated executions.
+

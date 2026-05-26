@@ -17,8 +17,39 @@ b := read(x)
 
 What are the possible values of $a$ and $b$ after execution, assuming $x = y = 0$ initially?
 - Can both $a$ and $b$ be $0$?
-  + Not in the strictest model, _SC_.
-  + But it can in modern hardware!
+
+---
+
+## SC
+
+Equivalent to threads taking turns executing their instructions: interleaving.
+
+<div class="multicol">
+
+```
+x := 1
+a := read(y) // 0
+y := 1
+b := read(x) // 1
+```
+
+```
+x := 1
+y := 1
+a := read(y) // 1
+b := read(x) // 1
+```
+
+```
+y := 1
+b := read(x) // 0
+x := 1
+a := read(y) // 1
+```
+</div>
+
+- No SC execution has $a = b = 0$.
+- But modern hardware can exhibit this behaviour!
 
 ---
 
@@ -26,27 +57,14 @@ What are the possible values of $a$ and $b$ after execution, assuming $x = y = 0
 
 Modern hardware does not operate directly on main memory: each core on the CPU has a local cache.
 
-When a thread writes, it tells the CPU the value and intended memory location, and the CPU stores it in some local register.
+When a thread writes, it tells the cache a value and intended memory location, and the cache stores it in some local register.
 
 Later, the system may synchronize the local register with main memory.
 
----
+A memory _system_ is a protocol, or interface to interact with memory.
+A memory _model_ is a contract: guarantees about what can happen.
 
-## Memory Systems
-
-We model memory systems as _register machines_:
-- Finite automata whose labels take one of the following form
-  + $w(\theta, x, a)$: thread $\theta$ asks to write to $x$, the system stores it in register $a$.
-  + $r(\theta, x, a)$: thread $\theta$ asks to read from variable $x$, the system returns the value in register $a$.
-  + $a := b$: the system copies the value stored in register $b$ to register $a$.
-- The register machine model only admits data-independent implementations.
-
----
-
-## Example: MSI
-
----
-<!-- .slide: id="msi_anim" -->
+We ask: Do a memory _system_ guarantee the requirements of a given memory _model_?
 
 ---
 
@@ -59,6 +77,23 @@ Defined using acyclicity of execution graphs.
   + _SRA_, when $po \cup rf \cup co$ is acyclic.
   + _RA_, when $po \cup rf \cup co_x$ is acyclic.
   + _WRA_, when there are no cycles of the form $w \cdot hb \cdot w' \cdot hb \cdot rf^{-1}$, for writes $w, w'$ to the same variable. $hb = po \cup rf$.
+
+---
+
+## Memory Systems
+
+We model memory systems as _register machines_:
+- Finite automata whose labels take one of the following form
+  + $w(\theta, x, a)$: thread $\theta$ asks to write to $x$, the system stores it in register $a$.
+  + $r(\theta, x, a)$: thread $\theta$ asks to read from variable $x$, the system returns the value in register $a$.
+  + $a := b$: the system copies the value stored in register $b$ to register $a$.
+
+---
+
+## Example: MSI
+
+---
+<!-- .slide: id="msi_anim" -->
 
 ---
 
@@ -90,6 +125,7 @@ Backwards because this makes copy-transitions easier to handle.
 From reads because any cycle in the execution graph must have been introduced by a read.
 
 ---
+
 ## Verification of the Release-Acquire Semantics
 ### Parosh Aziz Abdulla, Elli Anastasiadi, Mohamed Faouzi Atig, Samuel Grahn
 

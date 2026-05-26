@@ -132,18 +132,21 @@ We use this inductive definition to construct a recursive algorithm.
 If we ever cannot progress, conclude unlinearizability.
 
 ---
+## Example History
 
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/lifo-sdhk2.hist.000.svg"></div>
 <div data-id="legend" data-animate data-load="empty.svg"></div>
 
 ---
+## We ignore threads
 
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.000.svg"></div>
 <div data-id="legend" data-animate data-load="empty.svg"></div>
 
 ---
+## Compute covers
 
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.001.svg"></div>
@@ -151,17 +154,22 @@ If we ever cannot progress, conclude unlinearizability.
 
 ---
 
+## Compute segments
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.002.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
 
+## Extreme values
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.003.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
+## Extreme values
 
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.004.svg"></div>
@@ -169,72 +177,95 @@ If we ever cannot progress, conclude unlinearizability.
 
 ---
 
+## Compute segments
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.005.svg"></div>
 <div data-id="legend" data-animate data-load="covers.svg"></div>
 
 ---
+## Compute segments
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.006.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
+## Partition
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.007.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
+## Left part
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.008.svg"></div>
 <div data-id="legend" data-animate data-load="empty.svg"></div>
 
 ---
+## Compute segments
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.009.svg"></div>
 <div data-id="legend" data-animate data-load="covers.svg"></div>
 
 ---
-
+## Compute segments
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.010.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
+## Extreme values
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.011.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
+## Extreme values
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.012.svg"></div>
 
 ---
+## Right part
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.013.svg"></div>
 
 ---
+## Compute segments
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.014.svg"></div>
 <div data-id="legend" data-animate data-load="covers.svg"></div>
 
 ---
+## Compute segments
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.015.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
+## Extreme values
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.016.svg"></div>
 <div data-id="legend" data-animate data-load="full.svg"></div>
 
 ---
+## Done
+
 <!-- .slide: data-auto-animate  -->
 <div data-id="history2" data-preload data-animate data-load="histories/sdhk2-rw.hist.017.svg"></div>
 
 ---
-## Assumptions
-- Every push has a matching pop
-- Every pop succeeds.
+
+## Extensions
+- Pushes with no matching pop
+- Pops that fail.
 
 ---
 <!-- .slide: data-auto-animate  -->
@@ -441,7 +472,6 @@ single-valued projections: counters!
 ---
 
 ## Formalization
-
 The proof of the stack algorithm has been formalized in the Lean theorem prover.
 
 ```lean
@@ -454,8 +484,10 @@ theorem algorithm_correct {H : History} :
     exact algorithm_linearization sH
 ```
 <!-- .element: class="make-fragment" -->
-
 https://github.com/grahnen/LinearizabilityTheory
+
+- Earlier papers suffer from incorrect algorithms or unsound correctness proofs
+- A mechanization increases trust that the algorithm is correct.
 
 Note:
 
