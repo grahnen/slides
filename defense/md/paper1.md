@@ -1,4 +1,5 @@
 # Paper I
+## Linearizability
 <!-- .slide: data-auto-animate -->
 <div data-id="intro" data-animate data-load="intro1.svg"></div>
 
@@ -9,6 +10,7 @@ here computers, in hardware cores
 
 ---
 
+## Linearizability
 <!-- .slide: data-auto-animate -->
 <div data-id="intro" data-animate data-load="intro2.svg"></div>
 
@@ -16,6 +18,8 @@ Note:
 These units communicate, often via some shared object
 
 ---
+
+## Linearizability
 
 <!-- .slide: data-auto-animate -->
 <div data-id="intro" data-animate data-load="intro3.svg"></div>
@@ -90,9 +94,9 @@ Extension of sequential specifications to a concurrent setting.
 ---
 
 ## Related Work
-- Verifying implementations is known to be EXPSPACE complete.
-- Checking linearizability of a single execution is NP-hard for arbitrary structures.
-- Specialised monitoring algorithms have been developed in earlier work
+- Verifying implementations is known to be EXPSPACE complete.<sup><a href="#/refs">1</a></sup>
+- Checking linearizability of a single execution is NP-hard for arbitrary structures.<sup><a href="#/refs">2</a></sup>
+- Specialised monitoring algorithms have been developed in earlier work<sup><a href="#/refs">3</a></sup>
   + Stacks: Polynomial.
   + Queues: $\mathcal{O}(n)$
 

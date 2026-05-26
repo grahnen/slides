@@ -1,10 +1,12 @@
 # Introduction
 
 - Concurrent programs are error prone
-- Finding errors is difficult
+- Finding errors in concurrent systems is difficult
 
 Note:
-Motivation for my thesis
+Two statements that act as
+
+motivation for my thesis
 
 ---
 
@@ -12,7 +14,6 @@ Motivation for my thesis
 - These models act as _contracts_
   + How hardware interprets instructions
   + How software communicates with other software
-  + ...
 
 Note:
 Models allow us to reason formally
@@ -20,8 +21,7 @@ Models allow us to reason formally
 
 ---
 
-This thesis covers three ... of concurrency
-- Linearizability: model of concurrency
-- Event-Driven Concurrency: model of computation
-- Weak-Memory Models: model of hardware behavior
-
+This thesis covers three areas related to concurrency
+- Linearizability: correctness criterion for concurrent objects
+- Event-Driven Concurrency: model of concurrency
+- Weak-Memory Models: models of memory systems (e.g. hardware)

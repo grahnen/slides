@@ -80,8 +80,7 @@ We have implemented the algorithm using Z3: we encode the execution graph as a p
 ---
 
 ## Related Work
-- The problem is NP hard for _SC_ and _multiset_ mailboxes.
+- The problem is NP hard for _SC_ and _multiset_ mailboxes.<sup><a href="#/refs">4</a></sup>
 - Other trace consistency results include:
-  + SC: NP-hard
-  + WRA: NP-hard, polynomial for differentiated executions.
-
+  + SC: NP-hard<sup><a href="#/refs">2</a></sup>
+  + WRA: NP-hard, polynomial for differentiated executions.<sup><a href="#/refs">5</a></sup>

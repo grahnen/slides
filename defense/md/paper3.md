@@ -98,8 +98,8 @@ We model memory systems as _register machines_:
 ---
 
 ## Related Work
-- Single-execution is NP-hard in general, but for differentiated executions it is polynomial for _causal consistency_ (which is equivalent to WRA).
-- Memory system consistency is decidable for _causal consistency_ under the assumption of data independent implementations.
+- Single-execution is NP-hard in general, but for differentiated executions it is polynomial for _causal consistency_ (which is equivalent to WRA).<sup><a href="#/refs">5</a></sup>
+- Memory system consistency is decidable for _causal consistency_ under the assumption of data independent implementations.<sup><a href="#/refs">5</a></sup>
 
 ---
 
