@@ -72,11 +72,17 @@ We ask: Do a memory _system_ guarantee the requirements of a given memory _model
 
 Defined using acyclicity of execution graphs.
 
-- An execution satisfies _SC_ if $po \cup rf \cup fr \cup co$ is acyclic.
+- An execution satisfies _SC_ if there exists $co$ such that $po \cup rf \cup fr \cup co$ is acyclic.
 - We consider the release-acquire (RA) family of models:
-  + _SRA_, when $po \cup rf \cup co$ is acyclic.
-  + _RA_, when $po \cup rf \cup co_x$ is acyclic.
+  + _SRA_, when there exists $co$ such that $po \cup rf \cup co$ is acyclic.
+  + _RA_, when there exists $co_x$ such that $po \cup rf \cup co_x$ is acyclic.
   + _WRA_, when there are no cycles of the form $w \cdot hb \cdot w' \cdot hb \cdot rf^{-1}$, for writes $w, w'$ to the same variable. $hb = po \cup rf$.
+  
+Note:
+
+WRA is a bit cryptic. It allows many of the behaviours that RA forbids, but disallows one specific behaviour.
+
+It forbids threads reading from a write it has seen be overwritten via $po \cup rf$.
 
 ---
 
