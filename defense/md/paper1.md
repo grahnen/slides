@@ -27,6 +27,8 @@ These units communicate, often via some shared object
 Note:
 Often using some well-defined structure
 
+What does it mean for an execution on this system to be correct?
+
 ---
 <!-- .slide: data-auto-animate  -->
 ### Linearizability
@@ -459,11 +461,13 @@ The operations are _add(x)_ and _remove(x)_.
 
 A set or multiset history is linearizable iff each _single-valued projection_ is linearizable.
 
-A _single-valued_ *multiset* history is linearizable iff the number of returned _remove_ never exceed the number of called _add_.
+A _single valued_ *multiset* history is linearizable iff the number of returned _remove_ never exceeds the number of called _add_.
 
-A __single-valued_ *set* history is linearizable iff:
-- the number of returned _remove_ never exceed the number of called _add_.
-- the number of returned _add_ never exceed the number of called _rmv_ by more than one.
+A _single-valued_ *set* history is linearizable iff:
+- the number of returned _remove_ never exceeds the number of called _add_.
+- the number of returned _add_ never exceeds the number of called _remove_ by more than one.
+
+Complexity is linear because counting these events can be done in linear time.
 
 We also present a greedy linear-time algorithm for sets with _membership queries_.
 
@@ -475,7 +479,7 @@ single-valued projections: counters!
 
 ---
 
-## Formalization
+## Mechanized Correctness Proof
 The proof of the stack algorithm has been formalized in the Lean theorem prover.
 
 ```lean

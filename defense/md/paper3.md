@@ -64,7 +64,7 @@ Later, the system may synchronize the local register with main memory.
 A memory _system_ is a protocol, or interface to interact with memory.
 A memory _model_ is a contract: guarantees about what can happen.
 
-We ask: Do a memory _system_ guarantee the requirements of a given memory _model_?
+We ask: Does a memory _system_ guarantee the requirements of a given memory _model_?
 
 ---
 
@@ -112,7 +112,7 @@ We model memory systems as _register machines_:
 ## Verification of the Release-Acquire Semantics
 ### Parosh Aziz Abdulla, Elli Anastasiadi, Mohamed Faouzi Atig, Samuel Grahn
 
-We present a polynomial-time algorithm based on saturation for WRA.
+We present a polynomial-time algorithm for WRA, based on saturation.
 
 $w \cdot hb \cdot w' \cdot hb \cdot rf^{-1}$
 

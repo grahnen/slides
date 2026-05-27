@@ -1,13 +1,14 @@
 # Paper II
-## Event-Driven Progams
+## Event-Driven Programming Model
+In multithreaded programming we have threads communicating over shared memory.
 
-_handlers_ communicate via
-- Sending messages to _mailboxes_ of other handlers
-- Shared memory
+We add mail boxes....?
+
+In Event-Driven programming we have _handlers_ with mailboxes and also communicate by sending messages to _mailboxes_ of other handlers
 
 When a handler is not busy it can fetch a message from its mailbox and start executing it.
 
-We study _executions_ of programs running on this model.
+We consider _executions_ of programs running on this model.
 
 Note:
 
@@ -19,7 +20,7 @@ We start by describing the Event-Driven concurrency model.
 
 ## Why?
 
-- Event-Driven software is _Popular_:
+- Event-Driven software is _popular_:
   + High-performance servers
   + Android applications
   + Web applications
@@ -47,7 +48,7 @@ We can place constraints on the memory accesses and on the mailboxes.
 
 ## Execution Graphs
 
-A way to represent concurrent executions.
+A way to represent concurrent shared-memory executions.
 
 - The nodes are memory events
 - The edges are ordering relations
@@ -82,5 +83,5 @@ We have implemented the algorithm using Z3: we encode the execution graph as a p
 ## Related Work
 - The problem is NP hard for _SC_ and _multiset_ mailboxes.<sup><a href="#/refs">4</a></sup>
 - Other trace consistency results include:
-  + SC: NP-hard<sup><a href="#/refs">2</a></sup>
+  + SC for plain multithreaded executions: NP-hard<sup><a href="#/refs">2</a></sup>
   + WRA: NP-hard, polynomial for differentiated executions.<sup><a href="#/refs">5</a></sup>

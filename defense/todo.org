@@ -1,0 +1,43 @@
+#+title: Todo
+
+- Bild på "programvarustack"? intro.
+- Sekventiell stack före lineariserbarhet
+- Istället för expspace: svårt.
+  Istället titta bara på körning.
+- problemruta? definiera Monitoring. och input
+  Tydlighet!!!
+- Differentiated tidigare
+- References on the bottom
+- Alg: rad 0: given .... Skriv "outline"!!!
+- until empty history
+
+- Mer informativa rubriker
+  "we ignore threads, focus on values"
+  "compute _ and _ segments"
+  "remove extreme values"
+- Oneliners för "populated" "deserted"
+- Describe computation of n^2
+- Ensiding för kö
+
+- Notes about formalization, antalet rader eller nåt.
+
+- More about DPOR:
+  feasibility of new executions.
+  creates new, do we need to explore them?
+- Two semantics:
+  
+- EGRAPH: Add FR
+- Define problem
+- Queue consistency rubrik -> Encoding of queue semantics
+
+- WMM, keep program when listing executions.
+- Modell tänkt för cacheprotokoll
+- Metaargument. "Om alla projektioner är WRA, vad händer med hela?"
+  Tänk igenom!
+
+- VAD AUTOMATEN modellerar
+
+- Single-execution -> monitoring
+- Metaargument
+
+- VAD ÄR DET VI PRATAR OM?? VIKTIGT!

@@ -3,19 +3,17 @@
 - Concurrent programs are error prone
 - Finding these errors is difficult
 
-Note:
-Two statements that act as
-
-motivation for my thesis
-
----
-
 - To make reasoning about concurrent code easier, we use _models_
 - These models act as _contracts_
   + How hardware interprets instructions
   + How software communicates with other software
 
 Note:
+
+Two statements that act as
+
+motivation for my thesis
+
 
 Models allow us to reason formally
 - without needing technical details of hardware implementations.
