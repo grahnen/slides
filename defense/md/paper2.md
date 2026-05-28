@@ -25,9 +25,9 @@ We start by describing the Event-Driven concurrency model.
   + Android applications
   + Web applications
   + ...
-  
-- Model checking software approaches such as DPOR "guess" new traces.
-  + Checking the consistency of a trace lets the model checker discard executions that are not feasible.
+
+- Model checking software using `DPOR` create new executions.
+  + They need to check the feasibility of these executions to decide which of them to explore.
 
 ---
 
@@ -36,9 +36,9 @@ We start by describing the Event-Driven concurrency model.
 ---
 
 ## Event-Driven Concurrency
-What are the semantics?
 
-We can place constraints on the memory accesses and on the mailboxes.
+We can place constraints on two parts: the memory accesses and on the mailboxes.
+
 - We consider _Sequential Consistency (SC)_
   + The behavior of a concurrent program is as if the threads take turns executing their instructions.
 - And we consider _Queue_ mailboxes
@@ -60,17 +60,22 @@ A way to represent concurrent shared-memory executions.
 
 ## Checking Consistency of Event-Driven Traces
 ### Parosh Aziz Abdulla, Mohamed Faouzi Atig, R. Govind, Samuel Grahn, Ramanathan S. Thinniyam
-- We show NP-hardness for _SC_ with _Queue_ mailboxes.
+- We consider the following question:
+  Given an execution with $po$, $rf$, $co$-edges, does there exists relations $eo$ and $mo$ such that the resulting execution graph:
+  + satisfies SC
+  + satisfies queue mailbox semantics
+
+- We show NP-hardness.
 - We provide an algorithm, and an implementation that utilizes an efficient encoding into the Z3 SMT solver.
 
 ---
 
-## Queue consistency
+## Encoding of queue semantics
 We formalise the requirement that the execution satisfies queue semantics by adding a new edge type:
 
 $do = pb^{-1} \cdot mo \cdot pb$
 
-Acyclicity of _rf_, _co_, _pb_, _eo_, _mo_, _fr_, _do_ implies both SC and queue semantics! $fr = rf^{-1}~co$
+Acyclicity of _rf_, _co_, _pb_, _eo_, _mo_, _fr_, _do_ implies both SC and queue semantics!
 
 ---
 

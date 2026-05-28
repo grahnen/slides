@@ -17,12 +17,7 @@ b := read(x)
 
 What are the possible values of $a$ and $b$ after execution, assuming $x = y = 0$ initially?
 - Can both $a$ and $b$ be $0$?
-
----
-
-## SC
-
-Equivalent to threads taking turns executing their instructions: interleaving.
+- SC: concurrent programs operate as if instructions are interleaved.
 
 <div class="multicol">
 
@@ -88,7 +83,7 @@ It forbids threads reading from a write it has seen be overwritten via $po \cup 
 
 ## Memory Systems
 
-We model memory systems as _register machines_:
+We model memory systems, e.g. cache protocols, as _register machines_:
 - Finite automata whose labels take one of the following form
   + $w(\theta, x, a)$: thread $\theta$ asks to write to $x$, the system stores it in register $a$.
   + $r(\theta, x, a)$: thread $\theta$ asks to read from variable $x$, the system returns the value in register $a$.
@@ -96,21 +91,22 @@ We model memory systems as _register machines_:
 
 ---
 
-## Example: MSI
+## Example: MSI cache protocol
 
----
 <!-- .slide: id="msi_anim" -->
 
 ---
 
 ## Related Work
-- Single-execution is NP-hard in general, but for differentiated executions it is polynomial for _causal consistency_ (which is equivalent to WRA).<sup><a href="#/refs">5</a></sup>
+- Monitoring is NP-hard in general, but for differentiated executions it is polynomial for _causal consistency_ (which is equivalent to WRA).<sup><a href="#/refs">5</a></sup>
 - Memory system consistency is decidable for _causal consistency_ under the assumption of data independent implementations.<sup><a href="#/refs">5</a></sup>
 
 ---
 
 ## Verification of the Release-Acquire Semantics
 ### Parosh Aziz Abdulla, Elli Anastasiadi, Mohamed Faouzi Atig, Samuel Grahn
+
+Given a memory system implemented as a register machine, does it guarantee the WRA, RA or SRA semantics?
 
 We present a polynomial-time algorithm for WRA, based on saturation.
 

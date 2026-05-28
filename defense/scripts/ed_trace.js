@@ -13,11 +13,11 @@ Reveal.on('ready', (ev) => {
     var thcnt = [0, 0, 0];
 
     const width = 410;
-    const height = 170;
+    const height = 180;
 
     var mailboxes = [[], [], []];
 
-    let root = svg({ "viewBox": `0 0 ${width} ${height}` });
+    let root = svg({ "viewBox": `-5 0 ${width} ${height}` });
     let bg = document.createElementNS("http://www.w3.org/2000/svg", "g");
     let msgs = document.createElementNS("http://www.w3.org/2000/svg", "g");
     let ctrs = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -87,18 +87,7 @@ Reveal.on('ready', (ev) => {
         subsection.appendChild(root.cloneNode(true));
         section.appendChild(subsection);
     }
-
-    function instr(hdl, text, classes = "") {
-        const tobj = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        const id = `P${cnt++}`
-        tobj.setAttribute("data-id", id)
-        tobj.setAttribute("class", classes)
-        tobj.setAttribute("x", xpos[hdl]);
-        tobj.setAttribute("y", thcnt[hdl] * instroffset + ystart);
-        tobj.innerHTML = text;
-        return tobj;
-    }
-
+    
     function addmsg(root, hdl, slot, name, instructions) {
         const container = document.createElementNS("http://www.w3.org/2000/svg", "g");
         container.setAttribute("transform", `translate(${mboffset[hdl]}, ${slot * yoffset * 2 + 5})`);
@@ -523,6 +512,7 @@ Reveal.on('ready', (ev) => {
     const pb = {clazz: "eogroup", label: "pb"};
     const co = {clazz: "eogroup", label: "co"};
     const mo = {clazz: "eogroup", label: "mo"};
+    const fr = {clazz: "eogroup", label: "fr"};
 
     const rx1m1 = addedge(init, 1, m1, 1, rf);
     const rx1m3 = addedge(init, 1, m3, 1, rf);
@@ -537,7 +527,7 @@ Reveal.on('ready', (ev) => {
     ]);
 
     const pm4 = addedge(m1, 2, m4, 0, pb, [
-        [10, 48], [0, 48], [0, 160], [400, 160], null, [400, 107], [310, 107]
+        [10, 48], [5, 48], [5, 160], [400, 160], null, [400, 107], [310, 107]
     ]);
 
     const pm2 = addedge(init, 2, m2, 0, pb, [
@@ -555,6 +545,21 @@ Reveal.on('ready', (ev) => {
 
     createSlide();
 
+    const fr1 = addedge(m1, 1, m2, 1, fr, [
+        [10, 38], [0, 38], [0, 117], [10, 117]
+    ]);
+
+    const fr2 = addedge(m1, 1, m2, 1, fr, [
+        [10, 38], [0, 38], [0, 150], null, [370, 150], [370, 117], [310, 117] 
+    ]);
+
+    const fr3 = addedge(m3, 1, m2, 1, fr, [
+        [310, 38], [370, 38], [370, 88], null, [0, 88], [0, 117], [10, 117]
+    ]);
+
+
+    createSlide();
+
     const eo12 = addedge(m1, 2, m2, 0, eo);
     const eo34 = addedge(m3, 2, m4, 0, eo);
 
@@ -564,5 +569,7 @@ Reveal.on('ready', (ev) => {
     const mo34 = addedge(init, 3, m1, 2, mo);
 
     createSlide();
+
+
     
 });

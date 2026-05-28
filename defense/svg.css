@@ -84,11 +84,11 @@
 }
 
 .eo_e {
-    fill: red;
-    stroke: red;
+    fill: lightblue;
+    stroke: lightblue;
 }
 .eo_l {
-    fill: red;
+    fill: lightblue;
     font-size: 9px;
 }
 
@@ -121,14 +121,22 @@
 }
 
 .mo_e {
-    fill: purple;
-    stroke: purple;
+    fill: magenta;
+    stroke: magenta;
 }
 .mo_l {
-    fill: purple;
+    fill: magenta;
     font-size: 9px;
 }
 
+.fr_e {
+    fill: red;
+    stroke: red;
+}
+.fr_l {
+    fill: red;
+    font-size: 9px;
+}
 
 .nodecirc {
     fill: none;
