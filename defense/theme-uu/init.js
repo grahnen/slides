@@ -1,5 +1,9 @@
 // make all paragraphs and list items fragments
 Reveal.addEventListener("ready", () => {
+    document.querySelectorAll("aside.notes *").forEach(
+        li => li.classList.add("nofrag")
+    );
+    
     document.querySelectorAll("section p:not(.nofrag), section li:not(.nofrag), *[fragment], .make-fragment").forEach(
         li => li.classList.add("fragment")
     );
