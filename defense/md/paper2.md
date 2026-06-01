@@ -2,9 +2,9 @@
 ## Event-Driven Programming Model
 In multithreaded programming we have threads communicating over shared memory.
 
-We add mail boxes....?
+We extend these threads with mailboxes and call them _handlers_.
 
-In Event-Driven programming we have _handlers_ with mailboxes and also communicate by sending messages to _mailboxes_ of other handlers
+These _handlers_ also communicate by sending messages to mailboxes of other handlers
 
 When a handler is not busy it can fetch a message from its mailbox and start executing it.
 

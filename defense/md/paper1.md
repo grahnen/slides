@@ -32,18 +32,17 @@ What does it mean for an execution on this system to be correct?
 ### Stacks
 
 <div class="multicol">
+
 - Start with an empty stack of plates
   + Push(x) adds a new plate, labelled x, on top
   + Pop(x) takes the topmost plate, that has label x.
 - Last-in-first-out (LIFO) order.
-- Consider stack __executions_ consisting of sequences of pushes and pops.
-- We define the set of stack executions $\mathcal{S}$ inductively:
+- Consider stack executions_ consisting of sequences of pushes and pops.
+- We define the set of (completed) stack executions $\mathcal{S}$ inductively:
   + $\epsilon \in \mathcal{S}$
   + $u \in \mathcal{S} \Rightarrow push(x) \cdot u \cdot pop(x) \in \mathcal{S}$
   + $u, v \in \mathcal{S} \Rightarrow u \cdot v \in \mathcal{S}$
-
 - We consider _differentiated_ executions: each plate has a unique label and is used only once.
-
 
 <img src="stack.jpg" />
 

@@ -84,7 +84,7 @@ It forbids threads reading from a write it has seen be overwritten via $po \cup 
 ## Memory Systems
 
 We model memory systems, e.g. cache protocols, as _register machines_:
-- Finite automata whose labels take one of the following form
+- Finite automata whose labels take one of the following forms
   + $w(\theta, x, a)$: thread $\theta$ asks to write to $x$, the system stores it in register $a$.
   + $r(\theta, x, a)$: thread $\theta$ asks to read from variable $x$, the system returns the value in register $a$.
   + $a := b$: the system copies the value stored in register $b$ to register $a$.
