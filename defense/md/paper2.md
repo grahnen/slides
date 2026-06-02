@@ -61,7 +61,7 @@ A way to represent concurrent shared-memory executions.
 ## Checking Consistency of Event-Driven Traces
 ### Parosh Aziz Abdulla, Mohamed Faouzi Atig, R. Govind, Samuel Grahn, Ramanathan S. Thinniyam
 - We consider the following question:
-  Given an execution with $po$, $rf$, $co$-edges, does there exists relations $eo$ and $mo$ such that the resulting execution graph:
+  Given an execution with $po$, $rf$, $co$-edges, does there exist relations $eo$ and $mo$ such that the resulting execution graph:
   + satisfies SC
   + satisfies queue mailbox semantics
 

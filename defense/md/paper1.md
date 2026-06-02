@@ -37,12 +37,12 @@ What does it mean for an execution on this system to be correct?
   + Push(x) adds a new plate, labelled x, on top
   + Pop(x) takes the topmost plate, that has label x.
 - Last-in-first-out (LIFO) order.
-- Consider stack executions_ consisting of sequences of pushes and pops.
-- We define the set of (completed) stack executions $\mathcal{S}$ inductively:
+- Consider stack _traces_ consisting of sequences of pushes and pops.
+- We define the set of (completed) stack traces $\mathcal{S}$ inductively:
   + $\epsilon \in \mathcal{S}$
   + $u \in \mathcal{S} \Rightarrow push(x) \cdot u \cdot pop(x) \in \mathcal{S}$
   + $u, v \in \mathcal{S} \Rightarrow u \cdot v \in \mathcal{S}$
-- We consider _differentiated_ executions: each plate has a unique label and is used only once.
+- We consider _differentiated_ traces: each plate has a unique label and is used only once.
 
 <img src="stack.jpg" />
 
@@ -80,7 +80,7 @@ Extension of sequential specifications to a concurrent setting.
 
 Note:
 
-THIS IS AN EXECUTION.
+THIS IS AN EXECUTION, or history.
 - Each row is a thread
 - each box is an event: call or return.
 
@@ -119,8 +119,8 @@ Extension of sequential specifications to a concurrent setting.
 
 ## Related Work
 - Verifying implementations is difficult.
-- Instead, we focus only on _executions_.
-  + Checking linearizability of a single execution is NP-hard for arbitrary structures.<sup><a href="#/refs">2</a></sup>
+- Instead, we focus only on _histories_.
+  + Checking linearizability of a single history is NP-hard for arbitrary structures.<sup><a href="#/refs">2</a></sup>
   + Specialised monitoring algorithms have been developed in earlier work<sup><a href="#/refs">3</a></sup>
     + Stacks: Polynomial.
     + Queues: $\mathcal{O}(n)$
@@ -129,7 +129,7 @@ Extension of sequential specifications to a concurrent setting.
 
 ## Efficient Linearizability Monitoring
 ### Parosh Aziz Abdulla, Samuel Grahn, Bengt Jonsson, S. Krishna, Om Swostik Mishra
-The monitoring problem: Given a _history_ (sequence of calls and returns to operations), is it linearizable?
+The monitoring problem: Given a _history_ $h$ (sequence of calls and returns to operations), is $h$ linearizable?
 
 We develop monitoring algorithms:
 - Stacks: $\mathcal{O}(n^2)$
